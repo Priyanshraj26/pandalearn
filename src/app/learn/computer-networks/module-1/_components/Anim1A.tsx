@@ -52,29 +52,25 @@ const LEVELS = [
 ]
 
 export default function Anim1A() {
-  const { mode, playing, speed, step, setStep, totalSteps } = useAnim()
+  const { speed, step, setStep, totalSteps } = useAnim()
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  // Watch mode auto-advance
+  // Always auto-advance
   useEffect(() => {
-    if (mode !== "watch" || !playing) {
-      if (timerRef.current) clearInterval(timerRef.current)
-      return
-    }
     timerRef.current = setInterval(
       () => setStep(prev => (prev + 1) % totalSteps),
       2200 / speed,
     )
     return () => { if (timerRef.current) clearInterval(timerRef.current) }
-  }, [mode, playing, speed, setStep, totalSteps])
+  }, [speed, setStep, totalSteps])
 
   const active = LEVELS[step]
 
   return (
-    <div className="grid md:grid-cols-2 gap-0 min-h-[380px]">
+    <div className="grid md:grid-cols-2 gap-0 min-h-95">
 
       {/* ── SVG visualizer ── */}
-      <div className="relative flex items-center justify-center bg-[#0F172A] p-4 min-h-[320px]">
+      <div className="relative flex items-center justify-center bg-[#0F172A] p-4 min-h-80">
         {/* subtle dot grid */}
         <svg
           className="absolute inset-0 w-full h-full opacity-20"
@@ -93,7 +89,7 @@ export default function Anim1A() {
           {[...LEVELS].reverse().map((lvl, ri) => {
             const isActive = lvl.key === active.key
             return (
-              <g key={lvl.key}>
+              <g key={lvl.key} style={{ cursor: "pointer" }} onClick={() => setStep(LEVELS.indexOf(lvl))}>
                 <motion.circle
                   cx={180} cy={160} r={lvl.r}
                   fill="none"
@@ -106,8 +102,6 @@ export default function Anim1A() {
                     opacity: isActive ? 1 : 0.25 + ri * 0.08,
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  style={{ cursor: mode === "explore" ? "pointer" : "default" }}
-                  onClick={() => { if (mode === "explore") setStep(LEVELS.indexOf(lvl)) }}
                 />
 
                 {/* label on ring */}
@@ -195,7 +189,7 @@ export default function Anim1A() {
               </div>
             </div>
 
-            {/* nav hints */}
+            {/* nav buttons */}
             <div className="mt-6 flex gap-2">
               {LEVELS.map((lvl, i) => (
                 <button

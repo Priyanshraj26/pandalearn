@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -16,7 +16,7 @@ const CONTACT_OPTIONS = [
   { Icon: HelpCircle, title: "Student support",   desc: "Trouble with a module, bug report, or account issue.",       email: "hello@pandalearn.in", subject: "Student Support" },
   { Icon: Building,   title: "Institutions",       desc: "Bulk licenses, teacher dashboards, or white-label.",         email: "hello@pandalearn.in", subject: "Institution Enquiry" },
   { Icon: MessageSquare, title: "Partnerships",   desc: "Content partnerships, sponsorships, or integrations.",       email: "hello@pandalearn.in", subject: "Partnership" },
-  { Icon: Mail,       title: "General",            desc: "Anything else — we read every email.",                       email: "hello@pandalearn.in", subject: "General Enquiry" },
+  { Icon: Mail,       title: "General",            desc: "Anything else - we read every email.",                       email: "hello@pandalearn.in", subject: "General Enquiry" },
 ];
 
 export default function Contact() {
@@ -62,13 +62,13 @@ export default function Contact() {
               We&apos;d love to hear from you
             </h1>
             <p className="text-gray-500 text-lg max-w-lg mx-auto">
-              Whether you&apos;re a student, teacher, or potential partner — we read every message and typically reply within 24 hours.
+              Whether you&apos;re a student, teacher, or potential partner - we read every message and typically reply within 24 hours.
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12">
 
-            {/* Left — contact options */}
+            {/* Left - contact options */}
             <motion.div {...up(0.08)}>
               <h2 className="font-sora text-lg font-bold text-gray-900 mb-5">What can we help with?</h2>
               <div className="space-y-3 mb-8">
@@ -101,7 +101,7 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Right — contact form */}
+            {/* Right - contact form */}
             <motion.div {...up(0.12)}>
               {sent ? (
                 <motion.div

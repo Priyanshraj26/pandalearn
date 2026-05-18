@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { CheckCircle, XCircle, Trophy, RotateCcw, ChevronRight, BookOpen } from "lucide-react"
@@ -84,7 +84,7 @@ export default function ExitQuiz({ moduleName, questions, passThreshold, onPass 
             : <XCircle size={36} className="text-rose-400   mx-auto mb-3" />
           }
           <h3 className="font-sora text-2xl font-bold text-gray-900 mb-1">
-            {passed ? "Module Complete!" : "Not quite — keep going!"}
+            {passed ? "Module Complete!" : "Not quite - keep going!"}
           </h3>
           <p className="text-4xl font-bold text-gray-900 mb-1 tabular-nums">
             {score}

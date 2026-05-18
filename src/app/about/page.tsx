@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { PawPrint, ArrowRight, Target, Eye, Zap } from "lucide-react";
@@ -29,7 +29,7 @@ const VALUES = [
   {
     Icon: Zap,
     title: "Gamified but serious",
-    desc: "XP, streaks, and levels are not gimmicks — they're feedback loops that keep you consistent. The content backs up the play.",
+    desc: "XP, streaks, and levels are not gimmicks - they're feedback loops that keep you consistent. The content backs up the play.",
     color: "bg-orange-100 text-orange-600",
   },
 ];

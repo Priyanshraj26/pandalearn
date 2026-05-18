@@ -1,9 +1,9 @@
-import Navbar from "@/components/landing/Navbar";
+﻿import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — PandaLearn",
+  title: "Privacy Policy - PandaLearn",
   description: "How PandaLearn collects, uses, and protects your personal information.",
 };
 

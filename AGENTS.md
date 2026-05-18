@@ -1,7 +1,7 @@
-<!-- BEGIN:nextjs-agent-rules -->
+﻿<!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+This version has breaking changes - APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
 ---
@@ -12,27 +12,26 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
-## 1. Two visual contexts — never mix them
+## 1. Two visual contexts - never mix them
 
 | Context | Pages | Theme |
 |---|---|---|
 | **Light** | Landing (`/`), Auth (`/login`, `/signup`), Dashboard | White background, light surfaces |
-| **Dark** | Learn module viewer (`/learn/**`) | Dark navy background, dark surfaces |
 
-**The landing page is the design authority.** All public-facing and auth pages must match its aesthetic exactly — white background, clean typography, violet + orange accent. Do not use dark backgrounds (`#0a0f1c`, `bg-gray-900`, etc.) anywhere outside `/learn/**` routes.
+**The landing page is the design authority.** All public-facing and auth pages must match its aesthetic exactly - white background, clean typography, violet + orange accent. Do not use dark backgrounds (`#0a0f1c`, `bg-gray-900`, etc.) anywhere outside `/learn/**` routes.
 
 ---
 
-## 2. Color — always use CSS variables, never raw hex
+## 2. Color - always use CSS variables, never raw hex
 
 All colours are defined in `src/app/globals.css` under `@theme inline`. Use those variables. Never hardcode a hex value directly in component files.
 
 ### Brand colours
 | Variable | Value | Usage |
 |---|---|---|
-| `--pl-violet` | `#7c3aed` | Primary — active states, links, progress bars, module badges |
+| `--pl-violet` | `#7c3aed` | Primary - active states, links, progress bars, module badges |
 | `--pl-violet-hover` | `#6d28d9` | Violet hover state |
-| `--pl-orange` | `#f97316` | **Primary CTA button** — Sign In, Start Free, Create Account |
+| `--pl-orange` | `#f97316` | **Primary CTA button** - Sign In, Start Free, Create Account |
 | `--pl-orange-hover` | `#ea6c0a` | Orange hover |
 | `--pl-green` | `#10b981` | Success, completed lessons, earned XP |
 | `--pl-amber` | `#f59e0b` | Day streak, warnings |
@@ -52,7 +51,7 @@ All colours are defined in `src/app/globals.css` under `@theme inline`. Use thos
 | `--pl-text-subtle` (`#9ca3af`) | Placeholders, timestamps |
 
 ### Violet tints
-`--pl-violet-50` → `--pl-violet-400` (lightest to a bit stronger) — use for badge backgrounds, selected card fills, section tints.
+`--pl-violet-50` → `--pl-violet-400` (lightest to a bit stronger) - use for badge backgrounds, selected card fills, section tints.
 
 ### Dark theme (learn module viewer only)
 `--pl-dark-bg` → `--pl-dark-5`, `--pl-dark-border`. Only use these inside `/learn/**` route segments.
@@ -66,14 +65,14 @@ All colours are defined in `src/app/globals.css` under `@theme inline`. Use thos
 | Use | Font | Class |
 |---|---|---|
 | Headings, hero, brand name, section titles | Sora | `font-sora font-bold` |
-| All other text | DM Sans (default body) | no class needed — it's the default |
+| All other text | DM Sans (default body) | no class needed - it's the default |
 
 - Section eyebrows/labels: use `.section-label` utility or `text-[11px] font-semibold tracking-[0.16em] uppercase text-violet-600`
 - Never use Inter, Roboto, Arial, or system-ui directly.
 
 ---
 
-## 4. Buttons — strict conventions
+## 4. Buttons - strict conventions
 
 | Role | Class / Style |
 |---|---|
@@ -124,8 +123,8 @@ bg-violet-50 border border-violet-100 text-violet-700 rounded-full px-3 py-1 tex
 
 Landing and auth pages use the **dot grid**:
 ```css
-.dot-grid       /* standard — grey dots on white  */
-.dot-grid-violet/* tinted — violet dots on white, for auth left panel */
+.dot-grid       /* standard - grey dots on white  */
+.dot-grid-violet/* tinted - violet dots on white, for auth left panel */
 ```
 Apply with `maskImage` fade to avoid hard edges:
 ```jsx
@@ -138,10 +137,10 @@ style={{
 
 ## 8. What NOT to do
 
-- Never use `bg-gray-900`, `bg-slate-900`, `#0a0f1c`, or any dark background on auth/landing/dashboard pages.
+- Never use `bg-gray-900`, `bg-slate-900`, `#0a0f1c`, and em-dash or any dark background on auth/landing/dashboard pages.
 - Never use Inter, Roboto, Arial, or `font-sans` as the display font.
-- Never use a generic purple gradient (`from-purple-600 to-blue-500`) — that is "AI slop".
+- Never use a generic purple gradient (`from-purple-600 to-blue-500`) - that is "AI slop".
 - Never add a `bg-gradient` hero unless it exactly matches the landing page's dot-grid + white aesthetic.
-- Never hardcode hex colours — always use a CSS variable from globals.css.
+- Never hardcode hex colours - always use a CSS variable from globals.css.
 - Never create a new design token; update globals.css if a new one is truly needed.
 - Never mix light and dark surface tokens in the same component.

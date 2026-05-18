@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 
 const testimonials = [
   {
-    text: "I used to dread calculus. PandaLearn's derivative visualizer — drag the tangent line and watch the slope change live — made it click in 20 minutes. I've been on a 14-day streak and I don't want to stop.",
+    text: "I used to dread calculus. PandaLearn's derivative visualizer - drag the tangent line and watch the slope change live - made it click in 20 minutes. I've been on a 14-day streak and I don't want to stop.",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     name: "Priya Sharma",
     role: "Class 11 Student, Delhi",
@@ -17,7 +17,7 @@ const testimonials = [
     role: "3rd Year CS, NIT Trichy",
   },
   {
-    text: "I've tried Brilliant, Coursera, and YouTube playlists. Nothing compares. The neural network builder where you train a model in the browser and see the loss curve drop — I finally understood backpropagation.",
+    text: "I've tried Brilliant, Coursera, and YouTube playlists. Nothing compares. The neural network builder where you train a model in the browser and see the loss curve drop - I finally understood backpropagation.",
     image: "https://randomuser.me/api/portraits/men/46.jpg",
     name: "Rohan Kapoor",
     role: "Software Engineer, Bangalore",
@@ -47,7 +47,7 @@ const testimonials = [
     role: "Class 10 Student, Pune",
   },
   {
-    text: "The mock interview mode was spot on. It asked exactly the kind of system design questions I got in real interviews. Cleared my Google interview — couldn't have done it without this platform.",
+    text: "The mock interview mode was spot on. It asked exactly the kind of system design questions I got in real interviews. Cleared my Google interview - couldn't have done it without this platform.",
     image: "https://randomuser.me/api/portraits/men/52.jpg",
     name: "Vikram Singh",
     role: "Software Engineer, Google",

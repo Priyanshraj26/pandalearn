@@ -1,4 +1,4 @@
-import { auth } from "@/auth"
+﻿import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { getDashboardData } from "@/lib/db/user"
 import XPLevelCard from "@/components/dashboard/XPLevelCard"
@@ -14,7 +14,7 @@ export default async function DashboardPage() {
   try {
     dashData = await getDashboardData(session.user.id)
   } catch {
-    // DB not yet provisioned — fall back to session data
+    // DB not yet provisioned - fall back to session data
   }
 
   const user = dashData?.user ?? {

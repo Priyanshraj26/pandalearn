@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { BookOpen, ArrowLeft, Bell } from "lucide-react";
@@ -47,7 +47,7 @@ export default function Blog() {
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
               Deep dives into CS concepts, interview strategies, student success
               stories, and behind-the-scenes platform updates. We&apos;re writing
-              content worth reading — not just content.
+              content worth reading - not just content.
             </p>
 
             {/* Topics preview */}
@@ -89,7 +89,7 @@ export default function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-emerald-600 text-sm font-medium mb-6"
               >
-                You&apos;re on the list — we&apos;ll email you when the blog launches.
+                You&apos;re on the list - we&apos;ll email you when the blog launches.
               </motion.p>
             )}
 

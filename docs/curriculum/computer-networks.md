@@ -1,4 +1,4 @@
-# Computer Networks — Curriculum Specification
+﻿# Computer Networks - Curriculum Specification
 **Track:** Engineering Track  
 **Subject Code:** CN  
 **Total Modules:** 8  
@@ -49,18 +49,18 @@ These apply across every module. Individual modules add topic-specific rules on 
 
 ### Interactivity Model
 Every animation has three modes toggled by a tab bar:
-1. **Watch** — auto-plays the full sequence with narration captions.
-2. **Step** — "Next →" button advances one state at a time; current step is highlighted.
-3. **Explore** — user can click any device/node/packet to inspect its state. No auto-play.
+1. **Watch** - auto-plays the full sequence with narration captions.
+2. **Step** - "Next →" button advances one state at a time; current step is highlighted.
+3. **Explore** - user can click any device/node/packet to inspect its state. No auto-play.
 
 ### Accessibility
 - All animated paths have a **Pause** button and keyboard shortcut `Space`.
-- Colour-blind safe: never rely on red/green alone — add icons (✓ ✕) and labels.
+- Colour-blind safe: never rely on red/green alone - add icons (✓ ✕) and labels.
 - Reduced-motion media query: replace motion with cross-fades and number counters.
 
 ---
 
-## Module 1 — Introduction to Networks
+## Module 1 - Introduction to Networks
 **Difficulty:** Beginner  
 **Duration:** ~3 hours  
 **Goal:** Build a mental model of what a network is, why it exists, and how devices communicate at the highest level.
@@ -76,7 +76,7 @@ By the end of this module, learners will be able to:
 ### Concepts
 
 #### 1.1 What Is a Network?
-A network is two or more devices that can exchange data. The internet is the largest network — it is a *network of networks*.
+A network is two or more devices that can exchange data. The internet is the largest network - it is a *network of networks*.
 
 Key vocabulary: **node**, **link**, **bandwidth**, **latency**, **throughput**, **packet**.
 
@@ -126,13 +126,13 @@ A protocol is a set of rules that define the format, timing, sequencing, and err
 - On arrival, it unwraps and appears as text on Laptop B's screen.
 - Clicking the packet mid-travel pauses it and shows: Source, Destination, Payload (the message).
 
-### Module 1 — Exit Quiz
+### Module 1 - Exit Quiz
 - 10 MCQs covering topology trade-offs, network type identification, and protocol vocabulary.
 - Pass threshold: 7/10.
 
 ---
 
-## Module 2 — OSI & TCP/IP Models
+## Module 2 - OSI & TCP/IP Models
 **Difficulty:** Beginner → Intermediate  
 **Duration:** ~5 hours  
 **Goal:** Understand how the OSI and TCP/IP models structure network communication, and trace a real HTTP request through every layer.
@@ -193,7 +193,7 @@ Each layer has a specific name for the data it handles:
 
 ### Animation Specifications
 
-#### Anim 2-A: OSI Stack — Encapsulation Visualizer (Core Animation)
+#### Anim 2-A: OSI Stack - Encapsulation Visualizer (Core Animation)
 - Render **two stacked columns** side by side: Sender (left) and Receiver (right).
 - Each column has 7 layer cards, top to bottom, with the layer name and colour-coded.
 - **Sending side:** a "message" block starts at Layer 7. On each step down, a new header block slides in from the left and attaches to the front of the data block. The block grows visually with each header addition. Label each header: "TCP Hdr", "IP Hdr", "Eth Hdr".
@@ -210,19 +210,19 @@ Each layer has a specific name for the data it handles:
 #### Anim 2-C: Live HTTP Request Trace
 - A browser URL bar at the top. User types `http://pandalearn.in` and presses Enter.
 - An animated vertical stack trace shows the request passing through each OSI layer on the **sender** side, then the physical medium, then back up each layer on the **server** side.
-- At each layer, a speech-bubble callout appears with a one-sentence description of what that layer is doing (e.g. "Layer 4 — TCP — splits the request into segments and numbers them").
+- At each layer, a speech-bubble callout appears with a one-sentence description of what that layer is doing (e.g. "Layer 4 - TCP - splits the request into segments and numbers them").
 - Time markers on a horizontal timeline at the bottom show relative layer processing time.
 
-### Module 2 — Exit Quiz
+### Module 2 - Exit Quiz
 - 15 questions: layer identification, encapsulation ordering, PDU naming.
 - Pass threshold: 11/15.
 
 ---
 
-## Module 3 — Data Link Layer
+## Module 3 - Data Link Layer
 **Difficulty:** Intermediate  
 **Duration:** ~4 hours  
-**Goal:** Understand how data is transferred between adjacent nodes on a network — MAC addressing, Ethernet framing, ARP, and the role of switches.
+**Goal:** Understand how data is transferred between adjacent nodes on a network - MAC addressing, Ethernet framing, ARP, and the role of switches.
 
 ### Learning Objectives
 - Explain what a MAC address is and how it differs from an IP address.
@@ -236,20 +236,20 @@ Each layer has a specific name for the data it handles:
 #### 3.1 MAC Addresses
 A Media Access Control (MAC) address is a **hardware** identifier burned into every NIC (Network Interface Card). It is 48 bits, written as six colon-separated hex pairs: `A4:C3:F0:85:7D:21`.
 
-- First 24 bits = OUI (Organisationally Unique Identifier) — identifies the manufacturer.
+- First 24 bits = OUI (Organisationally Unique Identifier) - identifies the manufacturer.
 - Last 24 bits = device-specific.
-- MAC addresses are **local** — they don't route across the internet. IP addresses do.
+- MAC addresses are **local** - they don't route across the internet. IP addresses do.
 
 #### 3.2 Ethernet Frame Structure
 ```
 | Preamble (7B) | SFD (1B) | Dest MAC (6B) | Src MAC (6B) | EtherType (2B) | Payload (46–1500B) | FCS (4B) |
 ```
-- **Preamble + SFD:** Synchronisation — tells the receiver "a frame is starting".
+- **Preamble + SFD:** Synchronisation - tells the receiver "a frame is starting".
 - **EtherType:** What's inside the payload? `0x0800` = IPv4, `0x86DD` = IPv6, `0x0806` = ARP.
-- **FCS (Frame Check Sequence):** CRC checksum — detects transmission errors.
+- **FCS (Frame Check Sequence):** CRC checksum - detects transmission errors.
 - **MTU (Maximum Transmission Unit):** 1500 bytes for standard Ethernet. Frames larger than this must be **fragmented**.
 
-#### 3.3 ARP — Address Resolution Protocol
+#### 3.3 ARP - Address Resolution Protocol
 Problem: you know the IP address of a host, but you need its MAC address to send a frame.
 
 ARP Process:
@@ -263,13 +263,13 @@ ARP Process:
 #### 3.4 Hubs vs Bridges vs Switches
 | Device | Layer | Intelligence | Collision Domain |
 |--------|-------|-------------|-----------------|
-| Hub | 1 | None — floods all ports | One big domain |
+| Hub | 1 | None - floods all ports | One big domain |
 | Bridge | 2 | Learns MACs, separates 2 segments | Per segment |
 | Switch | 2 | Full MAC table, per-port forwarding | Per port |
 
 #### 3.5 How a Switch Learns
 1. Switch starts with an empty MAC table.
-2. Frame arrives on port 3 from `AA:BB:...` — switch records: `AA:BB:... → Port 3`.
+2. Frame arrives on port 3 from `AA:BB:...` - switch records: `AA:BB:... → Port 3`.
 3. Destination MAC unknown? **Flood** all other ports.
 4. Destination MAC known? **Forward** only to the correct port.
 5. Entries expire after ~300 s (aging timer) to handle devices that move.
@@ -281,20 +281,20 @@ A VLAN divides a single physical switch into multiple logical LANs. VLAN tagging
 
 #### Anim 3-A: ARP Request & Response
 - LAN diagram: 4 hosts + 1 switch. Host A highlighted as sender.
-- Phase 1 — ARP Request: a **broadcast frame** (amber, dashed border) leaves A and fans out to all ports simultaneously. Label: "Who has 192.168.1.5?"
-- Hosts B, C, D receive it — B, C, D show a brief "not me" fade.
-- Phase 2 — ARP Reply: Host B sends a **unicast frame** (violet) directly back to A. Label shows "192.168.1.5 is at AA:BB:CC:..."
-- Phase 3 — Cache: A small ARP table widget appears next to Host A and populates with the entry.
+- Phase 1 - ARP Request: a **broadcast frame** (amber, dashed border) leaves A and fans out to all ports simultaneously. Label: "Who has 192.168.1.5?"
+- Hosts B, C, D receive it - B, C, D show a brief "not me" fade.
+- Phase 2 - ARP Reply: Host B sends a **unicast frame** (violet) directly back to A. Label shows "192.168.1.5 is at AA:BB:CC:..."
+- Phase 3 - Cache: A small ARP table widget appears next to Host A and populates with the entry.
 - **Replay button** re-runs with different IP to show cache hit (skips broadcast).
 
 #### Anim 3-B: Switch MAC Table Builder
 - Diagram: switch with 4 ports, each connected to a host (each host has a visible MAC address label).
 - Switch has a **live MAC table** panel on the right: initially empty.
 - User clicks "Send frame from A to D".
-- Frame travels from A to switch. Switch checks table — empty, so floods to ports 2, 3, 4.
+- Frame travels from A to switch. Switch checks table - empty, so floods to ports 2, 3, 4.
 - Table updates: `MAC_A → Port 1`.
-- D responds — frame travels to switch. Table updates: `MAC_D → Port 4`.
-- User repeats with "A to D again" — this time the switch only sends to port 4. Ports 2 and 3 show a muted "blocked" indicator.
+- D responds - frame travels to switch. Table updates: `MAC_D → Port 4`.
+- User repeats with "A to D again" - this time the switch only sends to port 4. Ports 2 and 3 show a muted "blocked" indicator.
 - **Aging demo slider:** dragging time forward fades out entries as TTL expires.
 
 #### Anim 3-C: Ethernet Frame Dissector
@@ -302,13 +302,13 @@ A VLAN divides a single physical switch into multiple logical LANs. VLAN tagging
 - Clicking the frame **explodes** it into its fields. Each field card shows: name, size in bytes, hex value, and a plain-English description.
 - FCS field has a **"Corrupt Frame"** button: flips a random bit in the payload, rerenders the CRC check, shows mismatch → frame dropped.
 
-### Module 3 — Exit Quiz
+### Module 3 - Exit Quiz
 - 12 questions: ARP sequence, switch forwarding logic, frame field identification, MAC vs IP.
 - Pass threshold: 9/12.
 
 ---
 
-## Module 4 — Network Layer & IP Addressing
+## Module 4 - Network Layer & IP Addressing
 **Difficulty:** Intermediate  
 **Duration:** ~6 hours  
 **Goal:** Master IP addressing (IPv4 + IPv6), subnetting, CIDR, routing tables, and how routers make forwarding decisions.
@@ -326,14 +326,14 @@ A VLAN divides a single physical switch into multiple logical LANs. VLAN tagging
 #### 4.1 IPv4 Addressing
 An IPv4 address is 32 bits written as four decimal octets: `192.168.1.100`.
 
-**Classes (historical — now superseded by CIDR):**
+**Classes (historical - now superseded by CIDR):**
 | Class | Range | Default Mask | Use |
 |-------|-------|-------------|-----|
 | A | 0.0.0.0 – 127.255.255.255 | /8 | Large organisations |
 | B | 128.0.0.0 – 191.255.255.255 | /16 | Medium organisations |
 | C | 192.0.0.0 – 223.255.255.255 | /24 | Small networks |
-| D | 224.0.0.0 – 239.255.255.255 | — | Multicast |
-| E | 240.0.0.0 – 255.255.255.255 | — | Reserved/Experimental |
+| D | 224.0.0.0 – 239.255.255.255 | - | Multicast |
+| E | 240.0.0.0 – 255.255.255.255 | - | Reserved/Experimental |
 
 **Private Ranges (RFC 1918):**
 - `10.0.0.0/8`
@@ -362,7 +362,7 @@ Example: Split `192.168.1.0/24` into 4 equal subnets:
 | `255.255.255.255` | Limited broadcast |
 | `x.x.x.0` | Network address |
 | `x.x.x.255` (in /24) | Directed broadcast |
-| `169.254.x.x` | APIPA — link-local (DHCP failure) |
+| `169.254.x.x` | APIPA - link-local (DHCP failure) |
 
 #### 4.4 Routing & Routing Tables
 A router maintains a **routing table**: a list of network prefixes and next-hop instructions.
@@ -374,7 +374,7 @@ Destination      Mask            Next Hop     Interface
 0.0.0.0          0.0.0.0         203.0.113.1  eth2  (default route)
 ```
 
-**Longest Prefix Match:** when multiple routes match a destination, the router picks the most specific (longest prefix). `192.168.1.50` matches both `/24` and `/8` — the `/24` wins.
+**Longest Prefix Match:** when multiple routes match a destination, the router picks the most specific (longest prefix). `192.168.1.50` matches both `/24` and `/8` - the `/24` wins.
 
 #### 4.5 Routing Protocols
 | Protocol | Type | Algorithm | Use Case |
@@ -414,11 +414,11 @@ Key differences from IPv4:
 - IP address displayed as 4 groups of 8 toggle-bit sliders.
 - Toggling a bit updates decimal and binary in real time.
 - A subnet mask slider (CIDR /0 to /32) shades the network bits (violet) vs host bits (gray).
-- Clicking "Calculate" shows: network address, broadcast address, first host, last host, number of hosts — all animated counter-up.
+- Clicking "Calculate" shows: network address, broadcast address, first host, last host, number of hosts - all animated counter-up.
 
 #### Anim 4-B: Subnetting Visualizer
 - Input field: any IPv4 network in CIDR notation.
-- Drag a "split" slider to borrow bits — the address block visually **divides** into sub-blocks on a bar chart.
+- Drag a "split" slider to borrow bits - the address block visually **divides** into sub-blocks on a bar chart.
 - Each sub-block is clickable to reveal its range.
 - A "Use case" mode maps subnets to labelled rooms (HR, Engineering, Guest).
 
@@ -427,23 +427,23 @@ Key differences from IPv4:
 - User clicks a source host and a destination IP.
 - The packet spawns and at each router, the routing table **highlights the matching row** (green) before the packet moves to the next hop.
 - "Add a route" button lets user inject a static route and watch it change the path.
-- "Break a link" removes an interface — routing table updates, new path is found.
+- "Break a link" removes an interface - routing table updates, new path is found.
 
 #### Anim 4-D: NAT in Action
 - Left: private network (3 hosts, IPs `192.168.1.x`).
 - Right: internet with a remote server.
 - Centre: router with a live **NAT table** panel.
 - User triggers HTTP requests from each host. NAT table populates with entries.
-- Return packets arrive — router consults table, rewrites headers, delivers to correct host.
+- Return packets arrive - router consults table, rewrites headers, delivers to correct host.
 - Clicking any packet shows before/after header comparison side-by-side.
 
-### Module 4 — Exit Quiz
+### Module 4 - Exit Quiz
 - 20 questions: subnetting calculations (5 numeric), routing table lookups (5), concept MCQs (10).
 - Pass threshold: 14/20.
 
 ---
 
-## Module 5 — Transport Layer: TCP & UDP
+## Module 5 - Transport Layer: TCP & UDP
 **Difficulty:** Intermediate  
 **Duration:** ~6 hours  
 **Goal:** Understand how TCP provides reliable, ordered delivery and how UDP provides fast, connectionless delivery. Master the 3-way handshake, flow control, and congestion control.
@@ -468,7 +468,7 @@ Ports allow a single IP to run multiple services simultaneously.
 
 A **socket** = IP + Port + Protocol. A connection = two sockets (client socket ↔ server socket).
 
-#### 5.2 TCP — Transmission Control Protocol
+#### 5.2 TCP - Transmission Control Protocol
 TCP is **connection-oriented**, **reliable**, **ordered**, and **error-checked**.
 
 **TCP Segment Header (key fields):**
@@ -483,11 +483,11 @@ TCP is **connection-oriented**, **reliable**, **ordered**, and **error-checked**
 ```
 Client                          Server
   |                               |
-  |——— SYN (seq=x) ——————————————>|   "I want to connect"
+  |--- SYN (seq=x) -------------->|   "I want to connect"
   |                               |
-  |<—— SYN-ACK (seq=y, ack=x+1) ——|   "OK, I'm ready"
+  |<-- SYN-ACK (seq=y, ack=x+1) --|   "OK, I'm ready"
   |                               |
-  |——— ACK (ack=y+1) ————————————>|   "Great, let's go"
+  |--- ACK (ack=y+1) ------------>|   "Great, let's go"
   |                               |
   |         DATA TRANSFER         |
 ```
@@ -496,10 +496,10 @@ Client                          Server
 #### 5.4 TCP 4-Way Teardown (Connection Termination)
 ```
 Client                          Server
-  |——— FIN ————————————————————>|    "I'm done sending"
-  |<——— ACK ————————————————————|    "Got it"
-  |<——— FIN ————————————————————|    "I'm done too"
-  |——— ACK ————————————————————>|    "Goodbye"
+  |--- FIN -------------------->|    "I'm done sending"
+  |<--- ACK --------------------|    "Got it"
+  |<--- FIN --------------------|    "I'm done too"
+  |--- ACK -------------------->|    "Goodbye"
   |    (TIME_WAIT: 2×MSL)        |
 ```
 **TIME_WAIT** ensures the final ACK reaches the server before the port is reused.
@@ -513,7 +513,7 @@ TCP numbers every **byte** (not segment). If a segment is lost, only that segmen
 
 **Fast Retransmit:** if 3 duplicate ACKs are received, retransmit immediately without waiting for RTO.
 
-#### 5.6 Flow Control — Sliding Window
+#### 5.6 Flow Control - Sliding Window
 The receiver advertises a **window size** (how many bytes it can buffer). The sender may not have more than `window_size` unacknowledged bytes in flight.
 
 If the receiver's buffer fills up → `window = 0` → sender pauses → **Zero Window Probe** keeps the connection alive.
@@ -526,8 +526,8 @@ The network can be overwhelmed independently of the receiver's buffer. TCP uses 
 3. **Fast Retransmit + Fast Recovery:** on 3 duplicate ACKs: `ssthresh = cwnd/2`, skip slow start.
 4. **AIMD (Additive Increase, Multiplicative Decrease):** on timeout: `ssthresh = cwnd/2`, `cwnd = 1`.
 
-#### 5.8 UDP — User Datagram Protocol
-UDP is **connectionless**, **unreliable**, and **unordered** — but extremely **fast**.
+#### 5.8 UDP - User Datagram Protocol
+UDP is **connectionless**, **unreliable**, and **unordered** - but extremely **fast**.
 
 UDP header is only 8 bytes (vs TCP's 20+). No handshake, no retransmission, no ordering.
 
@@ -535,7 +535,7 @@ UDP header is only 8 bytes (vs TCP's 20+). No handshake, no retransmission, no o
 - Real-time media: video calls, gaming, live streaming (latency > reliability).
 - DNS lookups (simple request-response; retry handled by application).
 - DHCP.
-- QUIC (HTTP/3) — implements reliability *on top of* UDP in userspace.
+- QUIC (HTTP/3) - implements reliability *on top of* UDP in userspace.
 
 #### 5.9 TCP vs UDP Summary
 | Property | TCP | UDP |
@@ -552,7 +552,7 @@ UDP header is only 8 bytes (vs TCP's 20+). No handshake, no retransmission, no o
 - Split screen: Client (left), Server (right). Timeline flows top-to-bottom.
 - Three animated arrows: SYN, SYN-ACK, ACK. Each arrow shows the segment header fields.
 - Alongside each arrow: a state-machine diagram updates (CLOSED → SYN_SENT → ESTABLISHED).
-- After handshake: a "Send data" demo — packets flow, ACKs return.
+- After handshake: a "Send data" demo - packets flow, ACKs return.
 - **"Simulate dropped SYN"** button: SYN disappears mid-travel, timeout timer counts down, retransmission fires automatically.
 
 #### Anim 5-B: Sliding Window Visualizer
@@ -563,7 +563,7 @@ UDP header is only 8 bytes (vs TCP's 20+). No handshake, no retransmission, no o
   - Cannot Send Yet (light gray)
 - A **window-size slider** lets users shrink/expand the window. The zones animate accordingly.
 - "Receive ACK" button advances the window right.
-- "Fill receiver buffer" reduces window to 0 — sender halts, probe fires after 1 s.
+- "Fill receiver buffer" reduces window to 0 - sender halts, probe fires after 1 s.
 
 #### Anim 5-C: Congestion Control Graph
 - X-axis: RTT count (time). Y-axis: cwnd (congestion window size, in MSS).
@@ -579,18 +579,18 @@ UDP header is only 8 bytes (vs TCP's 20+). No handshake, no retransmission, no o
 - Same file transfer (100 packets) shown twice: TCP (left) and UDP (right).
 - TCP: packets numbered, ACKs return, one lost packet causes visible pause + retransmit.
 - UDP: all packets fire immediately, no ACKs, one packet silently disappears.
-- At the end: delivery report — TCP: 100/100. UDP: 97/100 (3 lost). Latency comparison shown.
+- At the end: delivery report - TCP: 100/100. UDP: 97/100 (3 lost). Latency comparison shown.
 
-### Module 5 — Exit Quiz
+### Module 5 - Exit Quiz
 - 18 questions: handshake ordering, window calculations, congestion control states, TCP vs UDP scenarios.
 - Pass threshold: 13/18.
 
 ---
 
-## Module 6 — Application Layer Protocols
+## Module 6 - Application Layer Protocols
 **Difficulty:** Intermediate → Advanced  
 **Duration:** ~6 hours  
-**Goal:** Understand the protocols applications rely on — HTTP/HTTPS, DNS, DHCP — and compare API paradigms (REST, GraphQL, gRPC).
+**Goal:** Understand the protocols applications rely on - HTTP/HTTPS, DNS, DHCP - and compare API paradigms (REST, GraphQL, gRPC).
 
 ### Learning Objectives
 - Trace a full HTTP/HTTPS request-response cycle.
@@ -601,7 +601,7 @@ UDP header is only 8 bytes (vs TCP's 20+). No handshake, no retransmission, no o
 
 ### Concepts
 
-#### 6.1 HTTP — HyperText Transfer Protocol
+#### 6.1 HTTP - HyperText Transfer Protocol
 
 **HTTP Request structure:**
 ```
@@ -662,7 +662,7 @@ TLS 1.3 reduces handshake to **1 RTT** (TLS 1.2 needed 2 RTTs). With **0-RTT res
 
 **Certificate Chain:** Site cert → Intermediate CA → Root CA. Browsers ship with trusted Root CA lists.
 
-#### 6.4 DNS — Domain Name System
+#### 6.4 DNS - Domain Name System
 DNS is the internet's phone book: translates `pandalearn.in` → `203.0.113.42`.
 
 **Record types:**
@@ -687,14 +687,14 @@ DNS is the internet's phone book: translates `pandalearn.in` → `203.0.113.42`.
 
 Total: typically 3–5 hops, ~50–200 ms uncached, <5 ms cached.
 
-#### 6.5 DHCP — Dynamic Host Configuration Protocol
+#### 6.5 DHCP - Dynamic Host Configuration Protocol
 DHCP automatically assigns IP configuration to devices when they join a network.
 
 **DORA Process:**
-1. **D**iscover — client broadcasts: "Is there a DHCP server?"
-2. **O**ffer — server unicasts: "I offer you 192.168.1.50 for 24 hours."
-3. **R**equest — client broadcasts: "I'd like 192.168.1.50 please." (broadcasts to notify other servers)
-4. **A**cknowledge — server: "It's yours. Here are also: gateway, DNS server, subnet mask."
+1. **D**iscover - client broadcasts: "Is there a DHCP server?"
+2. **O**ffer - server unicasts: "I offer you 192.168.1.50 for 24 hours."
+3. **R**equest - client broadcasts: "I'd like 192.168.1.50 please." (broadcasts to notify other servers)
+4. **A**cknowledge - server: "It's yours. Here are also: gateway, DNS server, subnet mask."
 
 **DHCP Lease:** the IP is temporary. Client must renew before expiry (T1 = 50% of lease, T2 = 87.5%).
 
@@ -712,7 +712,7 @@ DHCP automatically assigns IP configuration to devices when they join a network.
 | Best for | Public APIs, simple CRUD | Complex graphs, mobile | Microservices, performance |
 
 #### 6.7 WebSockets
-HTTP is request-response — the server can't push data unsolicited. WebSockets upgrade an HTTP connection to a **full-duplex** persistent channel.
+HTTP is request-response - the server can't push data unsolicited. WebSockets upgrade an HTTP connection to a **full-duplex** persistent channel.
 
 Handshake:
 ```
@@ -727,7 +727,7 @@ Connection: Upgrade
 Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 ```
 
-After this, the connection is bidirectional — no HTTP overhead per message. Used in: chat, live scores, collaborative editors, stock tickers.
+After this, the connection is bidirectional - no HTTP overhead per message. Used in: chat, live scores, collaborative editors, stock tickers.
 
 **Alternatives:** Server-Sent Events (SSE) for server→client only push; long polling for legacy.
 
@@ -750,11 +750,11 @@ After this, the connection is bidirectional — no HTTP overhead per message. Us
 - User types `pandalearn.in` and hits Enter.
 - Arrows travel between nodes in sequence. Each hop is numbered (1–7).
 - Response arrows return along the same path.
-- A **cache hit demo:** run resolution twice — second time, the arrow goes only to resolver (cached). TTL timer visible.
+- A **cache hit demo:** run resolution twice - second time, the arrow goes only to resolver (cached). TTL timer visible.
 - **"Change TTL" slider:** show how short TTL = more queries, long TTL = stale records.
 
 #### Anim 6-C: DHCP DORA Visualizer
-- LAN with one new device (shown as dashed — no IP), one DHCP server, and two other assigned hosts.
+- LAN with one new device (shown as dashed - no IP), one DHCP server, and two other assigned hosts.
 - DISCOVER: broadcast burst (amber) from new device to all.
 - OFFER: arrow from server with IP offer callout.
 - REQUEST: broadcast from new device (confirming it wants that offer).
@@ -763,26 +763,26 @@ After this, the connection is bidirectional — no HTTP overhead per message. Us
 
 #### Anim 6-D: REST vs GraphQL Request Comparison
 - Same use case: "Get a user's name and their last 3 posts' titles."
-- Left panel (REST): shows 2 requests — `GET /users/42` (returns 20 fields) + `GET /users/42/posts` (returns full post objects). Unused fields greyed out. Byte count shown.
+- Left panel (REST): shows 2 requests - `GET /users/42` (returns 20 fields) + `GET /users/42/posts` (returns full post objects). Unused fields greyed out. Byte count shown.
 - Right panel (GraphQL): shows 1 request with the exact query. Response contains only the 3 fields requested. Byte count shown (30–60% less).
 - Sliders to adjust: "Number of fields fetched", "Number of posts". Both panels update byte counts dynamically.
 
 #### Anim 6-E: WebSocket vs HTTP Polling
 - Split screen: HTTP polling (left) vs WebSocket (right). Shared live counter updating every second.
-- Left: HTTP request-response pairs fire every 1 s — wasted empty responses shown as gray "nothing new" packets.
+- Left: HTTP request-response pairs fire every 1 s - wasted empty responses shown as gray "nothing new" packets.
 - Right: single handshake, then only actual update packets travel.
 - Byte counter tracks total data transferred over 30 simulated seconds. WebSocket wins by >70%.
 
-### Module 6 — Exit Quiz
+### Module 6 - Exit Quiz
 - 20 questions: HTTP methods, status codes, DNS record types, DHCP sequence, API comparisons.
 - Pass threshold: 14/20.
 
 ---
 
-## Module 7 — Network Infrastructure
+## Module 7 - Network Infrastructure
 **Difficulty:** Advanced  
 **Duration:** ~5 hours  
-**Goal:** Understand how large-scale internet infrastructure works — CDNs, load balancers, reverse proxies, and the BGP routing that holds the internet together.
+**Goal:** Understand how large-scale internet infrastructure works - CDNs, load balancers, reverse proxies, and the BGP routing that holds the internet together.
 
 ### Learning Objectives
 - Explain how a CDN reduces latency and origin load.
@@ -835,7 +835,7 @@ Functions: TLS termination, caching, compression, rate limiting, authentication,
 - Forward proxy: client-side (e.g. corporate proxy hiding internal users).
 - Reverse proxy: server-side (e.g. Nginx hiding backend servers from clients).
 
-#### 7.4 BGP — Border Gateway Protocol
+#### 7.4 BGP - Border Gateway Protocol
 BGP is the routing protocol that connects Autonomous Systems (AS) on the internet.
 
 - An **AS** (Autonomous System) is a network under a single administrative domain (ISP, cloud provider, large enterprise). Each AS has an **ASN** (AS Number).
@@ -864,7 +864,7 @@ Used by: DNS root servers (13 IPs → hundreds of physical servers), Cloudflare'
 - 3 backend servers shown as boxes with a capacity bar (connections/sec).
 - Client requests fire at a configurable rate (slider: 1–20 req/s).
 - Toggle between algorithms. Watch traffic distribution visually change.
-- **Least Connections demo:** make Server 2 slower (slider) — algorithm automatically reduces its share.
+- **Least Connections demo:** make Server 2 slower (slider) - algorithm automatically reduces its share.
 - **"Kill a server" button:** server 2 goes dark, requests redistribute to 1 and 3.
 
 #### Anim 7-C: BGP Path Visualisation
@@ -874,16 +874,16 @@ Used by: DNS root servers (13 IPs → hundreds of physical servers), Cloudflare'
 - **"Inject a hijack"** button: a rogue AS announces a more-specific prefix. The path changes to route through the rogue AS. Alert banner: "BGP Hijack Detected".
 - RPKI mode: toggle on → hijack blocked, path stays correct.
 
-### Module 7 — Exit Quiz
+### Module 7 - Exit Quiz
 - 15 questions: CDN mechanics, LB algorithm selection, L4 vs L7, BGP attributes.
 - Pass threshold: 11/15.
 
 ---
 
-## Module 8 — Network Security & Modern Patterns
+## Module 8 - Network Security & Modern Patterns
 **Difficulty:** Advanced  
 **Duration:** ~5 hours  
-**Goal:** Understand how attackers exploit networks and how defenders protect them — firewalls, DDoS mitigation, VPNs, zero trust — plus modern patterns like service meshes.
+**Goal:** Understand how attackers exploit networks and how defenders protect them - firewalls, DDoS mitigation, VPNs, zero trust - plus modern patterns like service meshes.
 
 ### Learning Objectives
 - Explain how common attacks work: DDoS, ARP spoofing, DNS poisoning, MITM, port scanning.
@@ -899,8 +899,8 @@ Used by: DNS root servers (13 IPs → hundreds of physical servers), Cloudflare'
 **DDoS (Distributed Denial of Service):**
 Overwhelm a target with traffic from thousands of compromised hosts (botnet). Types:
 - **Volumetric:** flood with packets (UDP flood, ICMP flood).
-- **Protocol:** exploit TCP state (SYN flood — server keeps half-open connections until table fills).
-- **Application layer (L7):** HTTP GET flood — looks like legitimate traffic.
+- **Protocol:** exploit TCP state (SYN flood - server keeps half-open connections until table fills).
+- **Application layer (L7):** HTTP GET flood - looks like legitimate traffic.
 
 Mitigation: scrubbing centres, rate limiting, anycast black-holing, Cloudflare Magic Transit.
 
@@ -928,7 +928,7 @@ A firewall enforces a policy of what traffic is allowed in/out.
 
 **Firewall rule evaluation:** rules are evaluated top-down; first match wins. Default policy is typically `DENY`.
 
-#### 8.3 VPN — Virtual Private Network
+#### 8.3 VPN - Virtual Private Network
 VPN creates an encrypted tunnel over a public network.
 
 **TLS-based VPN (e.g. OpenVPN):**
@@ -938,18 +938,18 @@ VPN creates an encrypted tunnel over a public network.
 
 **WireGuard (modern, minimal):**
 - Based on ChaCha20-Poly1305 encryption, Curve25519 key exchange.
-- ~4,000 lines of code (vs ~100k for OpenVPN) — smaller attack surface.
+- ~4,000 lines of code (vs ~100k for OpenVPN) - smaller attack surface.
 - Cryptokey routing: each peer identified by public key, no certificate infrastructure.
-- Stateless by design — if endpoint changes IP, tunnel recovers silently.
+- Stateless by design - if endpoint changes IP, tunnel recovers silently.
 
 #### 8.4 Zero Trust Architecture
 Traditional model: trust everything inside the perimeter. Zero Trust: **"never trust, always verify"**.
 
 Principles:
-1. Verify every user, every device, every request — regardless of network location.
-2. Least-privilege access — grant minimum necessary permissions.
-3. Assume breach — limit blast radius with micro-segmentation.
-4. Continuous verification — re-authenticate periodically, not just at login.
+1. Verify every user, every device, every request - regardless of network location.
+2. Least-privilege access - grant minimum necessary permissions.
+3. Assume breach - limit blast radius with micro-segmentation.
+4. Continuous verification - re-authenticate periodically, not just at login.
 
 Implementation: Identity provider (Okta, Azure AD) + Device posture checks + mTLS between services + policy engine (OPA).
 
@@ -961,7 +961,7 @@ Sidecar handles: mTLS between services, load balancing, retries, circuit breakin
 **Control Plane** (Istio Pilot): pushes routing policy to all sidecars.  
 **Data Plane** (Envoy proxies): executes the policy on every request.
 
-The service no longer needs to implement its own retry/auth logic — the mesh handles it transparently.
+The service no longer needs to implement its own retry/auth logic - the mesh handles it transparently.
 
 ### Animation Specifications
 
@@ -989,9 +989,9 @@ The service no longer needs to implement its own retry/auth logic — the mesh h
 - 3 microservices: API Gateway → Auth Service → DB Service.
 - Without mesh: each arrow is plain HTTP, no encryption labels.
 - Enable mesh: Envoy sidecar icons appear beside each pod. mTLS lock icons appear on every connection. Retry counter shows automatic retry on a failed request.
-- Circuit breaker demo: DB Service starts failing. After 5 failures, Envoy opens the circuit (red broken-circuit icon) — requests fail fast instead of queuing. After 30 s, half-open probe sent — DB recovers, circuit closes.
+- Circuit breaker demo: DB Service starts failing. After 5 failures, Envoy opens the circuit (red broken-circuit icon) - requests fail fast instead of queuing. After 30 s, half-open probe sent - DB recovers, circuit closes.
 
-### Module 8 — Exit Quiz
+### Module 8 - Exit Quiz
 - 15 questions: attack identification, firewall rule analysis, VPN comparison, zero trust principles.
 - Pass threshold: 11/15.
 
@@ -1001,7 +1001,7 @@ The service no longer needs to implement its own retry/auth logic — the mesh h
 
 ### In-Module Checkpoints
 - Every 2–3 concepts: a **1-question micro-check** (no penalty, just prompts reflection).
-- Immediate feedback with explanation — not just "incorrect", but why.
+- Immediate feedback with explanation - not just "incorrect", but why.
 
 ### Module Exit Quiz
 - Minimum 70% to unlock next module.
@@ -1020,7 +1020,7 @@ The AI tutor is automatically surfaced when:
 - A learner spends > 3 minutes on a concept card without advancing.
 - A learner fails an exit quiz.
 
-The tutor prompt includes: current module, failed concept ID, and the learner's previous answer — so responses are contextual, not generic.
+The tutor prompt includes: current module, failed concept ID, and the learner's previous answer - so responses are contextual, not generic.
 
 ---
 
@@ -1033,7 +1033,7 @@ The tutor prompt includes: current module, failed concept ID, and the learner's 
 - Maximum concept card length: **180 words**. Long explanations are split into progressive reveal.
 
 ### Diagram Standards
-- All diagrams use the **Global Colour System** above — no ad-hoc colours.
+- All diagrams use the **Global Colour System** above - no ad-hoc colours.
 - Minimum touch target size on mobile: 44×44 px.
 - Every diagram has an **alt text** description for screen readers.
 - SVG preferred over PNG for all diagrams (sharp on all densities).
@@ -1050,6 +1050,6 @@ Before any animation ships, it must pass:
 
 ---
 
-*Specification version: 1.0 — May 2026*  
+*Specification version: 1.0 - May 2026*  
 *Curriculum owner: PandaLearn Engineering Team*  
 *Review cadence: each animation reviewed after first 500 learner completions using heatmap + drop-off data.*

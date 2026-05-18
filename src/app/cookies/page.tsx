@@ -1,9 +1,9 @@
-import Navbar from "@/components/landing/Navbar";
+﻿import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy — PandaLearn",
+  title: "Cookie Policy - PandaLearn",
   description: "How PandaLearn uses cookies and similar tracking technologies.",
 };
 

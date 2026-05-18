@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Briefcase, ArrowLeft, Heart, Mail } from "lucide-react";
@@ -6,9 +6,9 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 
 const VALUES = [
-  { title: "Students first",    desc: "Every decision — product, content, design — starts with 'does this help students learn better?'" },
+  { title: "Students first",    desc: "Every decision - product, content, design - starts with 'does this help students learn better?'" },
   { title: "Async by default",  desc: "We trust you to do great work without being in a meeting. Deep work time is protected." },
-  { title: "Build in public",   desc: "We share progress, mistakes, and learnings openly — inside the team and with our community." },
+  { title: "Build in public",   desc: "We share progress, mistakes, and learnings openly - inside the team and with our community." },
 ];
 
 export default function Careers() {
@@ -40,7 +40,7 @@ export default function Careers() {
             </h1>
             <p className="text-gray-500 text-lg leading-relaxed mb-10">
               We&apos;re a small, ambitious team building the CS education platform
-              we wish existed when we were students. No open roles listed yet —
+              we wish existed when we were students. No open roles listed yet -
               but we&apos;re always interested in exceptional people.
             </p>
 

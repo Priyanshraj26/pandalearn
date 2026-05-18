@@ -146,10 +146,10 @@ export default function Anim1B() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row min-h-[420px]">
+    <div className="flex flex-col md:flex-row min-h-95">
 
       {/* ── SVG canvas ── */}
-      <div className="flex-1 relative bg-[#0F172A] overflow-hidden min-h-[320px]">
+      <div className="flex-1 relative bg-[#0F172A] overflow-hidden min-h-80">
 
         {/* dot grid */}
         <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">

@@ -1,4 +1,4 @@
-import { BookOpen, CheckCircle, Star, Zap, Flame } from "lucide-react"
+﻿import { BookOpen, CheckCircle, Star, Zap, Flame } from "lucide-react"
 
 interface ActivityLog {
   id: string
@@ -44,7 +44,7 @@ export default function RecentActivityFeed({ activity }: Props) {
       {activity.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-10 text-center">
           <BookOpen size={32} className="text-gray-200 mb-3" />
-          <p className="text-gray-400 text-sm">No activity yet — start a module!</p>
+          <p className="text-gray-400 text-sm">No activity yet - start a module!</p>
         </div>
       ) : (
         <div className="space-y-3">

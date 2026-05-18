@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+﻿import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       from: "PandaLearn Contact <hello@pandalearn.in>",
       to: "projects@vizuara.com",
       replyTo: email,
-      subject: `[PandaLearn] ${subject || "New message"} — from ${name}`,
+      subject: `[PandaLearn] ${subject || "New message"} - from ${name}`,
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#111827">
           <div style="background:#7c3aed;padding:24px 32px;border-radius:12px 12px 0 0">

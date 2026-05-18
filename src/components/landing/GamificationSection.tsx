@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -81,7 +81,7 @@ export default function GamificationSection() {
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
               Every lesson earns XP. Every module unlocks a badge. Every day you
-              come back, your streak grows. Progress you can see — and feel proud of.
+              come back, your streak grows. Progress you can see - and feel proud of.
             </p>
             <ul className="space-y-3">
               {FEATURES.map((f, i) => (
@@ -218,7 +218,7 @@ export default function GamificationSection() {
               </div>
               <div>
                 <p className="font-sora text-xl font-bold text-gray-900">7 Day Streak!</p>
-                <p className="text-sm text-gray-500">Keep going — your best streak was 12 days</p>
+                <p className="text-sm text-gray-500">Keep going - your best streak was 12 days</p>
               </div>
             </motion.div>
           </motion.div>

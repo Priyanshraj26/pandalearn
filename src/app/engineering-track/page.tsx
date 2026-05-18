@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -29,7 +29,7 @@ const SUBJECTS = [
     Icon: Brain,
     name: "Machine Learning",
     modules: 12,
-    desc: "From linear regression to transformers — every algorithm visualized interactively.",
+    desc: "From linear regression to transformers - every algorithm visualized interactively.",
     topics: ["Linear & Logistic Regression", "Decision Trees & Random Forests", "Neural Networks", "CNNs", "RNNs & LSTMs", "Transformers & Attention", "NLP Basics", "Clustering", "Model Evaluation"],
   },
   {
@@ -43,7 +43,7 @@ const SUBJECTS = [
     Icon: Server,
     name: "Operating Systems",
     modules: 8,
-    desc: "Processes, threads, memory — the engine under every application.",
+    desc: "Processes, threads, memory - the engine under every application.",
     topics: ["Processes & Threads", "CPU Scheduling", "Memory Management", "Virtual Memory", "Deadlocks", "File Systems", "Concurrency & Locks", "OS Security"],
   },
   {
@@ -106,7 +106,7 @@ const FEATURES = [
   {
     Icon: Sparkles,
     title: "AI tutor with context",
-    desc: "Ask about Dijkstra's and get an answer that knows you just finished BFS — not a generic chatbot.",
+    desc: "Ask about Dijkstra's and get an answer that knows you just finished BFS - not a generic chatbot.",
   },
   {
     Icon: Award,
@@ -157,7 +157,7 @@ export default function EngineeringTrack() {
               </h1>
 
               <p className="text-gray-500 text-lg leading-relaxed mb-9 max-w-xl mx-auto">
-                Industry-level depth on every CS subject that matters — plus the mock interview
+                Industry-level depth on every CS subject that matters - plus the mock interview
                 simulator that has helped 2,000+ students land offers at FAANG, unicorns, and top startups.
               </p>
 

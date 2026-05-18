@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -12,7 +12,7 @@ const MESSAGES = [
 ];
 
 const FEATURES = [
-  { Icon: MessageCircle, title: "Context-aware answers",  desc: "Ask about the exact concept you're studying — no need to explain what module you're on." },
+  { Icon: MessageCircle, title: "Context-aware answers",  desc: "Ask about the exact concept you're studying - no need to explain what module you're on." },
   { Icon: Lightbulb,     title: "Progressive hints",      desc: "Don't want the answer? Ask for a hint. The tutor guides you without spoiling the solution." },
   { Icon: RefreshCw,     title: "Adaptive path",          desc: "Score below 70% on a quiz? The tutor recommends the prerequisite module automatically." },
   { Icon: Mic,           title: "Mock interview mode",    desc: "Gemini plays a technical interviewer for system design and DSA practice." },
@@ -82,7 +82,7 @@ export default function AITutorSection() {
             </h2>
             <p className="text-gray-500 text-lg mb-8 leading-relaxed">
               The AI tutor isn&apos;t a generic chatbot. It knows your current module,
-              your progress, your last quiz score — and answers questions in
+              your progress, your last quiz score - and answers questions in
               context, like a real teacher looking over your shoulder.
             </p>
             <ul className="space-y-4">
@@ -107,7 +107,7 @@ export default function AITutorSection() {
             </ul>
           </motion.div>
 
-          {/* Right — live chat UI */}
+          {/* Right - live chat UI */}
           <motion.div
             initial={{ opacity:0, x:32 }} whileInView={{ opacity:1, x:0 }}
             viewport={{ once:true, margin:"-60px" }}
@@ -131,7 +131,7 @@ export default function AITutorSection() {
                       animate={{ opacity: [1, 0.4, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
-                    <span className="text-xs text-emerald-600">Online — Module: Dijkstra&apos;s Algorithm</span>
+                    <span className="text-xs text-emerald-600">Online - Module: Dijkstra&apos;s Algorithm</span>
                   </div>
                 </div>
                 <div className="ml-auto">

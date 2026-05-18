@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -104,7 +104,7 @@ const modules = [
   {
     emoji: "📊",
     title: "Algorithm Visualizer",
-    description: "Step through BFS, DFS, Dijkstra, and 10+ sorting algorithms with full control — pause, rewind, speed up.",
+    description: "Step through BFS, DFS, Dijkstra, and 10+ sorting algorithms with full control - pause, rewind, speed up.",
     Viz: AlgorithmViz,
     tag: "Data Structures",
     tagColor: "bg-orange-100 text-orange-700 border-orange-200",

@@ -1,7 +1,7 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   PANDALEARN DESIGN SYSTEM — globals.css
+   PANDALEARN DESIGN SYSTEM - globals.css
    Single source of truth for every colour, spacing scale, and animation.
    Rules for Claude: see AGENTS.md → "Design System Rules".
 ───────────────────────────────────────────────────────────────────────────── */
@@ -12,10 +12,10 @@
   --font-dm:   var(--font-dm);
 
   /* ── Brand palette ─────────────────────────────────────────────────────── */
-  --pl-violet:        #7c3aed;   /* primary — interactive, progress, active states */
+  --pl-violet:        #7c3aed;   /* primary - interactive, progress, active states */
   --pl-violet-hover:  #6d28d9;   /* violet hover */
   --pl-violet-light:  #8b5cf6;   /* lighter violet for gradients */
-  --pl-orange:        #f97316;   /* CTA — "Start Free", primary action buttons     */
+  --pl-orange:        #f97316;   /* CTA - "Start Free", primary action buttons     */
   --pl-orange-hover:  #ea6c0a;   /* orange hover */
   --pl-green:         #10b981;   /* success, completed, earned states              */
   --pl-amber:         #f59e0b;   /* streak fire, warnings                          */
@@ -59,7 +59,7 @@
   --color-navy-600: #1E2D4A;
   --color-navy-500: #2D4163;
 
-  /* ── shadcn/ui tokens — mapped to PandaLearn brand ───────────────────── */
+  /* ── shadcn/ui tokens - mapped to PandaLearn brand ───────────────────── */
   --color-background:             var(--pl-bg);
   --color-foreground:             var(--pl-text-primary);
   --color-primary:                var(--pl-violet);
@@ -158,7 +158,7 @@ body {
 
 /* ── Surface / layout utilities ────────────────────────────────────────────── */
 
-/* Landing page dot grid — light theme */
+/* Landing page dot grid - light theme */
 .dot-grid {
   background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px);
   background-size: 28px 28px;
@@ -170,7 +170,7 @@ body {
   background-size: 28px 28px;
 }
 
-/* Glassmorphism card — light theme */
+/* Glassmorphism card - light theme */
 .glass {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(18px);
@@ -189,7 +189,7 @@ body {
 
 /* ── Form component utilities ──────────────────────────────────────────────── */
 
-/* Standard light-theme input — use instead of hardcoding Tailwind classes */
+/* Standard light-theme input - use instead of hardcoding Tailwind classes */
 .pl-input {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 2.75rem;
@@ -208,7 +208,7 @@ body {
   box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
 }
 
-/* Primary CTA — orange (Start Free / Create Account / Sign In) */
+/* Primary CTA - orange (Start Free / Create Account / Sign In) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -266,7 +266,7 @@ body {
 
 /* ── Badge / chip utilities ─────────────────────────────────────────────────── */
 
-/* Violet badge — used on hero, module labels, active states */
+/* Violet badge - used on hero, module labels, active states */
 .badge-violet {
   display: inline-flex;
   align-items: center;
@@ -280,7 +280,7 @@ body {
   border-radius: 9999px;
 }
 
-/* Section eyebrow label — uppercase violet tracking */
+/* Section eyebrow label - uppercase violet tracking */
 .section-label {
   color: var(--pl-violet);
   font-size: 0.6875rem;

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -93,7 +93,7 @@ function computeBubble(init: number[]): Step[] {
   }
   sc = n;
   steps.push(mk(a, sh(), "Array is fully sorted!",
-    "Done! [1,2,3,4,5,6,7,8] — every element found its position through repeated bubbling. Bubble sort is simple but O(n²), making it slow for large inputs.", 0));
+    "Done! [1,2,3,4,5,6,7,8] - every element found its position through repeated bubbling. Bubble sort is simple but O(n²), making it slow for large inputs.", 0));
   return steps;
 }
 
@@ -134,13 +134,13 @@ function computeSelection(init: number[]): Step[] {
       [a[i], a[mi]] = [a[mi], a[i]];
       steps.push(mk(a, bh({ [i]: "postswap", [mi]: "postswap" }),
         `${a[i]} is now in its final sorted position`,
-        `${a[i]} is at index ${i} — its correct final position. Note: selection sort always makes exactly n−1 swaps regardless of input.`, 5));
+        `${a[i]} is at index ${i} - its correct final position. Note: selection sort always makes exactly n−1 swaps regardless of input.`, 5));
     }
     done.add(i);
   }
   done.add(n - 1);
   steps.push(mk(a, bh(), "Array is fully sorted!",
-    "Done! [1,2,3,4,5,6,7,8] — selection sort made exactly 7 swaps. It's O(n²) comparisons but O(n) writes, useful when write operations are expensive.", 0));
+    "Done! [1,2,3,4,5,6,7,8] - selection sort made exactly 7 swaps. It's O(n²) comparisons but O(n) writes, useful when write operations are expensive.", 0));
   return steps;
 }
 
@@ -203,14 +203,14 @@ function computeQuick(init: number[]): Step[] {
     done.add(pp);
     steps.push(mk(a, bh({ [pp]: "sorted" }),
       `Pivot ${a[pp]} locked at index ${pp}`,
-      `Pivot ${a[pp]} is at index ${pp} — its correct final position forever. Left [${lo}..${pp-1}] and right [${pp+1}..${hi}] will be sorted next.`, 4));
+      `Pivot ${a[pp]} is at index ${pp} - its correct final position forever. Left [${lo}..${pp-1}] and right [${pp+1}..${hi}] will be sorted next.`, 4));
 
     if (pp + 1 <= hi) stack.push([pp + 1, hi]);
     if (lo <= pp - 1) stack.push([lo, pp - 1]);
   }
 
   steps.push(mk(a, bh(), "Array is fully sorted!",
-    "Done! [1,2,3,4,5,6,7,8] — each pivot found its position in O(n) time. With a good pivot choice, quick sort runs in O(n log n); worst case (sorted input + last pivot) is O(n²).", 0));
+    "Done! [1,2,3,4,5,6,7,8] - each pivot found its position in O(n) time. With a good pivot choice, quick sort runs in O(n log n); worst case (sorted input + last pivot) is O(n²).", 0));
   return steps;
 }
 
@@ -270,7 +270,7 @@ function computeMerge(init: number[]): Step[] {
   }
 
   steps.push(mk(a, bh(), "Array is fully sorted!",
-    "Done! [1,2,3,4,5,6,7,8] — merge sort is stable and always O(n log n). The trade-off is O(n) extra space for the temporary arrays during each merge.", 0));
+    "Done! [1,2,3,4,5,6,7,8] - merge sort is stable and always O(n log n). The trade-off is O(n) extra space for the temporary arrays during each merge.", 0));
   return steps;
 }
 
@@ -558,12 +558,12 @@ export default function HeroSection() {
 
         <motion.p {...fadeUp(0.13)} className="text-lg text-gray-500 leading-relaxed mb-9 max-w-xl mx-auto">
           Not videos. Not slides. Live interactive visualizations, an AI tutor,
-          and gamified XP — for school students and engineering grads.
+          and gamified XP - for school students and engineering grads.
         </motion.p>
 
         <motion.div {...fadeUp(0.19)} className="flex flex-wrap items-center justify-center gap-3 mb-9">
           <a href="#" className="inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold bg-orange-500 hover:bg-orange-400 rounded-xl shadow-md hover:-translate-y-px active:translate-y-0 transition-all text-[0.95rem]">
-            Start Free — no card needed <ArrowRight size={16} />
+            Start Free - no card needed <ArrowRight size={16} />
           </a>
           <a href="#tracks" className="inline-flex items-center gap-2 px-7 py-3.5 text-gray-600 font-semibold border-2 border-gray-200 hover:border-violet-300 hover:text-violet-700 rounded-xl transition-all text-[0.95rem]">
             Explore Courses

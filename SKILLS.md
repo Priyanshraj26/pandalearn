@@ -1,4 +1,4 @@
-# PandaLearn — Tech Stack & Skills Reference
+﻿# PandaLearn - Tech Stack & Skills Reference
 
 ## Frontend
 | Technology | Version | Notes |
@@ -7,8 +7,8 @@
 | Tailwind CSS | v4 | `@import "tailwindcss"`, `bg-linear-to-*` (not `bg-gradient-to-*`), `@theme inline {}` |
 | Framer Motion / Motion | v12 | `whileInView`, `animate`, `useSpring`, `useInView` |
 | lucide-react | v1.16.0 | Icon library |
-| Fonts | — | Sora (headings via `--font-sora`) + DM Sans (body via `--font-dm`) |
-| UI Primitives | — | shadcn/ui components backed by Radix UI |
+| Fonts | - | Sora (headings via `--font-sora`) + DM Sans (body via `--font-dm`) |
+| UI Primitives | - | shadcn/ui components backed by Radix UI |
 
 ## Auth
 | Technology | Notes |
@@ -26,7 +26,7 @@
 | Prisma | v7.8.0, schema at `prisma/schema.prisma` |
 | Database | PostgreSQL |
 | Passwords | bcryptjs, 12 rounds |
-| Data access layer | `src/lib/db/user.ts` — single `getDashboardData()` runs 4 queries in `Promise.all` |
+| Data access layer | `src/lib/db/user.ts` - single `getDashboardData()` runs 4 queries in `Promise.all` |
 
 ## AI / Integrations
 | Service | Status |
@@ -45,7 +45,7 @@ pandalearn/
 │   └── schema.prisma          # DB schema (User, Account, Session, ModuleProgress, Achievement…)
 ├── src/
 │   ├── app/
-│   │   ├── (auth)/            # Route group — shared auth layout
+│   │   ├── (auth)/            # Route group - shared auth layout
 │   │   │   ├── layout.tsx     # Two-column: violet branding left + white form right
 │   │   │   ├── login/         # /login
 │   │   │   └── signup/        # /signup
@@ -61,7 +61,7 @@ pandalearn/
 │   │   └── page.tsx           # Landing page
 │   ├── components/
 │   │   ├── dashboard/
-│   │   │   ├── DashboardSidebar.tsx   # Client — usePathname for active state, signOut
+│   │   │   ├── DashboardSidebar.tsx   # Client - usePathname for active state, signOut
 │   │   │   ├── DashboardHeader.tsx    # XP pill + avatar initials
 │   │   │   ├── XPLevelCard.tsx        # Level, XP bar, streak, gems
 │   │   │   ├── MyCoursesPanel.tsx     # Per-subject progress bars
@@ -85,12 +85,12 @@ pandalearn/
 
 ## Key DRY Patterns
 
-- **Single Prisma client** — `src/lib/prisma.ts` global singleton; imported everywhere
-- **Centralized XP math** — `src/lib/xp.ts`; used in both dashboard and landing gamification
-- **Single auth config** — `src/auth.ts`; middleware, API routes, and server components all import from here
-- **Data access layer** — `src/lib/db/user.ts`; dashboard page calls one function, gets everything
-- **Shared AnimatedNumber** — `src/components/ui/AnimatedNumber.tsx`; used in XPLevelCard + GamificationSection
-- **Route group layout** — `src/app/(auth)/layout.tsx` shared by login + signup pages
+- **Single Prisma client** - `src/lib/prisma.ts` global singleton; imported everywhere
+- **Centralized XP math** - `src/lib/xp.ts`; used in both dashboard and landing gamification
+- **Single auth config** - `src/auth.ts`; middleware, API routes, and server components all import from here
+- **Data access layer** - `src/lib/db/user.ts`; dashboard page calls one function, gets everything
+- **Shared AnimatedNumber** - `src/components/ui/AnimatedNumber.tsx`; used in XPLevelCard + GamificationSection
+- **Route group layout** - `src/app/(auth)/layout.tsx` shared by login + signup pages
 
 ---
 
@@ -116,4 +116,4 @@ openssl rand -base64 32
 1. Copy `.env.example` → `.env.local` and fill in values
 2. Run `npx prisma migrate dev --name init` to create DB tables
 3. Run `npx prisma generate` to generate the Prisma client
-4. `npm run dev` — app available at http://localhost:3000
+4. `npm run dev` - app available at http://localhost:3000

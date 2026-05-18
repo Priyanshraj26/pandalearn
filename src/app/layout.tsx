@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers";
@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "PandaLearn- Interactive CS & ML Learning Platform",
   description:
-    "Learn Computer Science and Machine Learning through live interactive visualizations. Neural networks, algorithms, computer networks — all interactive. Built for Grade 9–12 students and engineering graduates.",
+    "Learn Computer Science and Machine Learning through live interactive visualizations. Neural networks, algorithms, computer networks - all interactive. Built for Grade 9–12 students and engineering graduates.",
   keywords: [
     "interactive CS learning",
     "machine learning tutorial",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "PandaLearn" }],
   openGraph: {
-    title: "PandaLearn — CS & ML that you can touch",
+    title: "PandaLearn - CS & ML that you can touch",
     description:
       "Interactive visualizations, AI tutor, gamified progress. Built for school students and engineering grads.",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PandaLearn — CS & ML that you can touch",
+    title: "PandaLearn - CS & ML that you can touch",
     description:
       "Interactive visualizations, AI tutor, gamified progress. Built for school students and engineering grads.",
     site: "@pandalearn",

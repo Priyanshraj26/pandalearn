@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,14 +37,14 @@ const plans = [
     periodYearly: "/year",
     yearlyNote: "save 33%",
     description: "For serious learners who want the full experience.",
-    cta: "Start Pro — Free 7-day trial",
+    cta: "Start Pro - Free 7-day trial",
     ctaStyle:
       "bg-orange-500 hover:bg-orange-400 text-white shadow-xl shadow-orange-500/25",
     highlight: true,
     badge: "Most Popular",
     features: [
       "Everything in Free",
-      "All modules — all subjects",
+      "All modules - all subjects",
       "Unlimited AI tutor",
       "AI-graded quizzes + feedback",
       "System design mock interviews",
@@ -102,7 +102,7 @@ export default function PricingSection() {
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
             The free tier is genuinely useful. Upgrade only when you want the
-            full power — no dark patterns, no credit card required.
+            full power - no dark patterns, no credit card required.
           </p>
         </motion.div>
 
@@ -266,7 +266,7 @@ export default function PricingSection() {
                         className="flex items-start gap-2.5 text-sm text-gray-400"
                       >
                         <span className="shrink-0 mt-0.5 w-3.75 text-center leading-none">
-                          —
+                          -
                         </span>
                         {f}
                       </motion.li>

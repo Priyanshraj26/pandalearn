@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -31,7 +31,7 @@ const SUBJECTS = [
   {
     Icon: Code, color: "bg-teal-500", lightBg: "bg-teal-50", textCls: "text-teal-600",
     name: "Python Programming", modules: 9,
-    desc: "Go from zero to writing real programs — the most beginner-friendly path.",
+    desc: "Go from zero to writing real programs - the most beginner-friendly path.",
     topics: ["Variables & Data Types", "Control Flow", "Functions & Scope", "Lists, Tuples, Dicts", "Object-Oriented Python", "File I/O", "Error Handling", "Mini Project: CLI App"],
   },
   {
@@ -43,13 +43,13 @@ const SUBJECTS = [
   {
     Icon: Globe, color: "bg-violet-600", lightBg: "bg-violet-50", textCls: "text-violet-600",
     name: "How the Internet Works", modules: 6,
-    desc: "From typing a URL to seeing the page — every step, visualized.",
+    desc: "From typing a URL to seeing the page - every step, visualized.",
     topics: ["Internet vs Web", "DNS & HTTP", "Browsers & Rendering", "Client-Server Architecture", "APIs & JSON", "Cybersecurity Basics"],
   },
   {
     Icon: Brain, color: "bg-rose-500", lightBg: "bg-rose-50", textCls: "text-rose-600",
     name: "What is AI / ML", modules: 5,
-    desc: "Understand what AI actually is — no hype, no buzzwords, just concepts.",
+    desc: "Understand what AI actually is - no hype, no buzzwords, just concepts.",
     topics: ["What is Artificial Intelligence", "How Machines Learn", "Decision Trees", "Neural Networks (intro)", "Real-world AI Applications"],
   },
 ];
@@ -100,11 +100,11 @@ export default function SchoolTrack() {
                 <span className="text-teal-500">that changes everything.</span>
               </h1>
               <p className="text-gray-500 text-lg leading-relaxed mb-9 max-w-xl mx-auto">
-                Before you hit college, build the mental models that make every CS concept easy. Six subjects, 38 modules, fully interactive — from zero to confident.
+                Before you hit college, build the mental models that make every CS concept easy. Six subjects, 38 modules, fully interactive - from zero to confident.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
                 <a href="#" className="inline-flex items-center gap-2 px-7 py-3.5 bg-teal-500 hover:bg-teal-400 text-white font-semibold rounded-xl shadow-md hover:-translate-y-px transition-all">
-                  Start Free — Grade 9–12 <ArrowRight size={16} />
+                  Start Free - Grade 9–12 <ArrowRight size={16} />
                 </a>
                 <a href="#curriculum" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-gray-200 hover:border-teal-300 hover:text-teal-700 text-gray-600 font-semibold rounded-xl transition-all">
                   View Curriculum <ChevronRight size={16} />

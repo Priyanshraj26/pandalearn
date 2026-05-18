@@ -1,4 +1,4 @@
-import { auth } from "@/auth"
+﻿import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { getDashboardData } from "@/lib/db/user"
 import Link from "next/link"
@@ -85,7 +85,7 @@ const SCHOOL: Subject[] = [
   {
     id: "cs", key: "Computer Science",
     label: "Computer Science",
-    description: "How computers work — hardware, OS, memory, and software fundamentals.",
+    description: "How computers work - hardware, OS, memory, and software fundamentals.",
     Icon: Monitor, iconBg: "bg-violet-100", iconText: "text-violet-600",
     total: 6, href: "/learn/cs",
     modules: [
@@ -96,7 +96,7 @@ const SCHOOL: Subject[] = [
   {
     id: "programming", key: "Programming",
     label: "Programming",
-    description: "Python from first principles — variables, loops, functions, and projects.",
+    description: "Python from first principles - variables, loops, functions, and projects.",
     Icon: Code, iconBg: "bg-orange-100", iconText: "text-orange-600",
     total: 7, href: "/learn/programming",
     modules: [
@@ -107,7 +107,7 @@ const SCHOOL: Subject[] = [
   {
     id: "ai", key: "What is AI",
     label: "What is AI",
-    description: "AI concepts, neural nets, machine learning, and ethics — no code needed.",
+    description: "AI concepts, neural nets, machine learning, and ethics - no code needed.",
     Icon: Bot, iconBg: "bg-teal-100", iconText: "text-teal-600",
     total: 5, href: "/learn/ai",
     modules: [

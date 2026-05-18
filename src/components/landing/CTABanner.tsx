@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, PawPrint, Users, BookOpen, Star, Check } from "lucide-react";
@@ -97,7 +97,7 @@ export default function CTABanner() {
               className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
               Stop watching. Start doing. Your first 3 modules are completely
-              free — no credit card, no catch.
+              free - no credit card, no catch.
             </motion.p>
 
             <motion.div

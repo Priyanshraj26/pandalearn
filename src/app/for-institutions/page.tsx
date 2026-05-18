@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -17,7 +17,7 @@ const up = (delay = 0) => ({
 });
 
 const FEATURES = [
-  { Icon: BarChart2,  title: "Progress Analytics",       desc: "Module completion rates, quiz scores, streak data, and time-on-task — per student and per class." },
+  { Icon: BarChart2,  title: "Progress Analytics",       desc: "Module completion rates, quiz scores, streak data, and time-on-task - per student and per class." },
   { Icon: Users,      title: "Bulk Student Licenses",    desc: "Onboard hundreds of students at once. Manage licenses, add/remove seats from a single dashboard." },
   { Icon: BookOpen,   title: "Module Assignment",        desc: "Assign specific modules or full subjects to classes. Set deadlines and track submission." },
   { Icon: Layers,     title: "Custom Branding",          desc: "White-label the platform with your institution's logo, colors, and domain." },

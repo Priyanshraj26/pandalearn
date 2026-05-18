@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Compass, Zap, TrendingUp } from "lucide-react";
@@ -7,7 +7,7 @@ const STEPS = [
   {
     n: "01", Icon: Compass,
     title: "Choose your track",
-    body: "Pick School (Grade 9–12) or Engineering. Each track is carefully scoped to your level — nothing overwhelming, nothing too easy.",
+    body: "Pick School (Grade 9–12) or Engineering. Each track is carefully scoped to your level - nothing overwhelming, nothing too easy.",
   },
   {
     n: "02", Icon: Zap,
@@ -17,7 +17,7 @@ const STEPS = [
   {
     n: "03", Icon: TrendingUp,
     title: "Get guided, earn XP, level up",
-    body: "Your AI tutor knows exactly which module you're on. Ask questions, get hints, take quizzes — and watch your XP grow with every lesson.",
+    body: "Your AI tutor knows exactly which module you're on. Ask questions, get hints, take quizzes - and watch your XP grow with every lesson.",
   },
 ];
 

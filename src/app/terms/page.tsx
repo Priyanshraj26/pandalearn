@@ -1,9 +1,9 @@
-import Navbar from "@/components/landing/Navbar";
+﻿import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — PandaLearn",
+  title: "Terms of Service - PandaLearn",
   description: "The terms and conditions governing your use of the PandaLearn platform.",
 };
 
@@ -26,11 +26,11 @@ const SECTIONS = [
   },
   {
     title: "Subscriptions & Payments",
-    body: "Pro subscriptions are billed monthly or annually via Razorpay. You may cancel at any time; cancellation takes effect at the end of the current billing cycle. Refunds are handled on a case-by-case basis — email us within 7 days of purchase.",
+    body: "Pro subscriptions are billed monthly or annually via Razorpay. You may cancel at any time; cancellation takes effect at the end of the current billing cycle. Refunds are handled on a case-by-case basis - email us within 7 days of purchase.",
   },
   {
     title: "Intellectual Property",
-    body: "All content on PandaLearn — including lessons, visualizations, illustrations, and code — is the intellectual property of PandaLearn. Your user-generated content (quiz answers, notes) remains yours.",
+    body: "All content on PandaLearn - including lessons, visualizations, illustrations, and code - is the intellectual property of PandaLearn. Your user-generated content (quiz answers, notes) remains yours.",
   },
   {
     title: "Termination",

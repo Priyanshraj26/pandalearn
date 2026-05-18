@@ -1,6 +1,6 @@
-import { prisma } from "@/lib/prisma"
+﻿import { prisma } from "@/lib/prisma"
 
-/** Safe user fields returned to the dashboard — no password hash. */
+/** Safe user fields returned to the dashboard - no password hash. */
 const USER_SELECT = {
   id: true, name: true, email: true, image: true,
   xp: true, level: true, streak: true, gems: true,

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Download, Mail, ExternalLink } from "lucide-react";
@@ -57,7 +57,7 @@ export default function PressKit() {
                 <strong>One-liner:</strong> PandaLearn is an interactive CS and Machine Learning learning platform for school students (Grade 9–12) and engineering graduates, powered by live visualizations and an AI tutor.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                <strong>Short description:</strong> PandaLearn replaces passive video lectures with hands-on interactive simulations — drag nodes in a neural network, watch sorting algorithms step by step, simulate packet routing in real time. Backed by an AI tutor (powered by Google Gemini) and a gamified XP system, the platform serves two tracks: School (Grade 9–12) and Engineering (DSA, ML, Networks, System Design, Interview Prep).
+                <strong>Short description:</strong> PandaLearn replaces passive video lectures with hands-on interactive simulations - drag nodes in a neural network, watch sorting algorithms step by step, simulate packet routing in real time. Backed by an AI tutor (powered by Google Gemini) and a gamified XP system, the platform serves two tracks: School (Grade 9–12) and Engineering (DSA, ML, Networks, System Design, Interview Prep).
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Founded:</strong> 2025 · <strong>Headquarters:</strong> India · <strong>Website:</strong> pandalearn.in
@@ -100,11 +100,11 @@ export default function PressKit() {
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 space-y-4">
               <div>
                 <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">Display / Headings</span>
-                <p className="font-sora text-2xl font-bold text-gray-900">Sora — Google Fonts</p>
+                <p className="font-sora text-2xl font-bold text-gray-900">Sora - Google Fonts</p>
               </div>
               <div>
                 <span className="text-xs text-gray-400 uppercase tracking-widest block mb-1">Body / UI</span>
-                <p className="text-lg text-gray-700">DM Sans — Google Fonts</p>
+                <p className="text-lg text-gray-700">DM Sans - Google Fonts</p>
               </div>
             </div>
           </motion.section>
