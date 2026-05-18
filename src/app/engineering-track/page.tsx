@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
   ArrowRight, Check, GraduationCap, Code2, Brain, Network,
   Server, Database, Layout, Mic, Briefcase, TrendingUp,
-  ChevronRight, Layers, GitBranch, Sparkles, Award,
+  ChevronRight, Layers, GitBranch, Award,
 } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
@@ -104,7 +104,7 @@ const FEATURES = [
     desc: "Gemini plays a technical interviewer for DSA, System Design, and behavioral rounds.",
   },
   {
-    Icon: Sparkles,
+    Icon: Brain,
     title: "AI tutor with context",
     desc: "Ask about Dijkstra's and get an answer that knows you just finished BFS - not a generic chatbot.",
   },
@@ -329,7 +329,7 @@ export default function EngineeringTrack() {
               Your next offer starts here.
             </h2>
             <p className="text-gray-400 text-lg mb-8">
-              7-day free trial on Pro. No card required.
+              Unlock the full Engineering Track with Pro.
             </p>
             <a
               href="#"

@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight, ChevronRight, Sparkles, BookOpen, Layers, Bot, Users,
+  ArrowRight, ChevronRight, Zap, Star, BookOpen, Layers, Bot, Users,
   Code2, Brain, Network, Database, CheckCircle, Circle,
   Play, Pause, ChevronLeft, RefreshCw,
 } from "lucide-react";
@@ -539,7 +539,7 @@ export default function HeroSection() {
       {/* Hero text */}
       <div className="relative mx-auto max-w-4xl px-6 pt-32 pb-12 text-center">
         <motion.div {...fadeUp(0)} className="inline-flex items-center gap-2 bg-violet-50 border border-violet-100 text-violet-700 text-sm font-medium px-4 py-2 rounded-full mb-8 select-none">
-          <Sparkles size={13} className="text-violet-500" />
+          <Zap size={13} className="text-violet-500" />
           Early access is open
           <span className="w-px h-3.5 bg-violet-200" />
           10,000+ students
@@ -616,7 +616,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.25 }}
                     className="flex items-center gap-1.5 bg-violet-50 border border-violet-200 text-violet-700 text-[11px] font-semibold px-2.5 py-1 rounded-full"
                   >
-                    <Sparkles size={10} />+10 XP
+                    <Star size={10} />+10 XP
                   </motion.div>
                 )}
               </AnimatePresence>

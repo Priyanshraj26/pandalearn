@@ -1,13 +1,13 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, PawPrint, Users, BookOpen, Star, Check } from "lucide-react";
+import { ArrowRight, PawPrint, Users, BookOpen, Star, Check } from "lucide-react";
 
 const FLOATS = [
   { Icon: Users,    val: "10K+", label: "Students",   cls: "top-10 left-8 lg:left-16",       delay: 0,   dur: "animate-float"      },
   { Icon: BookOpen, val: "50+",  label: "Modules",    cls: "top-16 right-8 lg:right-16",     delay: 1.5, dur: "animate-float-slow" },
   { Icon: Star,     val: "4.9",  label: "Avg rating", cls: "bottom-10 left-16 lg:left-24",   delay: 0.7, dur: "animate-float-slow" },
-  { Icon: Sparkles, val: "Free", label: "To start",   cls: "bottom-16 right-16 lg:right-24", delay: 2.1, dur: "animate-float"      },
+  { Icon: Check,    val: "Free", label: "To start",   cls: "bottom-16 right-16 lg:right-24", delay: 2.1, dur: "animate-float"      },
 ];
 
 export default function CTABanner() {
@@ -61,7 +61,7 @@ export default function CTABanner() {
               transition={{ delay: 0.15, duration: 0.4 }}
               className="inline-flex items-center gap-2 bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm font-medium px-4 py-2 rounded-full mb-6"
             >
-              <Sparkles size={13} className="text-violet-400" />
+              <Users size={13} className="text-violet-400" />
               Join 10,000+ learners worldwide
             </motion.div>
 

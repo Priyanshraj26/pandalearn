@@ -37,7 +37,7 @@ const plans = [
     periodYearly: "/year",
     yearlyNote: "save 33%",
     description: "For serious learners who want the full experience.",
-    cta: "Start Pro - Free 7-day trial",
+    cta: "Get Pro",
     ctaStyle:
       "bg-orange-500 hover:bg-orange-400 text-white shadow-xl shadow-orange-500/25",
     highlight: true,

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { Bot, Sparkles, MessageCircle, Lightbulb, RefreshCw, Mic } from "lucide-react";
+import { Bot, MessageCircle, Lightbulb, RefreshCw, Mic } from "lucide-react";
 
 const MESSAGES = [
   { role: "user", text: "Why do we use a priority queue in Dijkstra's algorithm?" },
