@@ -1,166 +1,219 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Award, Medal, Trophy, Gem, Crown, Flame, Brain, Zap, Star } from "lucide-react";
 
-const badges = [
-  { emoji: "🥉", label: "Bronze",   xp: "0 XP",    active: false },
-  { emoji: "🥈", label: "Silver",   xp: "1K XP",   active: false },
-  { emoji: "🥇", label: "Gold",     xp: "5K XP",   active: true  },
-  { emoji: "💎", label: "Diamond",  xp: "15K XP",  active: false },
-  { emoji: "👑", label: "Legend",   xp: "50K XP",  active: false },
+function AnimatedNumber({ end, suffix = "", duration = 1800 }: { end: number; suffix?: string; duration?: number }) {
+  const [display, setDisplay] = useState("0");
+  const ref = useRef<HTMLSpanElement>(null);
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true;
+          let startTs = 0;
+          const tick = (ts: number) => {
+            if (!startTs) startTs = ts;
+            const p = Math.min((ts - startTs) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            setDisplay(Math.round(eased * end).toLocaleString() + suffix);
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [end, suffix, duration]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
+const BADGES = [
+  { Icon: Award,  label: "Bronze",  xp: "0",   active: false, cls: "text-amber-700 bg-amber-50"   },
+  { Icon: Medal,  label: "Silver",  xp: "1K",  active: false, cls: "text-gray-500 bg-gray-100"    },
+  { Icon: Trophy, label: "Gold",    xp: "5K",  active: true,  cls: "text-yellow-500 bg-yellow-50" },
+  { Icon: Gem,    label: "Diamond", xp: "15K", active: false, cls: "text-cyan-500 bg-cyan-50"     },
+  { Icon: Crown,  label: "Legend",  xp: "50K", active: false, cls: "text-violet-500 bg-violet-50" },
 ];
 
-const achievements = [
-  { emoji: "🔥", title: "7 Day Streak",     desc: "Logged in 7 days in a row",      color: "border-orange-500/30 bg-orange-950/30" },
-  { emoji: "🧠", title: "ML Master",         desc: "Completed all ML modules",        color: "border-violet-500/30 bg-violet-950/30" },
-  { emoji: "⚡", title: "Speed Learner",     desc: "Finished a module in under 10min",color: "border-yellow-500/30 bg-yellow-950/30" },
-  { emoji: "🌟", title: "First 1000 XP",    desc: "Earned your first milestone",     color: "border-blue-500/30 bg-blue-950/30"   },
+const ACHIEVEMENTS = [
+  { Icon: Flame, title: "7 Day Streak",  desc: "Login 7 days in a row",        border: "border-orange-200 bg-orange-50", iconCls: "text-orange-500" },
+  { Icon: Brain, title: "ML Master",     desc: "Completed all ML modules",      border: "border-violet-200 bg-violet-50", iconCls: "text-violet-500" },
+  { Icon: Zap,   title: "Speed Learner", desc: "Finished a module in < 10 min", border: "border-yellow-200 bg-yellow-50", iconCls: "text-yellow-500" },
+  { Icon: Star,  title: "First 1K XP",  desc: "Earned your first milestone",   border: "border-blue-200 bg-blue-50",     iconCls: "text-blue-500"   },
+];
+
+const FEATURES = [
+  { Icon: Flame,  text: "Daily streaks keep you consistent",           iconCls: "text-orange-500" },
+  { Icon: Star,   text: "XP and levels track your real growth",        iconCls: "text-yellow-500" },
+  { Icon: Gem,    text: "Gems for challenging yourself beyond basics", iconCls: "text-cyan-500"   },
+  { Icon: Trophy, text: "Certificates you can share on LinkedIn",      iconCls: "text-violet-500" },
 ];
 
 export default function GamificationSection() {
   return (
-    <section
-      className="relative py-24 lg:py-32 bg-navy-800/30 overflow-hidden"
-      aria-labelledby="gamification-heading"
-    >
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-violet-700/10 rounded-full blur-[100px] pointer-events-none" />
+    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-violet-100/60 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* Left — Text */}
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity:0, x:-28 }} whileInView={{ opacity:1, x:0 }}
+            viewport={{ once:true, margin:"-60px" }}
+            transition={{ duration:0.65, ease:[0.22,1,0.36,1] }}
           >
-            <div className="inline-block bg-navy-700/70 border border-navy-600/60 text-slate-400 text-sm font-medium px-4 py-1.5 rounded-full mb-5">
-              Gamified Learning
-            </div>
-            <h2
-              id="gamification-heading"
-              className="font-sora text-4xl sm:text-5xl font-bold text-white mb-5 leading-tight"
-            >
-              Learning feels like{" "}
-              <span className="gradient-text-orange">a game</span>.
-              <br />
-              Results feel like{" "}
-              <span className="gradient-text">a degree</span>.
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">
+              Gamified learning
+            </span>
+            <h2 className="font-sora text-4xl sm:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+              Learning feels like a game.<br />
+              <span className="gradient-text">Results feel like a degree.</span>
             </h2>
-            <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-              Every lesson earns XP. Every module unlocks a badge. Every day
-              you come back, your streak grows. Progress you can see — and
-              feel proud of.
+            <p className="text-gray-500 text-lg leading-relaxed mb-8">
+              Every lesson earns XP. Every module unlocks a badge. Every day you
+              come back, your streak grows. Progress you can see — and feel proud of.
             </p>
-
             <ul className="space-y-3">
-              {[
-                { icon: "🔥", text: "Daily streaks keep you consistent" },
-                { icon: "⭐", text: "XP and levels track your real growth" },
-                { icon: "💎", text: "Gems for challenging yourself beyond basics" },
-                { icon: "🏆", text: "Completion certificates you can share" },
-              ].map((item) => (
-                <li key={item.text} className="flex items-center gap-3 text-slate-300">
-                  <span className="text-xl w-7 text-center shrink-0">{item.icon}</span>
-                  <span>{item.text}</span>
-                </li>
+              {FEATURES.map((f, i) => (
+                <motion.li
+                  key={f.text}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  className="flex items-center gap-3 text-gray-700 text-sm"
+                >
+                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-gray-50 ${f.iconCls}`}>
+                    <f.Icon size={15} />
+                  </div>
+                  {f.text}
+                </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Right — Gamification UI */}
+          {/* Right */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-5"
+            initial={{ opacity:0, x:28 }} whileInView={{ opacity:1, x:0 }}
+            viewport={{ once:true, margin:"-60px" }}
+            transition={{ duration:0.65, ease:[0.22,1,0.36,1] }}
+            className="space-y-4"
           >
-            {/* XP card */}
-            <div className="glass rounded-2xl p-5">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-xl bg-linear-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-lg shadow-lg animate-bounce-soft">
-                    ⭐
-                  </div>
+            {/* XP card with animated counters */}
+            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <motion.div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center bg-yellow-50 shadow-md"
+                    animate={{ rotate: [0, -8, 8, -4, 0] }}
+                    transition={{ duration: 0.6, delay: 1.2, repeat: Infinity, repeatDelay: 4 }}
+                  >
+                    <Star size={20} className="text-yellow-500" />
+                  </motion.div>
                   <div>
-                    <div className="text-xs text-slate-400">Your XP</div>
-                    <div className="font-sora text-xl font-bold text-white">4,230 XP</div>
+                    <p className="text-[11px] text-gray-500">Your XP</p>
+                    <p className="font-sora text-xl font-bold text-gray-900">
+                      <AnimatedNumber end={4230} /> XP
+                    </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-slate-400">Level</div>
-                  <div className="font-sora text-xl font-bold text-violet-400">12</div>
+                  <p className="text-[11px] text-gray-500">Level</p>
+                  <p className="font-sora text-xl font-bold text-violet-600">
+                    <AnimatedNumber end={12} duration={1200} />
+                  </p>
                 </div>
               </div>
-              <div className="flex justify-between text-xs text-slate-500 mb-1.5">
-                <span>4,230 / 5,000 XP to Level 13</span>
-                <span>84%</span>
+              <div className="flex justify-between text-xs text-gray-400 mb-1.5">
+                <span>4,230 / 5,000 XP to Level 13</span><span>84%</span>
               </div>
-              <div className="h-3 bg-navy-600/50 rounded-full overflow-hidden">
+              <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full rounded-full bg-linear-to-r from-violet-600 to-violet-400"
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "84%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+                  className="h-full rounded-full bg-violet-500"
+                  initial={{ width:"0%" }} whileInView={{ width:"84%" }}
+                  viewport={{ once:true }}
+                  transition={{ duration:1.4, delay:0.3, ease:"easeOut" }}
                 />
               </div>
             </div>
 
             {/* Rank badges */}
-            <div className="glass rounded-2xl p-5">
-              <div className="text-xs text-slate-400 font-medium mb-3 uppercase tracking-wide">Your Rank Path</div>
-              <div className="flex items-center justify-between gap-2">
-                {badges.map((b) => (
-                  <div
+            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-gray-400 mb-4">Rank Path</p>
+              <div className="flex items-end justify-between gap-2">
+                {BADGES.map((b, i) => (
+                  <motion.div
                     key={b.label}
-                    className={`flex flex-col items-center gap-1 ${b.active ? "opacity-100" : "opacity-40"}`}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: b.active ? 1 : 0.3, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.4, type: "spring", bounce: 0.3 }}
+                    className="flex flex-col items-center gap-1"
                   >
-                    <div className={`text-2xl ${b.active ? "badge-pulse" : ""}`}>{b.emoji}</div>
-                    <div className={`text-xs font-semibold ${b.active ? "text-white" : "text-slate-500"}`}>
-                      {b.label}
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${b.cls} ${b.active ? "ring-2 ring-yellow-400 ring-offset-1" : ""}`}>
+                      <b.Icon size={18} />
                     </div>
-                    <div className="text-xs text-slate-600">{b.xp}</div>
-                  </div>
+                    <span className={`text-xs font-semibold ${b.active ? "text-gray-900" : "text-gray-400"}`}>{b.label}</span>
+                    <span className="text-[10px] text-gray-400">{b.xp} XP</span>
+                  </motion.div>
                 ))}
               </div>
-              {/* Progress line */}
-              <div className="relative mt-3">
-                <div className="h-1 bg-navy-600/50 rounded-full" />
+              <div className="relative mt-4 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                 <motion.div
-                  className="absolute top-0 left-0 h-1 rounded-full bg-linear-to-r from-orange-500 to-yellow-400"
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "55%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                  className="absolute inset-y-0 left-0 rounded-full bg-orange-400"
+                  initial={{ width:"0%" }} whileInView={{ width:"55%" }}
+                  viewport={{ once:true }}
+                  transition={{ duration:1.4, delay:0.5, ease:"easeOut" }}
                 />
               </div>
             </div>
 
-            {/* Achievements grid */}
+            {/* Achievement cards spring in */}
             <div className="grid grid-cols-2 gap-3">
-              {achievements.map((a) => (
-                <div
+              {ACHIEVEMENTS.map((a, i) => (
+                <motion.div
                   key={a.title}
-                  className={`rounded-xl border p-3 ${a.color}`}
+                  initial={{ opacity: 0, scale: 0.85, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", bounce: 0.35, delay: i * 0.1 }}
+                  className={`rounded-xl border p-3.5 ${a.border}`}
                 >
-                  <div className="text-2xl mb-1">{a.emoji}</div>
-                  <div className="text-sm font-bold text-white">{a.title}</div>
-                  <div className="text-xs text-slate-400 mt-0.5 leading-tight">{a.desc}</div>
-                </div>
+                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center mb-1.5 ${a.iconCls}`}>
+                    <a.Icon size={16} />
+                  </div>
+                  <p className="text-sm font-bold text-gray-900 leading-tight">{a.title}</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-snug">{a.desc}</p>
+                </motion.div>
               ))}
             </div>
 
-            {/* Streak banner */}
-            <div className="glass rounded-2xl p-4 flex items-center gap-4 border-orange-500/20">
-              <div className="text-4xl fire-flicker">🔥</div>
-              <div>
-                <div className="font-sora text-2xl font-bold text-white">7 Day Streak!</div>
-                <div className="text-sm text-slate-400">Keep going — your best streak was 12 days</div>
+            {/* Streak banner slides up */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4, type: "spring", bounce: 0.3 }}
+              className="rounded-2xl border border-orange-200 bg-orange-50 p-4 flex items-center gap-4"
+            >
+              <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
+                <Flame size={24} className="text-orange-500" />
               </div>
-            </div>
+              <div>
+                <p className="font-sora text-xl font-bold text-gray-900">7 Day Streak!</p>
+                <p className="text-sm text-gray-500">Keep going — your best streak was 12 days</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Providers from "@/components/providers";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -15,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PandaLearn — Interactive CS & ML Learning Platform",
+  title: "PandaLearn- Interactive CS & ML Learning Platform",
   description:
     "Learn Computer Science and Machine Learning through live interactive visualizations. Neural networks, algorithms, computer networks — all interactive. Built for Grade 9–12 students and engineering graduates.",
   keywords: [
@@ -84,7 +85,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased"><Providers>{children}</Providers></body>
     </html>
   );
 }

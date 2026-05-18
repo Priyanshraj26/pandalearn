@@ -1,108 +1,100 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 
 const testimonials = [
   {
-    avatar: "👧",
+    text: "I used to dread calculus. PandaLearn's derivative visualizer — drag the tangent line and watch the slope change live — made it click in 20 minutes. I've been on a 14-day streak and I don't want to stop.",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
     name: "Priya Sharma",
     role: "Class 11 Student, Delhi",
-    track: "School Track",
-    trackColor: "bg-teal-500/20 text-teal-300",
-    stars: 5,
-    quote:
-      "I used to dread calculus. PandaLearn's derivative visualizer — where I could drag the tangent line and watch the slope change live — made it click in 20 minutes. I've been on a 14-day streak and I don't want to stop.",
   },
   {
-    avatar: "🧑‍💻",
+    text: "I had my Amazon SDE interview in 3 weeks and was panicking about system design. The consistent hashing and load balancing simulators were the most helpful resources I found. Got the offer.",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
     name: "Arjun Mehta",
     role: "3rd Year CS, NIT Trichy",
-    track: "Engineering Track",
-    trackColor: "bg-violet-500/20 text-violet-300",
-    stars: 5,
-    quote:
-      "I had my Amazon SDE interview in 3 weeks and was panicking about system design. The PandaLearn System Design module — especially the consistent hashing and load balancing simulators — was the most helpful resource I found. Got the offer.",
   },
   {
-    avatar: "👨‍🔬",
+    text: "I've tried Brilliant, Coursera, and YouTube playlists. Nothing compares. The neural network builder where you train a model in the browser and see the loss curve drop — I finally understood backpropagation.",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
     name: "Rohan Kapoor",
     role: "Software Engineer, Bangalore",
-    track: "Engineering Track",
-    trackColor: "bg-violet-500/20 text-violet-300",
-    stars: 5,
-    quote:
-      "I've tried Brilliant, Coursera, and YouTube playlists. Nothing compares to PandaLearn's interactive approach. The neural network builder where you actually train a model in the browser and see the loss curve drop — I finally *understood* backpropagation.",
+  },
+  {
+    text: "Coming from a school with no CS lab, I was intimidated. But PandaLearn's Python modules start from zero and the AI tutor never makes you feel silly. I wrote my first program in week one. Now I'm on module 11.",
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    name: "Neha Srivastava",
+    role: "Class 12 Student, Lucknow",
+  },
+  {
+    text: "The BFS/DFS visualizer finally made graph traversals click for me after two years of struggling. I went from dreading graph questions to solving them confidently. Cracked my Zepto interview last month.",
+    image: "https://randomuser.me/api/portraits/men/75.jpg",
+    name: "Karan Verma",
+    role: "Final Year BTech, IIIT Hyderabad",
+  },
+  {
+    text: "As a non-engineer trying to understand ML for my job, every resource assumed too much or too little. PandaLearn hits the perfect level. The gradient descent animation is genuinely the best explanation I've ever seen.",
+    image: "https://randomuser.me/api/portraits/women/90.jpg",
+    name: "Divya Nair",
+    role: "Product Manager, transitioning to ML",
+  },
+  {
+    text: "The AI tutor feature is incredible. It answers exactly what I'm confused about without making me feel dumb. I've learned more in 3 weeks than in an entire semester of offline coaching.",
+    image: "https://randomuser.me/api/portraits/women/26.jpg",
+    name: "Ananya Joshi",
+    role: "Class 10 Student, Pune",
+  },
+  {
+    text: "The mock interview mode was spot on. It asked exactly the kind of system design questions I got in real interviews. Cleared my Google interview — couldn't have done it without this platform.",
+    image: "https://randomuser.me/api/portraits/men/52.jpg",
+    name: "Vikram Singh",
+    role: "Software Engineer, Google",
+  },
+  {
+    text: "Recursion was always a black box for me. The visual call-stack walkthrough in PandaLearn made it finally make sense. My DSA scores improved dramatically in just two weeks of practice.",
+    image: "https://randomuser.me/api/portraits/women/17.jpg",
+    name: "Riya Patel",
+    role: "2nd Year CS, VIT Vellore",
   },
 ];
 
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
 export default function TestimonialsSection() {
   return (
-    <section
-      className="relative py-24 lg:py-32"
-      aria-labelledby="testimonials-heading"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <section className="bg-white py-20 relative overflow-hidden">
+      <div className="container z-10 mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
         >
-          <h2
-            id="testimonials-heading"
-            className="font-sora text-4xl sm:text-5xl font-bold text-white mb-4"
-          >
+          <div className="flex justify-center">
+            <div className="border border-violet-200 text-violet-600 text-xs font-semibold uppercase tracking-widest py-1 px-4 rounded-lg">
+              Student Stories
+            </div>
+          </div>
+
+          <h2 className="font-sora text-4xl sm:text-5xl font-bold tracking-tighter text-gray-900 text-center mt-5">
             Students who{" "}
             <span className="gradient-text">actually learned</span>
           </h2>
-          <p className="text-lg text-slate-400 max-w-xl mx-auto">
+          <p className="text-center mt-5 text-gray-500 text-lg">
             Not hand-picked influencers. Real students from schools and
-            engineering colleges.
+            engineering colleges across India.
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {testimonials.map((t, i) => (
-            <motion.blockquote
-              key={t.name}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="glass rounded-2xl p-7 flex flex-col card-hover"
-            >
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-4" aria-label={`${t.stars} stars`}>
-                {Array.from({ length: t.stars }).map((_, s) => (
-                  <span key={s} className="text-yellow-400 text-lg">★</span>
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-slate-300 leading-relaxed text-sm flex-1 mb-6">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-
-              {/* Author */}
-              <footer className="flex items-center gap-3 pt-5 border-t border-navy-600/50">
-                <div className="w-10 h-10 rounded-xl bg-navy-700/80 border border-navy-600/60 flex items-center justify-center text-xl">
-                  {t.avatar}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <cite className="not-italic font-semibold text-white text-sm">
-                    {t.name}
-                  </cite>
-                  <div className="text-xs text-slate-500 truncate">{t.role}</div>
-                </div>
-                <div className={`text-xs font-medium px-2 py-0.5 rounded-full ${t.trackColor}`}>
-                  {t.track}
-                </div>
-              </footer>
-            </motion.blockquote>
-          ))}
+        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
         </div>
       </div>
     </section>

@@ -1,68 +1,140 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, PawPrint, Users, BookOpen, Star } from "lucide-react";
+
+const FLOATS = [
+  { Icon: Users,    val: "10K+", label: "Students",   cls: "top-10 left-8 lg:left-16",      delay: 0,    dur: "animate-float"      },
+  { Icon: BookOpen, val: "50+",  label: "Modules",    cls: "top-16 right-8 lg:right-16",    delay: 1.5,  dur: "animate-float-slow" },
+  { Icon: Star,     val: "4.9",  label: "Avg rating", cls: "bottom-10 left-16 lg:left-24",  delay: 0.7,  dur: "animate-float-slow" },
+  { Icon: Sparkles, val: "Free", label: "To start",   cls: "bottom-16 right-16 lg:right-24", delay: 2.1, dur: "animate-float"      },
+];
 
 export default function CTABanner() {
   return (
-    <section
-      className="relative py-24 overflow-hidden"
-      aria-labelledby="cta-heading"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-br from-violet-950/80 via-navy-800/90 to-navy-900/90" />
-      <div className="absolute inset-0 dot-grid opacity-40" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-violet-700/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative py-28 overflow-hidden bg-white">
+      <div className="absolute inset-0 dot-grid opacity-50" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-75 bg-violet-200/35 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-orange-200/25 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {/* Mascot */}
-          <div className="text-6xl mb-6 animate-bounce-soft inline-block">🐼</div>
-
-          <div className="inline-flex items-center gap-2 bg-violet-950/70 border border-violet-700/50 text-violet-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
-            <Sparkles size={13} className="text-violet-400" />
-            Join 10,000+ learners worldwide
-          </div>
-
-          <h2
-            id="cta-heading"
-            className="font-sora text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+        {/* Floating stat chips — visible on large screens only */}
+        {FLOATS.map((f, i) => (
+          <motion.div
+            key={f.val}
+            className={`hidden lg:flex absolute ${f.cls} ${f.dur} items-center gap-2.5 bg-white border border-gray-200 shadow-lg rounded-xl px-3.5 py-2.5 z-10`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 + i * 0.12, duration: 0.5, ease: [0.22,1,0.36,1] }}
+            style={{ animationDelay: `${f.delay}s` }}
           >
-            Ready to learn CS{" "}
-            <span className="gradient-text">the right way?</span>
-          </h2>
+            <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center shrink-0">
+              <f.Icon size={15} className="text-violet-600" />
+            </div>
+            <div>
+              <div className="font-sora text-sm font-bold text-gray-900 leading-none">{f.val}</div>
+              <div className="text-[10px] text-gray-500 mt-0.5">{f.label}</div>
+            </div>
+          </motion.div>
+        ))}
 
-          <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Stop watching. Start doing. Your first 3 modules are completely
-            free — no credit card, no catch.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-bold text-lg rounded-xl shadow-2xl shadow-orange-500/35 hover:shadow-orange-500/55 hover:-translate-y-1 transition-all duration-200"
+        {/* Centered content */}
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity:0, y:32 }} whileInView={{ opacity:1, y:0 }}
+            viewport={{ once:true, margin:"-80px" }}
+            transition={{ duration:0.7, ease:[0.22,1,0.36,1] }}
+          >
+            {/* Panda icon */}
+            <motion.div
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-violet-600 mb-6 shadow-lg"
+              animate={{ y: [0, -12, 0], rotate: [0, -5, 5, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              Start Learning Free
-              <ArrowRight size={20} />
-            </a>
-            <a
-              href="#pricing"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 border-2 border-violet-500/50 hover:border-violet-400 text-violet-300 hover:text-white font-bold text-lg rounded-xl hover:bg-violet-950/50 hover:-translate-y-1 transition-all duration-200"
-            >
-              See Pricing Plans
-            </a>
-          </div>
+              <PawPrint size={28} className="text-white" />
+            </motion.div>
 
-          <p className="text-slate-600 text-sm mt-6">
-            No credit card required · Free forever plan · Cancel Pro anytime
-          </p>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.4 }}
+              className="inline-flex items-center gap-2 bg-violet-100 border border-violet-200 text-violet-700 text-sm font-medium px-4 py-2 rounded-full mb-6"
+            >
+              <Sparkles size={13} className="text-violet-500" />
+              Join 10,000+ learners worldwide
+            </motion.div>
+
+            {/* Headline words stagger in */}
+            <h2 className="font-sora text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+              {["Ready", "to", "learn", "CS"].map((word, i) => (
+                <motion.span
+                  key={word + i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.07, duration: 0.4, ease: [0.22,1,0.36,1] }}
+                  className="inline-block mr-3"
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.42, duration: 0.4, ease: [0.22,1,0.36,1] }}
+                className="gradient-text inline-block"
+              >
+                the right way?
+              </motion.span>
+            </h2>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
+            >
+              Stop watching. Start doing. Your first 3 modules are completely
+              free — no credit card, no catch.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <a
+                href="#"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-bold text-lg rounded-xl shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-1 transition-all duration-200"
+              >
+                Start Learning Free
+                <ArrowRight size={20} />
+              </a>
+              <a
+                href="#pricing"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 border-2 border-violet-300 hover:border-violet-500 text-violet-700 hover:text-violet-800 font-bold text-lg rounded-xl hover:bg-violet-50 hover:-translate-y-1 transition-all duration-200"
+              >
+                See Pricing Plans
+              </a>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.75 }}
+              className="text-gray-400 text-sm mt-6"
+            >
+              No credit card required · Free forever plan · Cancel Pro anytime
+            </motion.p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

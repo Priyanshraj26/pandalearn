@@ -1,197 +1,145 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, GraduationCap, Code2, Lock } from "lucide-react";
+import { ArrowRight, Check, School, GraduationCap } from "lucide-react";
 
-const schoolSubjects = [
-  { emoji: "📐", label: "Mathematics", desc: "Algebra, Calculus, Statistics, Vectors" },
-  { emoji: "💻", label: "Computer Science", desc: "Programming, DSA intro, OOP, SQL" },
-  { emoji: "🧑‍💻", label: "Python Programming", desc: "Syntax, loops, functions, projects" },
-  { emoji: "🌐", label: "How the Internet Works", desc: "DNS, HTTP, packets, TCP/IP" },
-  { emoji: "🤖", label: "What is AI?", desc: "Intro to ML, decision trees, ethics" },
-  { emoji: "🔢", label: "Discrete Mathematics", desc: "Logic gates, Boolean algebra, sets" },
+const TRACKS = [
+  {
+    id: "school",
+    badge: "Grade 9 – 12",
+    Icon: School,
+    iconBg: "bg-teal-500",
+    title: "School Track",
+    subtitle: "Build a rock-solid CS foundation before you hit college.",
+    border: "border-gray-200 hover:border-teal-300",
+    glow: "rgba(20,184,166,0.06)",
+    tagCls: "bg-teal-50 text-teal-700 border-teal-200",
+    btnCls: "bg-teal-500 hover:bg-teal-400",
+    subjects: ["Mathematics & Logic","Computer Science","Python Programming","Data Structures Intro","How the Internet Works","What is AI / ML"],
+    features: ["Beginner-friendly pacing","Visual-first explanations","Adaptive quizzes"],
+  },
+  {
+    id: "engineering",
+    badge: "Most Popular",
+    Icon: GraduationCap,
+    iconBg: "bg-violet-600",
+    title: "Engineering Track",
+    subtitle: "Go deep on CS fundamentals and crack any technical interview.",
+    border: "border-violet-200 hover:border-violet-400",
+    glow: "rgba(124,58,237,0.06)",
+    tagCls: "bg-violet-50 text-violet-700 border-violet-200",
+    btnCls: "bg-violet-600 hover:bg-violet-500",
+    subjects: ["Data Structures & Algorithms","Machine Learning","Computer Networks","Operating Systems","DBMS","System Design","Interview Prep"],
+    features: ["Industry-level depth","Mock interview simulator","Certificate on completion"],
+    featured: true,
+  },
 ];
 
-const engSubjects = [
-  { emoji: "🌳", label: "Data Structures & Algorithms", desc: "Trees, graphs, DP, sorting" },
-  { emoji: "🧠", label: "Machine Learning", desc: "Neural nets, CNNs, Transformers, RL" },
-  { emoji: "🌍", label: "Computer Networks", desc: "OSI, TCP/IP, routing, TLS" },
-  { emoji: "⚙️", label: "Operating Systems", desc: "Scheduling, memory, deadlock, FS" },
-  { emoji: "🗄️", label: "DBMS", desc: "SQL, normalization, ACID, indexing" },
-  { emoji: "🏗️", label: "System Design", desc: "Load balancing, caching, microservices" },
-  { emoji: "🎯", label: "Interview Preparation", desc: "FAANG, system design, behavioral" },
-];
-
-function SubjectTag({ emoji, label }: { emoji: string; label: string }) {
-  return (
-    <div className="flex items-center gap-1.5 bg-navy-700/60 border border-navy-600/60 rounded-lg px-2.5 py-1.5 text-sm text-slate-300 hover:border-violet-500/50 hover:text-white transition-all group">
-      <span>{emoji}</span>
-      <span className="font-medium">{label}</span>
-    </div>
-  );
-}
+const up = (i = 0) => ({
+  initial:     { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0  },
+  viewport:    { once: true, margin: "-60px" },
+  transition:  { duration: 0.6, delay: i * 0.12, ease: [0.22,1,0.36,1] as const },
+});
 
 export default function TracksSection() {
   return (
-    <section
-      id="tracks"
-      className="relative py-24 lg:py-32"
-      aria-labelledby="tracks-heading"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-block bg-navy-700/70 border border-navy-600/60 text-slate-400 text-sm font-medium px-4 py-1.5 rounded-full mb-4">
+    <section id="tracks" className="relative py-24 lg:py-32 bg-gray-50">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+        <motion.div {...up()} className="text-center mb-16">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">
             Two tracks, one platform
-          </div>
-          <h2
-            id="tracks-heading"
-            className="font-sora text-4xl sm:text-5xl font-bold text-white mb-4"
-          >
-            Choose your path
-          </h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Whether you're in school discovering CS for the first time or an
-            engineering student preparing for your dream job — we have a track
-            built for you.
+          </span>
+          <h2 className="font-sora text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Pick your path.</h2>
+          <p className="text-gray-500 text-lg max-w-lg mx-auto">
+            Whether you&apos;re in Grade 9 or final-year engineering, we have a
+            track scoped exactly to your level.
           </p>
         </motion.div>
 
-        {/* Track cards */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-          {/* School Track */}
-          <motion.article
-            initial={{ opacity: 0, x: -32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl border border-teal-500/20 bg-linear-to-br from-teal-950/40 to-navy-800/80 p-7 overflow-hidden card-hover"
-          >
-            {/* Background glow */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative">
-              {/* Header */}
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-2xl shrink-0">
-                  🏫
-                </div>
-                <div>
-                  <div className="inline-block bg-teal-500/20 text-teal-300 text-xs font-semibold px-2.5 py-1 rounded-full mb-1.5">
-                    Grade 9 – 12
-                  </div>
-                  <h3 className="font-sora text-2xl font-bold text-white">
-                    School Track
-                  </h3>
-                  <p className="text-slate-400 text-sm mt-1">
-                    CS fundamentals, interactive maths, and real programming
-                    — designed for curious young minds.
-                  </p>
-                </div>
-              </div>
-
-              {/* Subject grid */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {schoolSubjects.map((s) => (
-                  <SubjectTag key={s.label} emoji={s.emoji} label={s.label} />
-                ))}
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-7 text-sm text-slate-400">
-                {[
-                  "Aligned with CBSE & international curricula",
-                  "Age-appropriate visual explanations",
-                  "Python IDE built right into lessons",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <span className="text-teal-400 shrink-0">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/40 hover:border-teal-400/60 text-teal-300 hover:text-teal-200 font-semibold rounded-xl transition-all text-sm"
+        <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+          {TRACKS.map((t, i) => (
+            <motion.div key={t.id} {...up(i * 0.1)} className="h-full">
+              <div
+                className={`relative h-full rounded-2xl border bg-white ${t.border} transition-all duration-300 group overflow-hidden shadow-sm hover:shadow-lg`}
               >
-                Explore School Track
-                <ArrowRight size={16} />
-              </a>
-            </div>
-          </motion.article>
-
-          {/* Engineering Track */}
-          <motion.article
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-2xl border border-violet-500/30 bg-linear-to-br from-violet-950/50 to-navy-800/80 p-7 overflow-hidden card-hover"
-          >
-            {/* Background glow */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
-            {/* Popular badge */}
-            <div className="absolute top-5 right-5 bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-bold px-2.5 py-1 rounded-full">
-              Most Popular
-            </div>
-
-            <div className="relative">
-              {/* Header */}
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-2xl shrink-0">
-                  ⚙️
-                </div>
-                <div>
-                  <div className="inline-block bg-violet-600/20 text-violet-300 text-xs font-semibold px-2.5 py-1 rounded-full mb-1.5">
-                    B.Tech / B.E. — CS / IT
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(ellipse 70% 40% at 50% 0%,${t.glow},transparent)` }}
+                />
+                {t.featured && (
+                  <div className="absolute top-4 right-4 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 border border-violet-200">
+                    Most Popular
                   </div>
-                  <h3 className="font-sora text-2xl font-bold text-white">
-                    Engineering Track
-                  </h3>
-                  <p className="text-slate-400 text-sm mt-1">
-                    Deep-dive CS, interview preparation, and system design —
-                    built for engineers who want to get hired.
-                  </p>
+                )}
+                <div className="relative p-7 flex flex-col h-full">
+                  <div className="flex items-center gap-3.5 mb-5">
+                    <motion.div
+                      className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 shadow-md ${t.iconBg}`}
+                      initial={{ scale: 0, rotate: -20 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ type: "spring", bounce: 0.4, delay: i * 0.1 + 0.2 }}
+                    >
+                      <t.Icon size={20} className="text-white" />
+                    </motion.div>
+                    <div>
+                      <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border ${t.tagCls}`}>
+                        {t.badge}
+                      </span>
+                      <h3 className="font-sora text-xl font-bold text-gray-900 mt-0.5">{t.title}</h3>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{t.subtitle}</p>
+
+                  <div className="mb-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-widest text-gray-400 mb-2.5">
+                      Subjects covered
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {t.subjects.map((s, j) => (
+                        <motion.span
+                          key={s}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.1 + j * 0.07, duration: 0.3 }}
+                          className="text-xs px-2.5 py-1 rounded-lg bg-gray-100 text-gray-600 border border-gray-200"
+                        >
+                          {s}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {t.features.map((f, j) => (
+                      <motion.li
+                        key={f}
+                        initial={{ opacity: 0, x: -8 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 + j * 0.08 + 0.4 }}
+                        className="flex items-center gap-2.5 text-sm text-gray-700"
+                      >
+                        <Check size={13} className="text-emerald-500 shrink-0" />
+                        {f}
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="#"
+                    className={`inline-flex items-center gap-2 w-full justify-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 shadow-md hover:-translate-y-px ${t.btnCls}`}
+                  >
+                    Explore {t.title} <ArrowRight size={14} />
+                  </a>
                 </div>
               </div>
-
-              {/* Subject grid */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {engSubjects.map((s) => (
-                  <SubjectTag key={s.label} emoji={s.emoji} label={s.label} />
-                ))}
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-7 text-sm text-slate-400">
-                {[
-                  "FAANG + Indian MNC interview prep included",
-                  "Mock system design interviews with AI feedback",
-                  "LeetCode-style problems with visual hints",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <span className="text-violet-400 shrink-0">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-violet-600/20 hover:bg-violet-600/30 border border-violet-500/40 hover:border-violet-400/60 text-violet-300 hover:text-violet-200 font-semibold rounded-xl transition-all text-sm"
-              >
-                Explore Engineering Track
-                <ArrowRight size={16} />
-              </a>
-            </div>
-          </motion.article>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
