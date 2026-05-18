@@ -1,0 +1,374 @@
+import AnimFrame from "@/components/learn/AnimFrame"
+import ConceptCard from "@/components/learn/ConceptCard"
+import MicroCheck from "@/components/learn/MicroCheck"
+import ExitQuiz, { type QuizQuestion } from "@/components/learn/ExitQuiz"
+import ObjectivesCard from "@/components/learn/ObjectivesCard"
+import Anim1A from "./_components/Anim1A"
+import Anim1B from "./_components/Anim1B"
+import Anim1C from "./_components/Anim1C"
+
+// ── quiz data ────────────────────────────────────────────────────────────────
+
+const QUIZ: QuizQuestion[] = [
+  {
+    question: "Which network type typically covers a single building or campus?",
+    options: ["WAN", "MAN", "LAN", "PAN"],
+    correct: 2,
+    explanation: "A LAN (Local Area Network) covers a single building or campus. WANs span countries, MANs cover cities, and PANs cover personal-scale distances (~10 m).",
+  },
+  {
+    question: "In a Star topology, what is the single point of failure?",
+    options: ["Any leaf node", "The connecting cable", "The central hub or switch", "The network protocol"],
+    correct: 2,
+    explanation: "In a star topology, the central hub/switch connects all devices. If it fails, all devices lose connectivity — making it the single point of failure (SPOF).",
+  },
+  {
+    question: "What is the primary advantage of a Mesh topology over a Bus topology?",
+    options: ["Lower cost", "Simpler to set up", "Higher fault tolerance", "Less cable required"],
+    correct: 2,
+    explanation: "Mesh topology provides multiple paths between nodes. If any link fails, traffic can route around it — making it far more fault-tolerant than a bus.",
+  },
+  {
+    question: "Bluetooth earphones connecting to a smartphone is an example of which network type?",
+    options: ["LAN", "MAN", "WAN", "PAN"],
+    correct: 3,
+    explanation: "Bluetooth operates at personal scale (~10 m). A PAN (Personal Area Network) covers devices in immediate proximity of a person.",
+  },
+  {
+    question: "In a Client-Server model, which statement is correct?",
+    options: [
+      "Every node acts as both client and server",
+      "Clients respond to requests from servers",
+      "Clients send requests; servers respond",
+      "Servers only exist on the internet",
+    ],
+    correct: 2,
+    explanation: "In Client-Server: clients initiate requests, servers respond. This is centralised. Peer-to-peer (P2P) is the model where every node is both client and server.",
+  },
+  {
+    question: "What does a protocol define?",
+    options: [
+      "The physical wiring of a network",
+      "Rules for format, timing, sequencing, and error checking of data exchange",
+      "The speed of a network connection",
+      "The number of devices allowed on a network",
+    ],
+    correct: 1,
+    explanation: "A protocol is a set of agreed rules covering format, timing, sequencing, and error-checking — enabling different devices and OSes to communicate reliably.",
+  },
+  {
+    question: "A Ring topology with 5 nodes has how many links?",
+    options: ["4", "5", "10", "3"],
+    correct: 1,
+    explanation: "A ring connects each node to exactly two neighbours, forming a closed loop. With 5 nodes: 5 links total (each node provides one link forward).",
+  },
+  {
+    question: "Which topology requires the most cable for N nodes?",
+    options: ["Bus", "Star", "Ring", "Mesh"],
+    correct: 3,
+    explanation: "A full mesh requires N(N-1)/2 links — every node connected to every other. For 5 nodes that's 10 links, far more than bus (4), ring (5), or star (4).",
+  },
+  {
+    question: "What is a 'packet' in networking?",
+    options: [
+      "A physical box used to ship hardware",
+      "A unit of data transmitted across a network",
+      "A type of network cable",
+      "A hardware device that routes traffic",
+    ],
+    correct: 1,
+    explanation: "A packet is a unit of data formatted for network transmission. Large messages are split into packets, each containing source/destination addresses and a portion of the payload.",
+  },
+  {
+    question: "Which of these is a WAN?",
+    options: [
+      "Office Wi-Fi connecting 30 laptops",
+      "Bluetooth connection to wireless speaker",
+      "The internet",
+      "A city's cable TV provider backbone",
+    ],
+    correct: 2,
+    explanation: "The internet is the largest WAN — a global network of networks. Office Wi-Fi is a LAN, Bluetooth is a PAN, and a city backbone is a MAN.",
+  },
+]
+
+// ── page ─────────────────────────────────────────────────────────────────────
+
+export default function Module1Page() {
+  return (
+    <div className="px-6 lg:px-10 py-8 space-y-8">
+
+      {/* ── module header ── */}
+      <div>
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+          <span>Computer Networks</span>
+          <span>›</span>
+          <span className="text-violet-600 font-semibold">Module 1</span>
+        </div>
+        <div className="flex items-start gap-3 mb-4">
+          <div className="w-12 h-12 rounded-2xl bg-violet-600 flex items-center justify-center font-sora font-bold text-white text-lg shrink-0">
+            1
+          </div>
+          <div>
+            <h1 className="font-sora text-2xl font-bold text-gray-900">Introduction to Networks</h1>
+            <div className="flex flex-wrap items-center gap-2 mt-1.5">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-teal-100 text-teal-700 font-semibold">Beginner</span>
+              <span className="text-xs text-gray-400">~3 hours</span>
+              <span className="text-xs text-gray-400">3 interactive animations</span>
+            </div>
+          </div>
+        </div>
+        <p className="text-gray-600 leading-relaxed">
+          Build a mental model of what a network is, why it exists, and how devices communicate
+          at the highest level. No prior networking knowledge required.
+        </p>
+      </div>
+
+      {/* ── objectives ── */}
+      <ObjectivesCard objectives={[
+        "Define a computer network and explain why networks exist.",
+        "Distinguish between LAN, WAN, MAN, and PAN with real-world examples.",
+        "Identify the five major network topologies and their trade-offs.",
+        "Explain the difference between a client and a server.",
+        "Describe what a protocol is and why standardisation matters.",
+      ]} />
+
+      {/* ─────────────────────────────────────────────────────────
+          Section 1.1 — What Is a Network?
+      ───────────────────────────────────────────────────────── */}
+      <div className="space-y-4">
+        <h2 className="font-sora text-lg font-bold text-gray-900 flex items-center gap-2">
+          <span className="w-6 h-px bg-violet-300" />
+          What Is a Network?
+        </h2>
+
+        <ConceptCard number="1.1" title="Networks and Why They Exist" tag="Key Concept">
+          <p>
+            A <strong>network</strong> is two or more devices that can exchange data. At its simplest:
+            two laptops connected by a cable. At its largest: the internet — a <em>network of networks</em>
+            spanning billions of devices worldwide.
+          </p>
+          <p>
+            Networks exist because isolated devices are limited. Sharing data, resources
+            (printers, storage), and services (email, video calls) requires connectivity.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
+            {[
+              { term: "Node",       def: "Any device on the network (laptop, phone, router)" },
+              { term: "Link",       def: "Connection between nodes (cable, Wi-Fi signal)" },
+              { term: "Bandwidth",  def: "Max data rate of a link (e.g. 1 Gbps)" },
+              { term: "Latency",    def: "Delay for a packet to travel from A to B" },
+              { term: "Throughput", def: "Actual data transferred per second" },
+              { term: "Packet",     def: "Unit of data sent across a network" },
+            ].map(({ term, def }) => (
+              <div key={term} className="bg-gray-50 rounded-xl p-3">
+                <p className="text-xs font-bold text-violet-700 mb-0.5">{term}</p>
+                <p className="text-xs text-gray-500">{def}</p>
+              </div>
+            ))}
+          </div>
+        </ConceptCard>
+
+        {/* Anim 1-A */}
+        <AnimFrame
+          id="anim-1a"
+          title="Anim 1-A — Network Types"
+          description="Watch · Step · Explore — see how scale defines the network type"
+          totalSteps={4}
+        >
+          <Anim1A />
+        </AnimFrame>
+
+        <ConceptCard number="1.2" title="Types of Networks">
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs border-collapse">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="text-left p-2 font-bold text-gray-600 border-b border-gray-200">Type</th>
+                  <th className="text-left p-2 font-bold text-gray-600 border-b border-gray-200">Scope</th>
+                  <th className="text-left p-2 font-bold text-gray-600 border-b border-gray-200">Real-world example</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {[
+                  ["PAN", "~10 m",         "Bluetooth earphones ↔ phone"],
+                  ["LAN", "Building",      "Office Wi-Fi"],
+                  ["MAN", "City",          "Cable TV provider backbone"],
+                  ["WAN", "Country/Global","The internet"],
+                ].map(([t, s, e]) => (
+                  <tr key={t} className="hover:bg-gray-50 transition-colors">
+                    <td className="p-2 font-bold text-violet-700">{t}</td>
+                    <td className="p-2 text-gray-600">{s}</td>
+                    <td className="p-2 text-gray-600">{e}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </ConceptCard>
+      </div>
+
+      {/* ─────────────────────────────────────────────────────────
+          Section 1.3 — Topologies
+      ───────────────────────────────────────────────────────── */}
+      <div className="space-y-4">
+        <h2 className="font-sora text-lg font-bold text-gray-900 flex items-center gap-2">
+          <span className="w-6 h-px bg-violet-300" />
+          Network Topologies
+        </h2>
+
+        <ConceptCard number="1.3" title="How Nodes Are Arranged" tag="Key Concept">
+          <p>
+            A <strong>topology</strong> describes the physical or logical arrangement of nodes and
+            links. Choosing the right topology involves trade-offs between cost, fault tolerance,
+            and complexity.
+          </p>
+          <div className="overflow-x-auto mt-2">
+            <table className="w-full text-xs border-collapse">
+              <thead>
+                <tr className="bg-gray-50">
+                  {["Topology", "Layout", "Pros", "Cons"].map(h => (
+                    <th key={h} className="text-left p-2 font-bold text-gray-600 border-b border-gray-200">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {[
+                  ["Bus",    "Single shared cable",     "Simple, cheap",           "One break kills all"],
+                  ["Ring",   "Circular chain",           "Equal access",            "One break can isolate nodes"],
+                  ["Star",   "Hub at centre",            "Fault-isolated per node", "Hub is single point of failure"],
+                  ["Mesh",   "Every node connected",     "Highly redundant",        "Expensive, complex wiring"],
+                  ["Hybrid", "Mix of above",             "Flexible",                "Complex to manage"],
+                ].map(([t, l, p, c]) => (
+                  <tr key={t} className="hover:bg-gray-50 transition-colors">
+                    <td className="p-2 font-semibold text-violet-700">{t}</td>
+                    <td className="p-2 text-gray-600">{l}</td>
+                    <td className="p-2 text-gray-600 text-emerald-700">{p}</td>
+                    <td className="p-2 text-gray-600 text-rose-600">{c}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </ConceptCard>
+
+        {/* Anim 1-B */}
+        <AnimFrame
+          id="anim-1b"
+          title="Anim 1-B — Topology Builder"
+          description="Switch between topologies, break a node, and see the fault impact live"
+          totalSteps={1}
+        >
+          <Anim1B />
+        </AnimFrame>
+
+        <MicroCheck
+          question="You are designing a network where any single cable break must NOT disconnect other devices. Which topology satisfies this requirement?"
+          options={["Bus", "Ring", "Star", "Mesh"]}
+          correct={3}
+          explanation="A full mesh provides multiple independent paths between any two nodes. A single cable break never disconnects any device. Bus and Ring both fail on a single break. Star survives leaf failures but the hub is a SPOF."
+        />
+      </div>
+
+      {/* ─────────────────────────────────────────────────────────
+          Section 1.4 — Client–Server vs P2P
+      ───────────────────────────────────────────────────────── */}
+      <div className="space-y-4">
+        <h2 className="font-sora text-lg font-bold text-gray-900 flex items-center gap-2">
+          <span className="w-6 h-px bg-violet-300" />
+          Communication Models
+        </h2>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <ConceptCard number="1.4a" title="Client–Server" tag="Definition">
+            <p>
+              Centralised model. <strong>Clients</strong> initiate requests; <strong>servers</strong>
+              respond. Scales well with load balancing. Servers can be upgraded independently.
+            </p>
+            <p className="text-xs text-violet-600 font-semibold mt-2">
+              Examples: HTTP (web), DNS, email (SMTP/IMAP)
+            </p>
+          </ConceptCard>
+          <ConceptCard number="1.4b" title="Peer-to-Peer (P2P)" tag="Definition">
+            <p>
+              Decentralised. Every node acts as both client <em>and</em> server simultaneously.
+              No central point of failure. Harder to manage and secure.
+            </p>
+            <p className="text-xs text-violet-600 font-semibold mt-2">
+              Examples: BitTorrent, blockchain, WebRTC (video calls)
+            </p>
+          </ConceptCard>
+        </div>
+      </div>
+
+      {/* ─────────────────────────────────────────────────────────
+          Section 1.5 — What Is a Protocol?
+      ───────────────────────────────────────────────────────── */}
+      <div className="space-y-4">
+        <h2 className="font-sora text-lg font-bold text-gray-900 flex items-center gap-2">
+          <span className="w-6 h-px bg-violet-300" />
+          Protocols — The Language of Networks
+        </h2>
+
+        <ConceptCard number="1.5" title="Why Protocols Exist" tag="Key Concept">
+          <p>
+            A <strong>protocol</strong> is a set of rules that defines the <em>format, timing,
+            sequencing, and error-checking</em> of data exchange between devices. Without agreed
+            protocols, a Windows PC and a Linux server could never exchange data.
+          </p>
+          <p>
+            <strong>TCP/IP</strong> is the foundational protocol suite of the internet. Every
+            device on the internet speaks TCP/IP — that&apos;s what makes global interoperability possible.
+          </p>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {["TCP/IP", "HTTP", "DNS", "TLS", "SMTP", "SSH", "WebSocket"].map(p => (
+              <span key={p} className="text-xs bg-violet-50 text-violet-700 border border-violet-200 px-2.5 py-1 rounded-full font-mono">
+                {p}
+              </span>
+            ))}
+          </div>
+        </ConceptCard>
+
+        {/* Anim 1-C */}
+        <AnimFrame
+          id="anim-1c"
+          title="Anim 1-C — First Packet Journey"
+          description="Type a message — watch it become a packet, travel the wire, and arrive"
+          totalSteps={1}
+        >
+          <Anim1C />
+        </AnimFrame>
+
+        <MicroCheck
+          question="Which of the following best describes what a network protocol defines?"
+          options={[
+            "The physical cable used to connect devices",
+            "The rules for format, timing, sequencing, and error-checking of data exchange",
+            "The maximum number of devices on a network",
+            "The speed at which data travels through a router",
+          ]}
+          correct={1}
+          explanation="A protocol specifies the exact rules both parties must follow: message format, when to send, how to order messages, and how to detect/correct errors. Physical cabling is a separate concern (hardware standards like Ethernet)."
+        />
+      </div>
+
+      {/* ── divider ── */}
+      <div className="border-t-2 border-dashed border-gray-200 pt-4">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-px flex-1 bg-gray-200" />
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Module Exit Quiz</span>
+          <div className="h-px flex-1 bg-gray-200" />
+        </div>
+        <p className="text-sm text-gray-500 text-center mb-6">
+          Score 7/10 or higher to unlock Module 2.
+        </p>
+        <ExitQuiz
+          moduleName="Module 1 — Introduction to Networks"
+          questions={QUIZ}
+          passThreshold={7}
+        />
+      </div>
+
+    </div>
+  )
+}

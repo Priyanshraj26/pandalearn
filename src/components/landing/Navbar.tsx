@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, PawPrint } from "lucide-react";
+import Link from "next/link";
 const NAV_LINKS = [
   { label: "Courses",  href: "/#tracks"           },
   { label: "Pricing",  href: "/#pricing"           },
@@ -44,7 +45,7 @@ export default function Navbar() {
             }}
           >
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group shrink-0" aria-label="PandaLearn home">
+            <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="PandaLearn home">
               <div className="w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200 shrink-0">
                 <PawPrint size={15} className="text-white" />
               </div>
@@ -54,7 +55,7 @@ export default function Navbar() {
               <span className="hidden sm:inline-flex items-center text-[10px] font-semibold text-violet-600 bg-violet-50 border border-violet-200 px-1.5 py-0.5 rounded-full leading-none">
                 Beta
               </span>
-            </a>
+            </Link>
 
             {/* Desktop links */}
             <ul className="hidden md:flex items-center gap-0.5" role="list">
@@ -72,16 +73,16 @@ export default function Navbar() {
 
             {/* Desktop CTAs */}
             <div className="hidden md:flex items-center gap-1.5">
-              <a href="#" className="px-3.5 py-1.5 text-[13px] font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-100/80 rounded-xl transition-all duration-150">
+              <Link href="/login" className="px-3.5 py-1.5 text-[13px] font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-100/80 rounded-xl transition-all duration-150">
                 Sign In
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/signup"
                 className="inline-flex items-center gap-1.5 px-4 py-1.5 text-[13px] font-semibold text-white bg-orange-500 hover:bg-orange-400 rounded-xl shadow-sm transition-all duration-150 hover:-translate-y-px active:translate-y-0"
               >
                 Start Free
                 <ArrowRight size={12} strokeWidth={2.5} />
-              </a>
+              </Link>
             </div>
 
             {/* Mobile hamburger */}
@@ -118,12 +119,12 @@ export default function Navbar() {
               </a>
             ))}
             <div className="h-px bg-gray-100 my-1" />
-            <a href="#" className="px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-xl transition-all text-center">
+            <Link href="/login" onClick={() => setMobileOpen(false)} className="px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-xl transition-all text-center">
               Sign In
-            </a>
-            <a href="#" className="px-4 py-2.5 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-400 rounded-xl text-center transition-colors">
+            </Link>
+            <Link href="/signup" onClick={() => setMobileOpen(false)} className="px-4 py-2.5 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-400 rounded-xl text-center transition-colors">
               Start Free
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

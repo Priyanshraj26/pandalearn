@@ -1,29 +1,57 @@
 @import "tailwindcss";
 
-/* ── Tailwind v4 theme ─────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────────────
+   PANDALEARN DESIGN SYSTEM — globals.css
+   Single source of truth for every colour, spacing scale, and animation.
+   Rules for Claude: see AGENTS.md → "Design System Rules".
+───────────────────────────────────────────────────────────────────────────── */
+
 @theme inline {
+  /* Fonts */
   --font-sora: var(--font-sora);
   --font-dm:   var(--font-dm);
 
-  /* shadcn/ui design tokens — mapped to PandaLearn brand (violet primary) */
-  --color-background:          #ffffff;
-  --color-foreground:          #111827;
-  --color-primary:             #7c3aed;
-  --color-primary-foreground:  #ffffff;
-  --color-secondary:           #f3f4f6;
-  --color-secondary-foreground:#374151;
-  --color-muted:               #f9fafb;
-  --color-muted-foreground:    #6b7280;
-  --color-accent:              #f5f3ff;
-  --color-accent-foreground:   #4c1d95;
-  --color-destructive:         #ef4444;
-  --color-destructive-foreground: #ffffff;
-  --color-border:              #e5e7eb;
-  --color-input:               #e5e7eb;
-  --color-ring:                #7c3aed;
-  --color-card:                #ffffff;
-  --color-card-foreground:     #111827;
+  /* ── Brand palette ─────────────────────────────────────────────────────── */
+  --pl-violet:        #7c3aed;   /* primary — interactive, progress, active states */
+  --pl-violet-hover:  #6d28d9;   /* violet hover */
+  --pl-violet-light:  #8b5cf6;   /* lighter violet for gradients */
+  --pl-orange:        #f97316;   /* CTA — "Start Free", primary action buttons     */
+  --pl-orange-hover:  #ea6c0a;   /* orange hover */
+  --pl-green:         #10b981;   /* success, completed, earned states              */
+  --pl-amber:         #f59e0b;   /* streak fire, warnings                          */
+  --pl-red:           #ef4444;   /* errors, destructive                            */
 
+  /* ── Violet tint scale (light theme accents) ──────────────────────────── */
+  --pl-violet-50:   #f5f3ff;
+  --pl-violet-100:  #ede9fe;
+  --pl-violet-200:  #ddd6fe;
+  --pl-violet-300:  #c4b5fd;
+  --pl-violet-400:  #a78bfa;
+
+  /* ── Light theme surfaces (landing · auth · dashboard) ───────────────── */
+  --pl-bg:           #ffffff;   /* page background                               */
+  --pl-surface-1:    #f9fafb;   /* subtle raised: sidebars, form panels, code bg */
+  --pl-surface-2:    #f3f4f6;   /* cards, hover backgrounds                      */
+  --pl-border:       #e5e7eb;   /* standard border                               */
+  --pl-border-strong:#d1d5db;   /* stronger dividers                             */
+
+  /* ── Light theme text ─────────────────────────────────────────────────── */
+  --pl-text-primary:   #111827;  /* headings, strong labels                       */
+  --pl-text-secondary: #374151;  /* body copy                                     */
+  --pl-text-muted:     #6b7280;  /* supporting / helper text                      */
+  --pl-text-subtle:    #9ca3af;  /* placeholder, timestamps                       */
+  --pl-text-faint:     #d1d5db;  /* disabled, decorative                          */
+
+  /* ── Dark theme surfaces (learn module viewer) ───────────────────────── */
+  --pl-dark-bg:     #080c14;   /* deepest background                             */
+  --pl-dark-1:      #0d1220;   /* primary dark surface                           */
+  --pl-dark-2:      #111827;   /* slightly lighter                               */
+  --pl-dark-3:      #1e293b;   /* card / panel surfaces                          */
+  --pl-dark-4:      #334155;   /* elevated elements, code bg                     */
+  --pl-dark-5:      #475569;   /* borders, faint lines                           */
+  --pl-dark-border: #1e293b;   /* standard dark border                           */
+
+  /* ── Legacy navy (kept for backwards compat) ─────────────────────────── */
   --color-navy-950: #030712;
   --color-navy-900: #060B18;
   --color-navy-800: #0D1424;
@@ -31,6 +59,26 @@
   --color-navy-600: #1E2D4A;
   --color-navy-500: #2D4163;
 
+  /* ── shadcn/ui tokens — mapped to PandaLearn brand ───────────────────── */
+  --color-background:             var(--pl-bg);
+  --color-foreground:             var(--pl-text-primary);
+  --color-primary:                var(--pl-violet);
+  --color-primary-foreground:     #ffffff;
+  --color-secondary:              var(--pl-surface-2);
+  --color-secondary-foreground:   var(--pl-text-secondary);
+  --color-muted:                  var(--pl-surface-1);
+  --color-muted-foreground:       var(--pl-text-muted);
+  --color-accent:                 var(--pl-violet-50);
+  --color-accent-foreground:      #4c1d95;
+  --color-destructive:            var(--pl-red);
+  --color-destructive-foreground: #ffffff;
+  --color-border:                 var(--pl-border);
+  --color-input:                  var(--pl-border);
+  --color-ring:                   var(--pl-violet);
+  --color-card:                   var(--pl-bg);
+  --color-card-foreground:        var(--pl-text-primary);
+
+  /* ── Animations ───────────────────────────────────────────────────────── */
   --animate-float:       float 5s ease-in-out infinite;
   --animate-float-slow:  float 8s ease-in-out infinite;
   --animate-pulse-glow:  pulseGlow 3s ease-in-out infinite;
@@ -41,7 +89,7 @@
   --animate-flicker:     flicker 1.5s ease-in-out infinite;
 }
 
-/* ── Keyframes ─────────────────────────────────────────────── */
+/* ── Keyframes ─────────────────────────────────────────────────────────────── */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-14px); }
@@ -83,31 +131,46 @@
   100% { transform: scale(1.6); opacity: 0;   }
 }
 
-/* ── Base ──────────────────────────────────────────────────── */
+/* ── Base ──────────────────────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #ffffff;
+  background-color: var(--pl-bg);
   font-family: var(--font-dm, 'DM Sans', sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Scrollbar ─────────────────────────────────────────────── */
+/* ── Scrollbar ─────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0D1424; }
-::-webkit-scrollbar-thumb { background: #2D4163; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+::-webkit-scrollbar-track { background: var(--pl-dark-1); }
+::-webkit-scrollbar-thumb { background: var(--pl-dark-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pl-violet); }
 
-/* ── Utilities ─────────────────────────────────────────────── */
+/* ── Typography utilities ──────────────────────────────────────────────────── */
 .gradient-text {
-  color: #7c3aed;
+  color: var(--pl-violet);
 }
 
 .gradient-text-orange {
-  color: #f97316;
+  color: var(--pl-orange);
 }
 
+/* ── Surface / layout utilities ────────────────────────────────────────────── */
+
+/* Landing page dot grid — light theme */
+.dot-grid {
+  background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Dot grid with violet tint (for auth pages) */
+.dot-grid-violet {
+  background-image: radial-gradient(rgba(124,58,237,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glassmorphism card — light theme */
 .glass {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(18px);
@@ -115,11 +178,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-.dot-grid {
-  background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
+/* Standard hover-lift card */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -128,6 +187,109 @@ body {
   box-shadow: 0 16px 40px rgba(0,0,0,0.1);
 }
 
+/* ── Form component utilities ──────────────────────────────────────────────── */
+
+/* Standard light-theme input — use instead of hardcoding Tailwind classes */
+.pl-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  background: #ffffff;
+  border: 1px solid var(--pl-border);
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--pl-text-primary);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.pl-input::placeholder { color: var(--pl-text-subtle); }
+.pl-input:hover  { border-color: var(--pl-border-strong); }
+.pl-input:focus  {
+  border-color: var(--pl-violet);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+}
+
+/* Primary CTA — orange (Start Free / Create Account / Sign In) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--pl-orange);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.25);
+}
+.btn-primary:hover  { background: var(--pl-orange-hover); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+/* Violet secondary button */
+.btn-violet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--pl-violet);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-violet:hover { background: var(--pl-violet-hover); transform: translateY(-1px); }
+
+/* Ghost/outline button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--pl-text-secondary);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: 2px solid var(--pl-border);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-outline:hover { border-color: var(--pl-violet-300); color: var(--pl-violet); }
+
+/* ── Badge / chip utilities ─────────────────────────────────────────────────── */
+
+/* Violet badge — used on hero, module labels, active states */
+.badge-violet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--pl-violet-50);
+  border: 1px solid var(--pl-violet-100);
+  color: var(--pl-violet);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+/* Section eyebrow label — uppercase violet tracking */
+.section-label {
+  color: var(--pl-violet);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ── Animation utilities ─────────────────────────────────────────────────────*/
 .shimmer-bg {
   background: linear-gradient(90deg, transparent 0%, rgba(124,58,237,0.15) 50%, transparent 100%);
   background-size: 200% 100%;
@@ -137,12 +299,13 @@ body {
 .typing-cursor::after {
   content: '|';
   animation: blink 1s step-end infinite;
-  color: #7c3aed;
+  color: var(--pl-violet);
 }
 
-.badge-pulse { animation: bounceSoft 2s ease-in-out infinite; }
+.badge-pulse  { animation: bounceSoft 2s ease-in-out infinite; }
 .fire-flicker { animation: flicker 1.5s ease-in-out infinite; }
 
+/* ── Scroll reveal ──────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
