@@ -13,18 +13,12 @@ interface Props {
   courseProgress: CourseProgress[]
 }
 
-const TRACK_SUBJECTS: Record<string, { label: string; total: number; color: string }[]> = {
+const TRACK_SUBJECTS: Record<string, { key: string; label: string; total: number; color: string; href: string }[]> = {
   school: [
-    { label: "Mathematics",       total: 8,  color: "bg-blue-500"   },
-    { label: "Computer Science",  total: 6,  color: "bg-violet-500" },
-    { label: "Programming",       total: 7,  color: "bg-orange-500" },
-    { label: "What is AI",        total: 5,  color: "bg-teal-500"   },
+    { key: "What is AI", label: "CBSE AI — Class IX", total: 5, color: "bg-orange-500", href: "/learn/cbse-ai-class9" },
   ],
   engineering: [
-    { label: "Data Structures & Algorithms", total: 20, color: "bg-violet-500" },
-    { label: "Machine Learning",             total: 12, color: "bg-blue-500"   },
-    { label: "Computer Networks",            total: 10, color: "bg-orange-500" },
-    { label: "System Design",                total: 8,  color: "bg-teal-500"   },
+    { key: "Computer Networks", label: "Computer Networks", total: 6, color: "bg-violet-500", href: "/learn/computer-networks" },
   ],
 }
 
@@ -58,13 +52,13 @@ export default function MyCoursesPanel({ track, courseProgress }: Props) {
         </Link>
       </div>
       <div className="space-y-4">
-        {subjects.map(({ label, total, color }) => {
-          const done = progressMap[label] ?? 0
+        {subjects.map(({ key, label, total, color, href }) => {
+          const done = progressMap[key] ?? 0
           const pct  = Math.round((done / total) * 100)
           return (
-            <div key={label}>
+            <Link key={key} href={href} className="block group">
               <div className="flex justify-between text-sm mb-1.5">
-                <span className="font-medium text-gray-700">{label}</span>
+                <span className="font-medium text-gray-700 group-hover:text-violet-700 transition-colors">{label}</span>
                 <span className="text-gray-400 text-xs">{done}/{total} modules</span>
               </div>
               <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -73,7 +67,7 @@ export default function MyCoursesPanel({ track, courseProgress }: Props) {
                   style={{ width: `${pct}%` }}
                 />
               </div>
-            </div>
+            </Link>
           )
         })}
       </div>

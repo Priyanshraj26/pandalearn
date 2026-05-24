@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
+import { Brain, BarChart3, Globe, Package } from "lucide-react";
 
 function NeuralNetViz() {
   const nodes = [
@@ -82,8 +83,8 @@ function PacketViz() {
           )}
         </div>
       ))}
-      <div className="text-center text-xs text-emerald-600 font-semibold mt-1">
-        📦 Packets delivered!
+      <div className="flex items-center justify-center gap-1 text-xs text-emerald-600 font-semibold mt-1">
+        <Package size={12} /> Packets delivered!
       </div>
     </div>
   );
@@ -91,7 +92,7 @@ function PacketViz() {
 
 const modules = [
   {
-    emoji: "🧠",
+    Icon: Brain,
     title: "Neural Network Builder",
     description: "Drag nodes, add layers, adjust weights and watch the network learn in real time on live data.",
     Viz: NeuralNetViz,
@@ -102,7 +103,7 @@ const modules = [
     glow: "rgba(124,58,237,0.05)",
   },
   {
-    emoji: "📊",
+    Icon: BarChart3,
     title: "Algorithm Visualizer",
     description: "Step through BFS, DFS, Dijkstra, and 10+ sorting algorithms with full control - pause, rewind, speed up.",
     Viz: AlgorithmViz,
@@ -113,7 +114,7 @@ const modules = [
     glow: "rgba(249,115,22,0.05)",
   },
   {
-    emoji: "🌐",
+    Icon: Globe,
     title: "Packet Simulator",
     description: "Send real packets through a visual network. See DNS resolution, TCP handshakes, and HTTP in action.",
     Viz: PacketViz,
@@ -163,7 +164,7 @@ export default function ModuleShowcase() {
               </div>
               <div className="p-6">
                 <div className={`inline-flex items-center gap-1.5 border text-xs font-semibold px-2.5 py-1 rounded-full mb-3 ${mod.tagColor}`}>
-                  <span>{mod.emoji}</span>
+                  <mod.Icon size={12} />
                   {mod.tag}
                 </div>
                 <h3 className="font-sora text-xl font-bold text-gray-900 mb-2">{mod.title}</h3>

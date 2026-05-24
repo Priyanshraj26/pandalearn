@@ -25,6 +25,7 @@ model User {
   gems         Int      @default(0)
   lastActiveAt DateTime @default(now()) @map("last_active_at")
   track        String?  // "school" | "engineering"
+  board        String?  // "cbse" | "icse" | "state_board" — school track only
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt      @map("updated_at")

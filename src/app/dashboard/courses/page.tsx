@@ -3,7 +3,7 @@ import { redirect } from "next/navigation"
 import { getDashboardData } from "@/lib/db/user"
 import Link from "next/link"
 import {
-  Code2, Brain, Network, Layers, Calculator, Monitor, Code, Bot,
+  Brain, Network,
   ArrowRight, CheckCircle, Lock, Play, BookOpen, Flame,
 } from "lucide-react"
 
@@ -24,95 +24,31 @@ type Subject = {
 
 const ENGINEERING: Subject[] = [
   {
-    id: "dsa", key: "Data Structures & Algorithms",
-    label: "Data Structures & Algorithms",
-    description: "Arrays, linked lists, trees, graphs, sorting algorithms, and dynamic programming.",
-    Icon: Code2, iconBg: "bg-violet-100", iconText: "text-violet-600",
-    total: 20, href: "/learn/dsa",
-    modules: [
-      "Introduction to DSA", "Arrays & Strings", "Linked Lists", "Stacks & Queues",
-      "Binary Trees", "BST & Heaps", "Graphs & BFS/DFS", "Sorting Algorithms",
-      "Searching Algorithms", "Dynamic Programming",
-    ],
-  },
-  {
-    id: "ml", key: "Machine Learning",
-    label: "Machine Learning",
-    description: "Linear models, neural networks, CNNs, NLP, and deploying real models.",
-    Icon: Brain, iconBg: "bg-blue-100", iconText: "text-blue-600",
-    total: 12, href: "/learn/ml",
-    modules: [
-      "What is ML?", "Linear Regression", "Classification", "Decision Trees",
-      "Neural Networks", "Backpropagation", "CNNs", "NLP Fundamentals",
-    ],
-  },
-  {
     id: "networks", key: "Computer Networks",
     label: "Computer Networks",
-    description: "OSI model, TCP/IP, IP addressing, routing, DNS, HTTP/S, and network security.",
-    Icon: Network, iconBg: "bg-orange-100", iconText: "text-orange-600",
-    total: 10, href: "/learn/computer-networks",
+    description: "OSI model, TCP/IP, IP addressing, routing, DNS, HTTP/S — every layer animated.",
+    Icon: Network, iconBg: "bg-violet-100", iconText: "text-violet-600",
+    total: 6, href: "/learn/computer-networks",
     modules: [
-      "What is a Network?", "OSI Model", "TCP/IP Stack", "IP Addressing",
-      "Routing Protocols", "DNS & HTTP", "TLS & Security", "Firewalls",
-    ],
-  },
-  {
-    id: "systems", key: "System Design",
-    label: "System Design",
-    description: "Scalable architecture, load balancing, caching, databases, and microservices.",
-    Icon: Layers, iconBg: "bg-teal-100", iconText: "text-teal-600",
-    total: 8, href: "/learn/system-design",
-    modules: [
-      "Design Principles", "Load Balancing", "Caching Strategies", "Database Sharding",
-      "Message Queues", "Microservices", "API Design", "Case Studies",
+      "Introduction to Networks", "OSI & TCP/IP Models", "Data Link Layer",
+      "Network Layer & IP Addressing", "Transport Layer: TCP & UDP", "Application Layer Protocols",
     ],
   },
 ]
 
 const SCHOOL: Subject[] = [
   {
-    id: "math", key: "Mathematics",
-    label: "Mathematics",
-    description: "Number theory, algebra, logic, probability, and combinatorics for CS.",
-    Icon: Calculator, iconBg: "bg-blue-100", iconText: "text-blue-600",
-    total: 8, href: "/learn/math",
-    modules: [
-      "Number Systems", "Boolean Logic", "Set Theory", "Functions",
-      "Probability", "Combinatorics", "Graph Theory Basics", "Cryptography Math",
-    ],
-  },
-  {
-    id: "cs", key: "Computer Science",
-    label: "Computer Science",
-    description: "How computers work - hardware, OS, memory, and software fundamentals.",
-    Icon: Monitor, iconBg: "bg-violet-100", iconText: "text-violet-600",
-    total: 6, href: "/learn/cs",
-    modules: [
-      "What is a Computer?", "Binary & Memory", "CPU & OS", "File Systems",
-      "How the Internet Works", "Intro to Algorithms",
-    ],
-  },
-  {
-    id: "programming", key: "Programming",
-    label: "Programming",
-    description: "Python from first principles - variables, loops, functions, and projects.",
-    Icon: Code, iconBg: "bg-orange-100", iconText: "text-orange-600",
-    total: 7, href: "/learn/programming",
-    modules: [
-      "Variables & Types", "Conditionals", "Loops", "Functions",
-      "Lists & Dicts", "Files & I/O", "Mini Projects",
-    ],
-  },
-  {
     id: "ai", key: "What is AI",
-    label: "What is AI",
-    description: "AI concepts, neural nets, machine learning, and ethics - no code needed.",
-    Icon: Bot, iconBg: "bg-teal-100", iconText: "text-teal-600",
-    total: 5, href: "/learn/ai",
+    label: "CBSE AI — Class IX",
+    description: "CBSE Subject 417 — AI project cycle, ethics, data literacy, gen AI, and Python.",
+    Icon: Brain, iconBg: "bg-orange-100", iconText: "text-orange-600",
+    total: 5, href: "/learn/cbse-ai-class9",
     modules: [
-      "What is AI?", "Machine Learning Basics", "Neural Networks Visualised",
-      "AI in the Real World", "Ethics of AI",
+      "AI Reflection, Project Cycle & Ethics",
+      "Data Literacy",
+      "Math for AI: Statistics & Probability",
+      "Introduction to Generative AI",
+      "Introduction to Python",
     ],
   },
 ]

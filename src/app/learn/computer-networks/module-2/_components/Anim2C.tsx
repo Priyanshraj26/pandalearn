@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Monitor, Server, Play, RotateCcw } from "lucide-react"
+import { Monitor, Server, Play, RotateCcw, Lock } from "lucide-react"
 
 // ── Each arrow represents one phase of the HTTP request lifecycle ─────────────
 const STEPS: {
@@ -45,7 +45,7 @@ export default function Anim2C() {
       {/* ── URL bar + controls ── */}
       <div className="flex items-center gap-2">
         <div className="flex-1 flex items-center gap-2 bg-[#1E293B] rounded-lg px-3 py-2 border border-[#334155]">
-          <span className="text-emerald-400 text-xs font-bold shrink-0">🔒</span>
+          <Lock size={11} className="text-emerald-400 shrink-0" />
           <span className="text-gray-300 text-xs font-mono">https://pandalearn.in/api/modules</span>
         </div>
 

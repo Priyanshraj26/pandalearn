@@ -4,9 +4,10 @@ import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   Mail, Lock, Eye, EyeOff, User, AlertCircle,
-  ArrowRight, Loader2, GraduationCap, Code2, CheckCircle2,
+  ArrowRight, Loader2, GraduationCap, Code2, CheckCircle2, PawPrint,
 } from "lucide-react"
 
 function GoogleIcon() {
@@ -49,7 +50,7 @@ const TRACKS = [
 
 export default function SignupPage() {
   const router  = useRouter()
-  const [form, setForm] = useState({ name: "", email: "", password: "", track: "" })
+  const [form, setForm] = useState({ name: "", email: "", password: "", track: "", board: "" })
   const [showPass, setShowPass] = useState(false)
   const [error,   setError]   = useState("")
   const [loading, setLoading] = useState(false)
@@ -95,7 +96,7 @@ export default function SignupPage() {
         {/* Header */}
         <div className="px-8 pt-8 pb-6 text-center border-b border-gray-100">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-600 shadow-md shadow-violet-600/30 mb-4">
-            <span className="text-2xl leading-none select-none">🐼</span>
+            <PawPrint size={22} className="text-white" />
           </div>
           <h1 className="font-sora text-[1.35rem] font-bold text-gray-900 mb-1">
             Create your account
@@ -210,7 +211,7 @@ export default function SignupPage() {
                     <button
                       key={id}
                       type="button"
-                      onClick={() => set("track", id)}
+                      onClick={() => { set("track", id); if (id !== "school") set("board", "") }}
                       className={`relative p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${
                         selected ? ring : "border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-gray-100"
                       }`}
@@ -235,6 +236,45 @@ export default function SignupPage() {
                 })}
               </div>
             </div>
+
+            {/* Board selector — only for School track */}
+            <AnimatePresence>
+              {form.track === "school" && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="space-y-2 pt-1">
+                    <label className="block text-[13px] font-medium text-gray-600">
+                      Your board
+                    </label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {(["cbse", "icse", "state_board"] as const).map(b => {
+                        const labels = { cbse: "CBSE", icse: "ICSE", state_board: "State Board" }
+                        const selected = form.board === b
+                        return (
+                          <button
+                            key={b}
+                            type="button"
+                            onClick={() => set("board", b)}
+                            className={`h-10 rounded-xl border-2 text-[12px] font-semibold transition-all cursor-pointer ${
+                              selected
+                                ? "border-emerald-400 bg-emerald-50 text-emerald-700"
+                                : "border-gray-100 bg-gray-50 text-gray-500 hover:border-gray-200 hover:bg-gray-100"
+                            }`}
+                          >
+                            {labels[b]}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Submit */}
             <button

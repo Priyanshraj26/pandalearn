@@ -4,7 +4,7 @@ import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { Mail, Lock, Eye, EyeOff, AlertCircle, ArrowRight, Loader2 } from "lucide-react"
+import { Mail, Lock, Eye, EyeOff, AlertCircle, ArrowRight, Loader2, PawPrint } from "lucide-react"
 
 function GoogleIcon() {
   return (
@@ -53,7 +53,7 @@ export default function LoginPage() {
         {/* Header stripe */}
         <div className="px-8 pt-8 pb-6 text-center border-b border-gray-100">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-violet-600 shadow-md shadow-violet-600/30 mb-4">
-            <span className="text-2xl leading-none select-none">🐼</span>
+            <PawPrint size={22} className="text-white" />
           </div>
           <h1 className="font-sora text-[1.35rem] font-bold text-gray-900 mb-1">
             Welcome back
