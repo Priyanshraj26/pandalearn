@@ -9,6 +9,10 @@ import AnimProjectCycle from "./_components/AnimProjectCycle"
 import AnimModelLearning from "./_components/AnimModelLearning"
 import AnimProjectSandbox from "./_components/AnimProjectSandbox"
 import AnimEthicsScenario from "./_components/AnimEthicsScenario"
+import LessonProgressStrip from "./_components/LessonProgressStrip"
+import AIDomainsGames from "./_components/AIDomainsGames"
+import Canvas4Ws from "./_components/Canvas4Ws"
+import ConfusionMatrixClassifier from "./_components/ConfusionMatrixClassifier"
 
 // ── Quiz ─────────────────────────────────────────────────────────────────────
 
@@ -138,7 +142,7 @@ function LessonMap() {
   const lessons = [
     {
       n: "01", href: "#lesson-01",
-      accent: "#3B82F6", bg: "#EFF6FF", textColor: "text-blue-700",
+      accent: "#6B7280", bg: "#F9FAFB", textColor: "text-gray-600",
       title: "What is AI? The Three Realms",
       time: "~45 min",
       topics: ["AI Definition", "History", "NLP · CV · Data"],
@@ -223,6 +227,8 @@ function SectionHeading({ n, title, lesson }: { n: string; title: string; lesson
 
 export default function Module1Page() {
   return (
+    <>
+    <LessonProgressStrip />
     <div className="px-6 lg:px-10">
 
       {/* ── Hero banner ─────────────────────────────────────────────────────── */}
@@ -311,12 +317,12 @@ export default function Module1Page() {
           <ConceptCard number="1.2" title="A Brief History of AI" tag="Key Concept">
             <div className="space-y-2">
               {[
-                { year: "1950", event: "Alan Turing proposes the 'Turing Test' — can a machine think?",                          color: "bg-violet-100 text-violet-700" },
-                { year: "1956", event: "The term 'Artificial Intelligence' is coined at Dartmouth College.",                      color: "bg-blue-100 text-blue-700"   },
-                { year: "1997", event: "IBM Deep Blue defeats world chess champion Garry Kasparov.",                               color: "bg-teal-100 text-teal-700"   },
-                { year: "2012", event: "Deep learning revolution — AlexNet wins ImageNet by a huge margin.",                      color: "bg-green-100 text-green-700" },
-                { year: "2016", event: "AlphaGo defeats Go world champion — a game considered too complex for computers.",        color: "bg-amber-100 text-amber-700" },
-                { year: "2022", event: "ChatGPT launches — 100 million users in 2 months. Generative AI enters the mainstream.", color: "bg-orange-100 text-orange-700"},
+                { year: "1950", event: "Alan Turing proposes the 'Turing Test' — can a machine think?",                          color: "bg-gray-100 text-gray-600" },
+                { year: "1956", event: "The term 'Artificial Intelligence' is coined at Dartmouth College.",                      color: "bg-gray-100 text-gray-600" },
+                { year: "1997", event: "IBM Deep Blue defeats world chess champion Garry Kasparov.",                               color: "bg-gray-100 text-gray-600" },
+                { year: "2012", event: "Deep learning revolution — AlexNet wins ImageNet by a huge margin.",                      color: "bg-gray-100 text-gray-600" },
+                { year: "2016", event: "AlphaGo defeats Go world champion — a game considered too complex for computers.",        color: "bg-gray-100 text-gray-600" },
+                { year: "2022", event: "ChatGPT launches — 100 million users in 2 months. Generative AI enters the mainstream.", color: "bg-gray-100 text-gray-600" },
               ].map(({ year, event, color }) => (
                 <div key={year} className="flex items-start gap-3">
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 mt-0.5 ${color}`}>{year}</span>
@@ -333,9 +339,9 @@ export default function Module1Page() {
             </p>
             <div className="mt-3 grid sm:grid-cols-3 gap-3">
               {[
-                { domain: "NLP",             color: "bg-blue-50 border-blue-200 text-blue-800",   desc: "Understand & generate human language"   },
-                { domain: "Computer Vision", color: "bg-emerald-50 border-emerald-200 text-emerald-800", desc: "Interpret images, video & spatial data" },
-                { domain: "Data Statistics", color: "bg-orange-50 border-orange-200 text-orange-800", desc: "Find patterns in numbers & predictions" },
+                { domain: "NLP",             color: "bg-gray-50 border-gray-200 text-gray-800", desc: "Understand & generate human language"   },
+                { domain: "Computer Vision", color: "bg-gray-50 border-gray-200 text-gray-800", desc: "Interpret images, video & spatial data" },
+                { domain: "Data Statistics", color: "bg-gray-50 border-gray-200 text-gray-800", desc: "Find patterns in numbers & predictions" },
               ].map(({ domain, color, desc }) => (
                 <div key={domain} className={`rounded-xl border p-3 ${color}`}>
                   <p className="font-bold text-xs">{domain}</p>
@@ -349,6 +355,9 @@ export default function Module1Page() {
           <AnimFrame id="anim-ai-domains" title="Interactive: The Three Domains of AI" description="Click a domain to explore it · auto-cycles every 4 seconds">
             <AnimAIDomains />
           </AnimFrame>
+
+          {/* ── Phase 1 NEW: AI Domains mini-games ── */}
+          <AIDomainsGames />
 
           <MicroCheck
             question="Netflix recommending movies uses which AI domain?"
@@ -411,8 +420,8 @@ export default function Module1Page() {
                 { w: "WHERE", q: "Where does this problem occur?",      ex: "Districts with fewer than 1 doctor per 1,000 people" },
                 { w: "WHEN",  q: "When and how often does it occur?",   ex: "Especially during monsoon when travel is difficult" },
               ].map(({ w, q, ex }) => (
-                <div key={w} className="bg-orange-50 border border-orange-100 rounded-xl p-3">
-                  <p className="text-sm font-bold text-orange-600 mb-1">{w}</p>
+                <div key={w} className="bg-gray-50 border border-gray-200 rounded-xl p-3">
+                  <p className="text-sm font-bold text-violet-600 mb-1">{w}</p>
                   <p className="text-xs font-semibold text-gray-800">{q}</p>
                   <p className="text-xs text-gray-500 mt-1 italic">{ex}</p>
                 </div>
@@ -420,14 +429,25 @@ export default function Module1Page() {
             </div>
           </ConceptCard>
 
+          {/* ── Phase 1 NEW: interactive 4Ws canvas ── */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-100 border border-violet-200 text-xs font-bold text-violet-700">
+                Interactive Activity
+              </span>
+              <span className="text-xs text-gray-400">Fill in your own 4Ws for any project theme</span>
+            </div>
+            <Canvas4Ws />
+          </div>
+
           <ConceptCard number="2.3" title="Modeling: Rule-Based vs. Learning-Based" tag="Key Concept">
             <div className="overflow-x-auto">
               <table className="w-full text-xs border-collapse">
                 <thead>
                   <tr className="bg-gray-50">
                     <th className="text-left px-3 py-2 font-bold text-gray-600 border border-gray-200">Aspect</th>
-                    <th className="text-left px-3 py-2 font-bold text-blue-700 border border-gray-200">Rule-Based</th>
-                    <th className="text-left px-3 py-2 font-bold text-green-700 border border-gray-200">Learning-Based</th>
+                    <th className="text-left px-3 py-2 font-bold text-gray-700 border border-gray-200">Rule-Based</th>
+                    <th className="text-left px-3 py-2 font-bold text-gray-700 border border-gray-200">Learning-Based</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -468,10 +488,10 @@ export default function Module1Page() {
             </p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               {[
-                { term: "True Positive (TP)",  color: "bg-emerald-50 border-emerald-200 text-emerald-800",  desc: "Model predicted POSITIVE. Actual label is POSITIVE. ✓ Correct." },
-                { term: "False Positive (FP)", color: "bg-rose-50 border-rose-200 text-rose-800",           desc: "Model predicted POSITIVE. Actual label is NEGATIVE. ✗ False alarm." },
-                { term: "False Negative (FN)", color: "bg-rose-50 border-rose-200 text-rose-800",           desc: "Model predicted NEGATIVE. Actual label is POSITIVE. ✗ Missed it — most dangerous in medicine!" },
-                { term: "True Negative (TN)",  color: "bg-emerald-50 border-emerald-200 text-emerald-800",  desc: "Model predicted NEGATIVE. Actual label is NEGATIVE. ✓ Correct." },
+                { term: "True Positive (TP)",  color: "bg-gray-50 border-gray-200 text-gray-700",  desc: "Model predicted POSITIVE. Actual label is POSITIVE. Correct." },
+                { term: "False Positive (FP)", color: "bg-gray-50 border-gray-200 text-gray-700",  desc: "Model predicted POSITIVE. Actual label is NEGATIVE. False alarm." },
+                { term: "False Negative (FN)", color: "bg-gray-50 border-gray-200 text-gray-700",  desc: "Model predicted NEGATIVE. Actual label is POSITIVE. Missed it — most dangerous in medicine!" },
+                { term: "True Negative (TN)",  color: "bg-gray-50 border-gray-200 text-gray-700",  desc: "Model predicted NEGATIVE. Actual label is NEGATIVE. Correct." },
               ].map(({ term, color, desc }) => (
                 <div key={term} className={`rounded-xl border p-3 ${color}`}>
                   <p className="font-bold text-xs">{term}</p>
@@ -480,6 +500,17 @@ export default function Module1Page() {
               ))}
             </div>
           </ConceptCard>
+
+          {/* ── Phase 1 NEW: hands-on confusion matrix classifier ── */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 border border-amber-200 text-xs font-bold text-amber-700">
+                Hands-On Activity
+              </span>
+              <span className="text-xs text-gray-400">Classify 12 real-world scenarios as TP / FP / TN / FN</span>
+            </div>
+            <ConfusionMatrixClassifier />
+          </div>
 
           {/* THE WOW FEATURE: AI Project Sandbox */}
           <div>
@@ -574,19 +605,19 @@ export default function Module1Page() {
               while others are left behind — or actively harmed.
             </p>
             <div className="mt-3 grid sm:grid-cols-2 gap-3">
-              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3">
-                <p className="text-xs font-bold text-emerald-700 mb-1.5">Who benefits most?</p>
+              <div className="bg-violet-50 border border-violet-100 rounded-xl p-3">
+                <p className="text-xs font-bold text-violet-700 mb-1.5">Who benefits most?</p>
                 <ul className="space-y-1">
                   {["Tech-savvy urban users","English-speaking populations","People with fast internet","Data-rich organisations"].map(i => (
-                    <li key={i} className="text-[11px] text-emerald-800 flex items-start gap-1.5"><span>+</span>{i}</li>
+                    <li key={i} className="text-[11px] text-violet-800 flex items-start gap-1.5"><span>+</span>{i}</li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-rose-50 border border-rose-200 rounded-xl p-3">
-                <p className="text-xs font-bold text-rose-700 mb-1.5">Who is left behind?</p>
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-3">
+                <p className="text-xs font-bold text-gray-600 mb-1.5">Who is left behind?</p>
                 <ul className="space-y-1">
                   {["Rural communities with low connectivity","Non-English speakers","Older adults unfamiliar with technology","Low-income populations"].map(i => (
-                    <li key={i} className="text-[11px] text-rose-800 flex items-start gap-1.5"><span>−</span>{i}</li>
+                    <li key={i} className="text-[11px] text-gray-600 flex items-start gap-1.5"><span>−</span>{i}</li>
                   ))}
                 </ul>
               </div>
@@ -596,7 +627,7 @@ export default function Module1Page() {
           <ConceptCard number="3.4" title="Advantages and Disadvantages of AI" tag="Remember">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <p className="text-xs font-bold text-emerald-600 mb-2 uppercase tracking-wide">Advantages</p>
+                <p className="text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">Advantages</p>
                 <ul className="space-y-1.5">
                   {[
                     "Solves problems at superhuman speed and scale",
@@ -604,11 +635,11 @@ export default function Module1Page() {
                     "Enables new medical diagnoses and scientific discoveries",
                     "Increases accessibility (e.g., real-time translation for deaf users)",
                     "Automates dangerous or repetitive work",
-                  ].map(a => <li key={a} className="text-xs text-gray-700 flex items-start gap-1.5"><span className="text-emerald-500 shrink-0 mt-0.5">+</span>{a}</li>)}
+                  ].map(a => <li key={a} className="text-xs text-gray-700 flex items-start gap-1.5"><span className="text-violet-500 shrink-0 mt-0.5">+</span>{a}</li>)}
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-bold text-rose-600 mb-2 uppercase tracking-wide">Disadvantages</p>
+                <p className="text-xs font-bold text-gray-700 mb-2 uppercase tracking-wide">Disadvantages</p>
                 <ul className="space-y-1.5">
                   {[
                     "Can amplify human biases at massive scale",
@@ -616,7 +647,7 @@ export default function Module1Page() {
                     "Lacks common sense and emotional intelligence",
                     "Can be weaponised for surveillance or deepfakes",
                     "Opaque 'black box' models are hard to audit",
-                  ].map(d => <li key={d} className="text-xs text-gray-700 flex items-start gap-1.5"><span className="text-rose-400 shrink-0 mt-0.5">−</span>{d}</li>)}
+                  ].map(d => <li key={d} className="text-xs text-gray-700 flex items-start gap-1.5"><span className="text-gray-400 shrink-0 mt-0.5">−</span>{d}</li>)}
                 </ul>
               </div>
             </div>
@@ -625,7 +656,7 @@ export default function Module1Page() {
           {/* Ethics Scenario Roleplay */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 border border-amber-200 text-xs font-bold text-amber-700">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-50 border border-violet-100 text-xs font-bold text-violet-700">
                 Roleplay Activity
               </span>
               <span className="text-xs text-gray-400">Inspired by the CBSE Balloon Debate & Ethics Awareness activities</span>
@@ -659,5 +690,6 @@ export default function Module1Page() {
 
       </div>
     </div>
+    </>
   )
 }
