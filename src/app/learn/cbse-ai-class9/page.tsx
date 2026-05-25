@@ -23,7 +23,7 @@ const UNITS = [
     marks:    10,
     desc:     "Learn to find, process, interpret and visualise data like a scientist.",
     topics:   ["Types of Data", "Data Acquisition", "Data Visualisation (Tableau)", "Data Privacy"],
-    unlocked: false,
+    unlocked: true,
     Icon:     BarChart3,
   },
   {

@@ -180,7 +180,16 @@ page.tsx (server component)
 | `module-1/_components/AnimProjectSandbox.tsx` | **THE WOW FEATURE** — 8-step AI Project Cycle wizard |
 | `module-1/_components/AnimEthicsScenario.tsx` | Ethics roleplay: 4 stakeholders, 3 phases (Explore / Reality Check / What Can We Do?) |
 
-### Units 2–5 — NOT YET BUILT
+### Unit 2 — Data Literacy ✅ COMPLETE
+| File | Purpose |
+|---|---|
+| `src/app/learn/cbse-ai-class9/module-2/page.tsx` | Server component. 3 lessons + CBSE accordion + 5 MicroChecks + ExitQuiz (10 questions, threshold 7) |
+| `module-2/_components/AnimDataTypes.tsx` | Data taxonomy explorer: structured vs unstructured, primary vs secondary, bezier particle flows, tab indicator |
+| `module-2/_components/AnimDataCleaning.tsx` | **WOW FEATURE** — Interactive dataset cleaner: 15-row student dataset with 7 issues (missing, outlier, duplicate), data quality score 0→100% |
+| `module-2/_components/AnimChartSelector.tsx` | 5 scenarios × 5 chart types: pick right chart, see animated live SVG (bar, line, pie, scatter, histogram) |
+| `module-2/_components/AnimDataPrivacy.tsx` | 3-phase privacy simulator: toggle app permissions → breach scenario → protection strategies + PDPB rights |
+
+### Units 3–5 — NOT YET BUILT
 
 ---
 
@@ -461,3 +470,4 @@ Every component must pass this checklist before being considered done:
 |---|---|
 | Session 1 | Syllabus analysis, all Unit 1 files (first pass) — AISidebar, layout, overview page, module-1 page with 3 lessons, 4 animation components, 7 MicroChecks, 10-question ExitQuiz |
 | Session 2 | Quality uplift — rewrote AnimAIDomains with bezier particles + hex nodes + glow filters; improved AnimProjectCycle with polygon arrowheads + hover/tap; created AnimModelLearning (neural network viz); improved AnimProjectSandbox training animation + validation hints; fixed all Tailwind canonical warnings |
+| Session 3 | Unit 2: Data Literacy — full build: AnimDataTypes (taxonomy explorer), AnimDataCleaning (WOW: 15-row dirty dataset cleaner), AnimChartSelector (5 charts × 5 scenarios with live SVGs), AnimDataPrivacy (permissions → breach → protection + PDPB), module-2/page.tsx (3 lessons, 5 MicroChecks, 10-question ExitQuiz); unlocked Unit 2 in AISidebar + overview page |

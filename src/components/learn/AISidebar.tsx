@@ -7,7 +7,7 @@ import { Lock, ChevronLeft, ChevronRight, Award } from "lucide-react"
 
 const UNITS = [
   { num: 1, title: "AI Reflection, Project Cycle & Ethics", dur: "~55h", marks: "10M", unlocked: true  },
-  { num: 2, title: "Data Literacy",                          dur: "~50h", marks: "10M", unlocked: false },
+  { num: 2, title: "Data Literacy",                          dur: "~50h", marks: "10M", unlocked: true  },
   { num: 3, title: "Math for AI: Statistics & Probability",  dur: "~25h", marks: "7M",  unlocked: false },
   { num: 4, title: "Introduction to Generative AI",          dur: "~20h", marks: "5M",  unlocked: false },
   { num: 5, title: "Introduction to Python",                 dur: "~10h", marks: "8M",  unlocked: false },
