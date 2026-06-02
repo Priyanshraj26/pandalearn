@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -26,7 +26,7 @@ const SCENARIOS: Scenario[] = [
     why:      "A Bar Chart is perfect for comparing values across distinct categories (students). Each bar shows one student's mark clearly.",
     wrong: {
       pie:      "Pie charts show proportions of a whole, not comparisons between individuals.",
-      line:     "Line charts show change over time — there's no time axis here, just 5 students.",
+      line:     "Line charts show change over time  there's no time axis here, just 5 students.",
       scatter:  "Scatter plots need two numerical variables per data point (e.g. height vs weight).",
     },
   },
@@ -38,7 +38,7 @@ const SCENARIOS: Scenario[] = [
     why:      "A Line Chart is ideal for showing a trend over time. The connected line makes the growth pattern immediately visible.",
     wrong: {
       bar:      "Bar charts can work for time data but don't emphasise the continuous trend as clearly as a line.",
-      pie:      "Pie charts cannot show change over time — they show parts of a whole at one moment.",
+      pie:      "Pie charts cannot show change over time  they show parts of a whole at one moment.",
       scatter:  "Scatter plots don't connect data points to show a trend.",
     },
   },
@@ -50,7 +50,7 @@ const SCENARIOS: Scenario[] = [
     why:      "A Pie Chart shows the proportion of each part relative to the whole (100%). Perfect when you want to visualise a share or percentage breakdown.",
     wrong: {
       bar:      "A bar chart would work, but pie charts are more intuitive for percentage-of-total comparisons.",
-      line:     "There is no time dimension — a line chart would be misleading.",
+      line:     "There is no time dimension  a line chart would be misleading.",
       histogram:"Histograms show frequency distributions of continuous data, not category percentages.",
     },
   },
@@ -59,7 +59,7 @@ const SCENARIOS: Scenario[] = [
     question: "Explore if more study hours leads to higher test scores",
     data:     "6 data points: (2h, 62%), (3h, 72%), (4h, 80%), (5h, 88%), (1h, 55%), (6h, 94%)",
     best:     "scatter",
-    why:      "A Scatter Plot places each student as a dot using two numeric values (x = hours, y = score). The pattern of dots reveals the correlation — do more hours mean higher scores?",
+    why:      "A Scatter Plot places each student as a dot using two numeric values (x = hours, y = score). The pattern of dots reveals the correlation  do more hours mean higher scores?",
     wrong: {
       bar:      "Bar charts compare categories, not relationships between two continuous variables.",
       line:     "A line chart assumes the x-axis follows a fixed time/order. Here we want to see spread.",
@@ -71,7 +71,7 @@ const SCENARIOS: Scenario[] = [
     question: "Understand the distribution of students' daily study time",
     data:     "Ranges: 0-1h: 8 students, 1-2h: 15 students, 2-3h: 22 students, 3-4h: 18 students, 4-5h: 10 students, 5+h: 5 students",
     best:     "histogram",
-    why:      "A Histogram groups continuous data into intervals (bins) and shows how many values fall in each bin. It reveals the shape of the distribution — most students study 2-3 hours.",
+    why:      "A Histogram groups continuous data into intervals (bins) and shows how many values fall in each bin. It reveals the shape of the distribution  most students study 2-3 hours.",
     wrong: {
       bar:      "Bar charts have gaps between bars and are for discrete categories, not continuous ranges.",
       pie:      "Pie charts can't show the shape of a distribution across intervals.",

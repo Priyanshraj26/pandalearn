@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -73,7 +73,7 @@ const STEPS: {
     short:  "Eval",
     color:  "#D97706",
     border: "#B45309",
-    desc:   "Test how well your model performs. Numbers tell the truth — feelings don't.",
+    desc:   "Test how well your model performs. Numbers tell the truth  feelings don't.",
     bullets: ["True Positive / False Positive", "True Negative / False Negative", "Accuracy, Precision, Recall", "Is it good enough to deploy?"],
     question: "How accurate is the model?",
     cx: 65,  cy: 255,

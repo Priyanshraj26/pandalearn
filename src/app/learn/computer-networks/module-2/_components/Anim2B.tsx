@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -72,7 +72,7 @@ export default function Anim2B() {
       {/* ── items panel ── */}
       <div className="border-r border-[#1E293B] p-4 flex flex-col gap-2">
         <p className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-1">
-          Items — click to select
+          Items  click to select
         </p>
 
         <div className="flex flex-col gap-1.5">
@@ -190,7 +190,7 @@ export default function Anim2B() {
             ) : (
               <>
                 <XCircle size={13} className="shrink-0" />
-                Not quite — try a different layer
+                Not quite  try a different layer
               </>
             )}
           </motion.div>

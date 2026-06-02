@@ -1,4 +1,4 @@
-import { Database, BarChart3, Shield, Clock, Target, ChevronDown, BookOpen } from "lucide-react"
+﻿import { Database, BarChart3, Shield, Clock, Target, ChevronDown, BookOpen } from "lucide-react"
 import AnimFrame from "@/components/learn/AnimFrame"
 import ConceptCard from "@/components/learn/ConceptCard"
 import MicroCheck from "@/components/learn/MicroCheck"
@@ -6,10 +6,12 @@ import ExitQuiz, { type QuizQuestion } from "@/components/learn/ExitQuiz"
 import ObjectivesCard from "@/components/learn/ObjectivesCard"
 import AnimDataTypes from "./_components/AnimDataTypes"
 import AnimDataCleaning from "./_components/AnimDataCleaning"
+import AnimLiveDataStudio from "./_components/AnimLiveDataStudio"
 import AnimChartSelector from "./_components/AnimChartSelector"
 import AnimDataPrivacy from "./_components/AnimDataPrivacy"
+import AnimTrendAnalysis from "./_components/AnimTrendAnalysis"
 
-// ── Quiz ─────────────────────────────────────────────────────────────────────
+// â”€â”€ Quiz â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const QUIZ: QuizQuestion[] = [
   {
@@ -21,10 +23,10 @@ const QUIZ: QuizQuestion[] = [
       "A WhatsApp message thread",
     ],
     correct: 2,
-    explanation: "Structured data has a fixed schema — rows and columns. A marks spreadsheet has clearly defined columns (Name, Subject, Marks). Voice recordings and photos are unstructured; they have no fixed format.",
+    explanation: "Structured data has a fixed schema â€” rows and columns. A marks spreadsheet has clearly defined columns (Name, Subject, Marks). Voice recordings and photos are unstructured; they have no fixed format.",
   },
   {
-    question: "An AI company uses survey responses to train their model themselves. This data is best described as…",
+    question: "An AI company uses survey responses to train their model themselves. This data is best described asâ€¦",
     options: [
       "Secondary structured data",
       "Primary unstructured data",
@@ -32,7 +34,7 @@ const QUIZ: QuizQuestion[] = [
       "Secondary unstructured data",
     ],
     correct: 2,
-    explanation: "The company collected the data directly (primary) through a structured survey form (structured — fixed questions and answer options).",
+    explanation: "The company collected the data directly (primary) through a structured survey form (structured â€” fixed questions and answer options).",
   },
   {
     question: "Which of the following is the BEST definition of an outlier in a dataset?",
@@ -43,7 +45,7 @@ const QUIZ: QuizQuestion[] = [
       "A column that has too many categories",
     ],
     correct: 2,
-    explanation: "An outlier is a data point that deviates significantly from other observations — like a student studying 200 hours in a week, or an age of 999. They can be data entry errors or genuine anomalies.",
+    explanation: "An outlier is a data point that deviates significantly from other observations â€” like a student studying 200 hours in a week, or an age of 999. They can be data entry errors or genuine anomalies.",
   },
   {
     question: "A researcher is comparing the test scores of 5 students. Which chart type is MOST appropriate?",
@@ -55,7 +57,7 @@ const QUIZ: QuizQuestion[] = [
     question: "Which chart type would you use to show whether more study hours lead to higher scores?",
     options: ["Pie chart", "Bar chart", "Scatter plot", "Histogram"],
     correct: 2,
-    explanation: "A Scatter Plot places two numerical variables on x and y axes — study hours on x and score on y. The pattern of dots reveals the correlation (relationship) between the two variables.",
+    explanation: "A Scatter Plot places two numerical variables on x and y axes â€” study hours on x and score on y. The pattern of dots reveals the correlation (relationship) between the two variables.",
   },
   {
     question: "What is the purpose of a Histogram?",
@@ -66,10 +68,10 @@ const QUIZ: QuizQuestion[] = [
       "To show how frequently values fall within ranges (bins)",
     ],
     correct: 3,
-    explanation: "A Histogram groups continuous data into intervals (bins) and counts how many values fall in each bin. It reveals the distribution shape — is data concentrated around a central value, or spread out?",
+    explanation: "A Histogram groups continuous data into intervals (bins) and counts how many values fall in each bin. It reveals the distribution shape â€” is data concentrated around a central value, or spread out?",
   },
   {
-    question: "In data cleaning, 'imputation' means…",
+    question: "In data cleaning, 'imputation' meansâ€¦",
     options: [
       "Removing all duplicate rows",
       "Replacing missing values with estimated values (e.g., mean)",
@@ -77,10 +79,10 @@ const QUIZ: QuizQuestion[] = [
       "Sorting data alphabetically",
     ],
     correct: 1,
-    explanation: "Imputation is the process of filling in missing values with an estimated substitute — commonly the mean, median, or mode of the column. It lets you keep the row instead of discarding it.",
+    explanation: "Imputation is the process of filling in missing values with an estimated substitute â€” commonly the mean, median, or mode of the column. It lets you keep the row instead of discarding it.",
   },
   {
-    question: "India's Personal Data Protection Bill (PDPB) gives citizens the right to…",
+    question: "India's Personal Data Protection Bill (PDPB) gives citizens the right toâ€¦",
     options: [
       "Use any app without sharing any data",
       "Access, correct, and erase their personal data from platforms",
@@ -110,11 +112,11 @@ const QUIZ: QuizQuestion[] = [
       "Data literacy means memorising statistics formulas",
     ],
     correct: 1,
-    explanation: "Data literacy is the ability to read, understand, analyse, and communicate with data. It is a critical 21st-century skill for everyone — not just programmers — because data shapes decisions in health, education, government, and business.",
+    explanation: "Data literacy is the ability to read, understand, analyse, and communicate with data. It is a critical 21st-century skill for everyone â€” not just programmers â€” because data shapes decisions in health, education, government, and business.",
   },
 ]
 
-// ── CBSE accordion ────────────────────────────────────────────────────────────
+// â”€â”€ CBSE accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function CBSEAccordion() {
   const outcomes = [
@@ -130,7 +132,7 @@ function CBSEAccordion() {
     <details className="group rounded-2xl border border-orange-200 overflow-hidden">
       <summary className="flex items-center gap-3 px-5 py-3.5 bg-orange-50 cursor-pointer select-none [&::-webkit-details-marker]:hidden">
         <BookOpen size={14} className="text-orange-500 shrink-0" />
-        <span className="text-xs font-bold text-orange-700 flex-1">CBSE 417 · Unit 2 — Official Learning Outcomes</span>
+        <span className="text-xs font-bold text-orange-700 flex-1">CBSE 417 Â· Unit 2 â€” Official Learning Outcomes</span>
         <ChevronDown size={14} className="text-orange-400 group-open:rotate-180 transition-transform" />
       </summary>
       <div className="px-5 py-4 bg-white space-y-4">
@@ -166,7 +168,7 @@ function CBSEAccordion() {
   )
 }
 
-// ── Lesson map ────────────────────────────────────────────────────────────────
+// â”€â”€ Lesson map â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function LessonMap() {
   const lessons = [
@@ -184,14 +186,14 @@ function LessonMap() {
       title: "Acquiring, Processing & Interpreting Data",
       time: "~60 min",
       topics: ["Data Acquisition", "Data Cleaning", "Outliers & Missing Values", "Data Interpretation"],
-      feature: "Dataset Cleaner — WOW interactive activity",
+      feature: "Dataset Cleaner â€” WOW interactive activity",
     },
     {
       n: "03", href: "#lesson-03",
       accent: "#059669", bg: "#ECFDF5", textColor: "text-emerald-700",
       title: "Data Visualisation & Privacy",
       time: "~60 min",
-      topics: ["Bar · Line · Pie · Scatter · Histogram", "Data Privacy", "PDPB India", "Cyber Security"],
+      topics: ["Bar Â· Line Â· Pie Â· Scatter Â· Histogram", "Data Privacy", "PDPB India", "Cyber Security"],
       feature: "Chart Selector + Privacy Simulator",
     },
   ]
@@ -224,7 +226,7 @@ function LessonMap() {
                 </span>
               ))}
             </div>
-            <p className={`text-[10px] font-semibold ${l.textColor}`}>✦ {l.feature}</p>
+            <p className={`text-[10px] font-semibold ${l.textColor}`}>âœ¦ {l.feature}</p>
           </a>
         ))}
       </div>
@@ -232,7 +234,7 @@ function LessonMap() {
   )
 }
 
-// ── Section heading ───────────────────────────────────────────────────────────
+// â”€â”€ Section heading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function SectionHeading({ n, title, lesson }: { n: string; title: string; lesson: string }) {
   return (
@@ -250,13 +252,13 @@ function SectionHeading({ n, title, lesson }: { n: string; title: string; lesson
   )
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function Module2Page() {
   return (
     <div className="px-6 lg:px-10">
 
-      {/* ── Hero banner ──────────────────────────────────────────────────────── */}
+      {/* â”€â”€ Hero banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="relative bg-[#0d0d0d] rounded-2xl mt-6 p-8 overflow-hidden">
         <div aria-hidden className="pointer-events-none select-none absolute inset-0">
           <Database size={200} className="absolute -right-10 -top-8 text-cyan-500 opacity-[0.07]" />
@@ -269,29 +271,26 @@ export default function Module2Page() {
               Unit 2 of 5
             </span>
             <span className="flex items-center gap-1 text-xs text-white/40">
-              <Clock size={11} /> ~50 hours
-            </span>
-            <span className="flex items-center gap-1 text-xs text-white/40">
-              <Target size={11} /> 10 marks · CBSE 417
+              <Target size={11} /> 10 marks Â· CBSE 417
             </span>
           </div>
           <h1 className="font-sora text-2xl lg:text-3xl font-bold text-white mb-3 leading-tight">
             Data Literacy
           </h1>
           <p className="text-white/60 text-sm leading-relaxed max-w-2xl">
-            Data is the fuel of AI. In this module you&apos;ll learn to read, collect, clean, and visualise data —
+            Data is the fuel of AI. In this module you&apos;ll learn to read, collect, clean, and visualise data â€”
             then explore the critical questions around data privacy and security that shape what AI systems can and
             cannot ethically build.
           </p>
         </div>
       </div>
 
-      {/* ── CBSE accordion ────────────────────────────────────────────────────── */}
+      {/* â”€â”€ CBSE accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="mt-6">
         <CBSEAccordion />
       </div>
 
-      {/* ── Module body ───────────────────────────────────────────────────────── */}
+      {/* â”€â”€ Module body â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="py-10 space-y-16">
 
         <LessonMap />
@@ -307,9 +306,9 @@ export default function Module2Page() {
           ]}
         />
 
-        {/* ════════════════════════════════════════════════════════
-            LESSON 1 — Basics of Data Literacy
-        ════════════════════════════════════════════════════════ */}
+        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            LESSON 1 â€” Basics of Data Literacy
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <section id="lesson-01" className="space-y-6 scroll-mt-20">
           <SectionHeading n="01" title="Basics of Data Literacy" lesson="Lesson 1 of 3" />
 
@@ -368,7 +367,8 @@ export default function Module2Page() {
 
           {/* Animation */}
           <AnimFrame
-            title="Data Types Explorer"
+            id="anim-frame-1"
+              title="Data Types Explorer"
             description="Click each node to explore structured vs unstructured data with primary and secondary source examples."
           >
             <AnimDataTypes />
@@ -383,17 +383,17 @@ export default function Module2Page() {
               "Unstructured secondary data",
             ]}
             correct={1}
-            explanation="The data is collected firsthand by the doctor (primary) and stored in a spreadsheet with fixed columns — Rows, Date, Patient ID, BP reading (structured)."
+            explanation="The data is collected firsthand by the doctor (primary) and stored in a spreadsheet with fixed columns â€” Rows, Date, Patient ID, BP reading (structured)."
           />
         </section>
 
-        {/* ════════════════════════════════════════════════════════
-            LESSON 2 — Acquiring, Processing & Interpreting Data
-        ════════════════════════════════════════════════════════ */}
+        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            LESSON 2 â€” Acquiring, Processing & Interpreting Data
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <section id="lesson-02" className="space-y-6 scroll-mt-20">
           <SectionHeading n="02" title="Acquiring, Processing & Interpreting Data" lesson="Lesson 2 of 3" />
 
-          <ConceptCard number="2.1" title="Data Acquisition — Finding Good Data" tag="Key Concept">
+          <ConceptCard number="2.1" title="Data Acquisition â€” Finding Good Data" tag="Key Concept">
             <p>
               You can&apos;t build an AI model without data. <strong>Data acquisition</strong> is the process of
               identifying what data you need, finding reliable sources, and collecting it systematically.
@@ -418,7 +418,7 @@ export default function Module2Page() {
             </div>
           </ConceptCard>
 
-          <ConceptCard number="2.2" title="Data Preprocessing — Cleaning Your Data" tag="Critical Skill">
+          <ConceptCard number="2.2" title="Data Preprocessing â€” Cleaning Your Data" tag="Warning">
             <p>
               Real-world data is messy. Before training any AI model, you must clean it.
               The three most common data quality issues are:
@@ -427,7 +427,7 @@ export default function Module2Page() {
               {[
                 { type: "Missing Values", color: "#F59E0B", desc: "Null or empty cells. Fix by removing the row or imputing (filling with mean/median/mode).", ex: "Age column is blank" },
                 { type: "Outliers",       color: "#EF4444", desc: "Values impossibly far from the expected range. Could be data entry errors or genuine anomalies.", ex: "Study hours = -5 or 200" },
-                { type: "Duplicates",     color: "#8B5CF6", desc: "The same row entered more than once. Drop the extra copies — duplicates bias the model.", ex: "Same student row appears 3 times" },
+                { type: "Duplicates",     color: "#8B5CF6", desc: "The same row entered more than once. Drop the extra copies â€” duplicates bias the model.", ex: "Same student row appears 3 times" },
               ].map(d => (
                 <div key={d.type} className="rounded-xl p-3 border text-center" style={{ borderColor: d.color + "40", background: d.color + "08" }}>
                   <p className="text-[11px] font-bold mb-1" style={{ color: d.color }}>{d.type}</p>
@@ -438,15 +438,16 @@ export default function Module2Page() {
             </div>
             <div className="mt-3 rounded-xl bg-amber-50 border border-amber-100 px-3 py-2">
               <p className="text-xs text-amber-800 font-semibold">
-                "Garbage in, garbage out" — an AI trained on dirty data learns wrong patterns and makes wrong predictions.
-                Data cleaning typically takes 60–80% of a data scientist&apos;s time.
+                "Garbage in, garbage out" â€” an AI trained on dirty data learns wrong patterns and makes wrong predictions.
+                Data cleaning typically takes 60â€“80% of a data scientist&apos;s time.
               </p>
             </div>
           </ConceptCard>
 
           {/* Animation: Data Cleaning */}
           <AnimFrame
-            title="Dataset Cleaner — Interactive Activity"
+            id="anim-frame-2"
+              title="Dataset Cleaner â€” Interactive Activity"
             description="Find all the data quality issues hidden in this student dataset. Click a highlighted row to inspect the problem and fix it."
           >
             <AnimDataCleaning />
@@ -461,10 +462,31 @@ export default function Module2Page() {
               "Primary data error",
             ]}
             correct={2}
-            explanation="Age 999 is an impossible value for a human being. It is an outlier — a value that is impossibly far from the realistic range. It was likely a data entry mistake (e.g., pressing 9 three times)."
+            explanation="Age 999 is an impossible value for a human being. It is an outlier â€” a value that is impossibly far from the realistic range. It was likely a data entry mistake (e.g., pressing 9 three times)."
           />
 
-          <ConceptCard number="2.3" title="Data Interpretation — Reading Meaning from Data" tag="Key Concept">
+          {/* Trend Analysis â€” CBSE Recommended Activity */}
+          <AnimFrame
+            id="anim-frame-3"
+              title="Trend Analysis â€” Visualise &amp; Interpret Data"
+            description="Study real-world datasets and identify the trend type. Hover over data points for values. Click key event markers to understand what drove the change."
+          >
+            <AnimTrendAnalysis />
+          </AnimFrame>
+
+          <MicroCheck
+            question="India's internet user count grew from 354M (2015) to 950M (2023). What type of data trend is this?"
+            options={[
+              "Seasonal trend",
+              "Downward trend",
+              "Upward trend",
+              "Stable trend",
+            ]}
+            correct={2}
+            explanation="An upward trend means values consistently increase over time. India's internet user count grew nearly 3Ã in 8 years â€” this is a strong, sustained upward trend accelerated by events like Jio's launch (2018) and COVID-19 (2020)."
+          />
+
+          <ConceptCard number="2.3" title="Data Interpretation â€” Reading Meaning from Data" tag="Key Concept">
             <p>
               <strong>Data interpretation</strong> is the process of reviewing data and arriving at relevant conclusions.
               There are two main types:
@@ -520,9 +542,9 @@ export default function Module2Page() {
           />
         </section>
 
-        {/* ════════════════════════════════════════════════════════
-            LESSON 3 — Data Visualisation & Privacy
-        ════════════════════════════════════════════════════════ */}
+        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+            LESSON 3 â€” Data Visualisation & Privacy
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
         <section id="lesson-03" className="space-y-6 scroll-mt-20">
           <SectionHeading n="03" title="Data Visualisation & Privacy" lesson="Lesson 3 of 3" />
 
@@ -549,14 +571,32 @@ export default function Module2Page() {
 
           {/* Animation: Chart Selector */}
           <AnimFrame
-            title="Chart Type Selector — Pick the Right Visualisation"
+            id="anim-frame-4"
+              title="Chart Type Selector â€” Pick the Right Visualisation"
             description="Read each data scenario and choose the chart type that tells the story best. The correct chart will animate live."
           >
             <AnimChartSelector />
           </AnimFrame>
 
+          {/* Live Data Studio */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-700">
+                Live Studio
+              </span>
+              <span className="text-xs text-gray-400">Build your own chart â€” type data, pick chart type, see it render</span>
+            </div>
+            <AnimFrame
+              id="anim-live-data-studio"
+              title="Live Data Studio â€” Build &amp; Visualise Your Own Dataset"
+              description="Edit the data table with your own values. Switch chart types and watch the chart update live. Try scatter plot to see correlations."
+            >
+              <AnimLiveDataStudio />
+            </AnimFrame>
+          </div>
+
           <MicroCheck
-            question="A line chart is most appropriate when you want to…"
+            question="A line chart is most appropriate when you want toâ€¦"
             options={[
               "Compare the marks of 5 students",
               "Show what proportion of time is spent on each subject",
@@ -564,10 +604,10 @@ export default function Module2Page() {
               "Find if height and weight are related",
             ]}
             correct={2}
-            explanation="Line charts are for data that changes continuously over time. A city's population across 20 years is a classic time-series — the connected line makes the trend (growth, decline, fluctuation) immediately visible."
+            explanation="Line charts are for data that changes continuously over time. A city's population across 20 years is a classic time-series â€” the connected line makes the trend (growth, decline, fluctuation) immediately visible."
           />
 
-          <ConceptCard number="3.2" title="Data Privacy & Security" tag="Critical Concept">
+          <ConceptCard number="3.2" title="Data Privacy & Security" tag="Warning">
             <p>
               Every time you use an app, it collects data about you. <strong>Data privacy</strong> refers to
               your right to control how your personal information is collected and used.
@@ -604,7 +644,8 @@ export default function Module2Page() {
 
           {/* Animation: Privacy Simulator */}
           <AnimFrame
-            title="Data Privacy Simulator"
+            id="anim-frame-5"
+              title="Data Privacy Simulator"
             description="Toggle app permissions to see what data flows out. Then experience a simulated breach and learn how to protect yourself."
           >
             <AnimDataPrivacy />
@@ -619,10 +660,10 @@ export default function Module2Page() {
               "Accepting all app permissions to get full features",
             ]}
             correct={2}
-            explanation="Two-factor authentication (2FA) adds a second layer of security — even if your password is stolen in a data breach, an attacker cannot log in without the second factor (OTP, fingerprint, authenticator app)."
+            explanation="Two-factor authentication (2FA) adds a second layer of security â€” even if your password is stolen in a data breach, an attacker cannot log in without the second factor (OTP, fingerprint, authenticator app)."
           />
 
-          <ConceptCard number="3.3" title="India's Personal Data Protection Bill (PDPB)" tag="Law & Policy">
+          <ConceptCard number="3.3" title="India's Personal Data Protection Bill (PDPB)" tag="Key Concept">
             <p>
               India&apos;s <strong>Personal Data Protection Bill (PDPB)</strong> governs how organisations collect,
               store, and use personal data of Indian citizens. It is modelled on the EU&apos;s GDPR and gives citizens
@@ -632,13 +673,13 @@ export default function Module2Page() {
               {[
                 { right: "Right to Access",              desc: "Know exactly what personal data an organisation holds about you." },
                 { right: "Right to Correction",          desc: "Have inaccurate or incomplete personal data corrected." },
-                { right: "Right to Erasure",             desc: '"Right to be Forgotten" — request deletion of your data when no longer needed.' },
+                { right: "Right to Erasure",             desc: '"Right to be Forgotten" â€” request deletion of your data when no longer needed.' },
                 { right: "Right to Data Portability",    desc: "Receive your personal data in a structured, readable format." },
                 { right: "Right to Grievance Redressal", desc: "File a complaint against any organisation that misuses your data." },
               ].map(({ right, desc }) => (
                 <div key={right} className="flex items-start gap-2.5">
                   <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-violet-100 text-violet-600 text-[9px] font-bold mt-0.5 whitespace-nowrap">
-                    ✓
+                    âœ“
                   </span>
                   <div>
                     <p className="text-xs font-semibold text-gray-800">{right}</p>
@@ -658,11 +699,11 @@ export default function Module2Page() {
               "Citizens can erase their credit history",
             ]}
             correct={1}
-            explanation="The Right to Erasure (also called the 'Right to be Forgotten') allows citizens to request that an organisation delete all personal data it holds about them — especially when it is no longer needed for the original purpose or when consent is withdrawn."
+            explanation="The Right to Erasure (also called the 'Right to be Forgotten') allows citizens to request that an organisation delete all personal data it holds about them â€” especially when it is no longer needed for the original purpose or when consent is withdrawn."
           />
         </section>
 
-        {/* ── Exit Quiz ─────────────────────────────────────────────────────── */}
+        {/* â”€â”€ Exit Quiz â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <ExitQuiz
           moduleName="Unit 2: Data Literacy"
           questions={QUIZ}

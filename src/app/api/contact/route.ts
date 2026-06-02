@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       // Replace with a verified sender on your Resend domain once DNS is confirmed
       from: "PandaLearn Contact <hello@pandalearn.in>",
-      to: "projects@vizuara.com",
+      to: "hello@pandalearn.in",
       replyTo: email,
       subject: `[PandaLearn] ${subject || "New message"} - from ${name}`,
       html: `

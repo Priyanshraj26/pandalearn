@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -9,7 +9,7 @@ import { ChevronRight, Eye, AlertTriangle, User, Building2, Laptop, Landmark, Gr
 const SCENARIO = {
   title:   "The AI Hiring Tool",
   context: "A large company uses an AI system to screen job applications. The AI was trained on 10 years of the company's past hiring decisions. It automatically rejects applications before a human ever sees them.",
-  twist:   "Later investigation reveals: the AI consistently rejects applicants from certain regions, schools, and women with career gaps — because historical hires were mostly men from elite colleges.",
+  twist:   "Later investigation reveals: the AI consistently rejects applicants from certain regions, schools, and women with career gaps  because historical hires were mostly men from elite colleges.",
   realCase:"This is based on a real 2018 incident at Amazon, where they scrapped an AI recruiting tool after discovering it was biased against women.",
 }
 
@@ -22,7 +22,7 @@ const STAKEHOLDERS = [
     bg:      "#F5F3FF",
     border:  "#DDD6FE",
     concerns:[
-      "My application was rejected — but I never found out why.",
+      "My application was rejected  but I never found out why.",
       "No human ever saw my CV. Is that fair?",
       "I can't appeal or challenge the decision.",
       "The AI may have discriminated against me without knowing it.",
@@ -38,7 +38,7 @@ const STAKEHOLDERS = [
     border:  "#BFDBFE",
     concerns:[
       "We saved hundreds of hours screening applications.",
-      "We didn't intend to discriminate — the AI just mirrored our past data.",
+      "We didn't intend to discriminate  the AI just mirrored our past data.",
       "How were we supposed to know the training data was biased?",
       "Now we face a lawsuit and public backlash.",
     ],
@@ -53,9 +53,9 @@ const STAKEHOLDERS = [
     border:  "#A7F3D0",
     concerns:[
       "We built exactly what the client asked for.",
-      "The bias was in the historical data — not in our algorithm.",
+      "The bias was in the historical data  not in our algorithm.",
       "We should have done a bias audit before deployment.",
-      "Fairness in AI is hard — there is no single 'fair' metric.",
+      "Fairness in AI is hard  there is no single 'fair' metric.",
     ],
     rights:  "Ethical obligation to test for bias and inform clients of risks.",
   },
@@ -68,7 +68,7 @@ const STAKEHOLDERS = [
     border:  "#FDE68A",
     concerns:[
       "Existing anti-discrimination laws don't cover automated AI decisions.",
-      "Millions of people are affected — we need regulation now.",
+      "Millions of people are affected  we need regulation now.",
       "Who is liable: the company, the developer, or the AI?",
       "We must balance innovation with protecting citizens' rights.",
     ],
@@ -94,7 +94,7 @@ export default function AnimEthicsScenario() {
         <AlertTriangle size={15} className="text-amber-500" />
         <div>
           <p className="font-sora font-bold text-gray-900 text-sm">Ethics Scenario Roleplay</p>
-          <p className="text-xs text-gray-500 mt-0.5">Step into a stakeholder&apos;s shoes — like the CBSE Balloon Debate activity</p>
+          <p className="text-xs text-gray-500 mt-0.5">Step into a stakeholder&apos;s shoes  like the CBSE Balloon Debate activity</p>
         </div>
       </div>
 
@@ -213,7 +213,7 @@ export default function AnimEthicsScenario() {
                 <p className="text-xs font-semibold text-gray-700">What kind of bias is this?</p>
                 {[
                   { type: "Historical Bias",     desc: "The training data reflects past discrimination, which the AI amplifies.",    isCorrect: true  },
-                  { type: "Measurement Bias",    desc: "The AI measures the wrong thing — prestige of college instead of skill.",    isCorrect: true  },
+                  { type: "Measurement Bias",    desc: "The AI measures the wrong thing  prestige of college instead of skill.",    isCorrect: true  },
                   { type: "Representation Bias", desc: "Women and certain groups were underrepresented in past hires.",              isCorrect: true  },
                   { type: "Random Noise",        desc: "The errors are random with no pattern.",                                     isCorrect: false },
                 ].map(({ type, desc, isCorrect }) => (
@@ -243,7 +243,7 @@ export default function AnimEthicsScenario() {
             <motion.div key="action" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-4">
 
               <p className="text-xs text-gray-600 leading-relaxed">
-                Knowing bias exists isn&apos;t enough — we need <strong>systemic solutions</strong>.
+                Knowing bias exists isn&apos;t enough  we need <strong>systemic solutions</strong>.
                 Here&apos;s what each stakeholder can do differently:
               </p>
 

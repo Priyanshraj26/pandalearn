@@ -1,4 +1,4 @@
-import { Network, Cpu, Shield, Server, Globe, Layers } from "lucide-react"
+﻿import { Network, Cpu, Shield, Server, Globe, Layers } from "lucide-react"
 import AnimFrame from "@/components/learn/AnimFrame"
 import ConceptCard from "@/components/learn/ConceptCard"
 import MicroCheck from "@/components/learn/MicroCheck"
@@ -14,10 +14,10 @@ const QUIZ: QuizQuestion[] = [
   {
     question: "What does ARP stand for and what problem does it solve?",
     options: [
-      "Address Routing Protocol — maps IP addresses to domain names",
-      "Address Resolution Protocol — maps IP addresses to MAC addresses",
-      "Address Resolution Protocol — maps MAC addresses to IP addresses",
-      "Automatic Routing Protocol — assigns IP addresses dynamically",
+      "Address Routing Protocol  maps IP addresses to domain names",
+      "Address Resolution Protocol  maps IP addresses to MAC addresses",
+      "Address Resolution Protocol  maps MAC addresses to IP addresses",
+      "Automatic Routing Protocol  assigns IP addresses dynamically",
     ],
     correct: 1,
     explanation: "ARP (Address Resolution Protocol) resolves a known IP address to its corresponding MAC address. You need the MAC address to actually send a frame on a local Ethernet network.",
@@ -31,7 +31,7 @@ const QUIZ: QuizQuestion[] = [
       "Broadcast … Broadcast",
     ],
     correct: 2,
-    explanation: "ARP requests are broadcast (FF:FF:FF:FF:FF:FF) because the sender doesn't yet know the destination MAC. The reply is unicast — the target now knows who asked and replies directly.",
+    explanation: "ARP requests are broadcast (FF:FF:FF:FF:FF:FF) because the sender doesn't yet know the destination MAC. The reply is unicast  the target now knows who asked and replies directly.",
   },
   {
     question: "A switch receives a frame destined for a MAC address not in its table. What does it do?",
@@ -65,7 +65,7 @@ const QUIZ: QuizQuestion[] = [
       "Identify the source port on the switch",
     ],
     correct: 2,
-    explanation: "The Frame Check Sequence (FCS) is a 32-bit CRC computed over the frame contents. If a receiver's computed CRC doesn't match the FCS, the frame is silently dropped — Ethernet does not request retransmission (that's TCP's job).",
+    explanation: "The Frame Check Sequence (FCS) is a 32-bit CRC computed over the frame contents. If a receiver's computed CRC doesn't match the FCS, the frame is silently dropped  Ethernet does not request retransmission (that's TCP's job).",
   },
   {
     question: "How does a MAC address differ from an IP address?",
@@ -93,15 +93,15 @@ const QUIZ: QuizQuestion[] = [
     question: "Which device operates at OSI Layer 2 and creates a separate collision domain per port?",
     options: ["Hub", "Bridge", "Switch", "Router"],
     correct: 2,
-    explanation: "A switch creates a separate collision domain for each port — only the two devices on that segment compete for the medium. A hub (Layer 1) has one shared collision domain for all ports. A bridge creates per-segment collision domains but typically has fewer ports.",
+    explanation: "A switch creates a separate collision domain for each port  only the two devices on that segment compete for the medium. A hub (Layer 1) has one shared collision domain for all ports. A bridge creates per-segment collision domains but typically has fewer ports.",
   },
   {
     question: "What are the first 24 bits of a MAC address called, and what do they identify?",
     options: [
-      "Host Identifier — unique to the device",
-      "OUI (Organisationally Unique Identifier) — identifies the manufacturer",
-      "VLAN tag — identifies the virtual LAN",
-      "EtherType — identifies the Layer 3 protocol",
+      "Host Identifier  unique to the device",
+      "OUI (Organisationally Unique Identifier)  identifies the manufacturer",
+      "VLAN tag  identifies the virtual LAN",
+      "EtherType  identifies the Layer 3 protocol",
     ],
     correct: 1,
     explanation: "The first 24 bits (3 bytes) of a MAC address form the OUI (Organisationally Unique Identifier), assigned by IEEE to each NIC manufacturer. The remaining 24 bits are assigned by the manufacturer to uniquely identify each device.",
@@ -115,7 +115,7 @@ const QUIZ: QuizQuestion[] = [
       "Drops the frame until the destination is known",
     ],
     correct: 1,
-    explanation: "Source learning — when a frame arrives, the switch records the source MAC address and the port it came in on. This way, the switch knows where to send future frames destined for that MAC without flooding.",
+    explanation: "Source learning  when a frame arrives, the switch records the source MAC address and the port it came in on. This way, the switch knows where to send future frames destined for that MAC without flooding.",
   },
   {
     question: "A VLANs isolates traffic on a switch. What is required for traffic to pass between two VLANs?",
@@ -126,7 +126,7 @@ const QUIZ: QuizQuestion[] = [
       "An additional FCS check",
     ],
     correct: 2,
-    explanation: "VLANs are Layer 2 constructs — traffic within a VLAN stays within it. To route between VLANs you need a Layer 3 device (router or Layer 3 switch) to move packets between the logical networks, just like routing between physical networks.",
+    explanation: "VLANs are Layer 2 constructs  traffic within a VLAN stays within it. To route between VLANs you need a Layer 3 device (router or Layer 3 switch) to move packets between the logical networks, just like routing between physical networks.",
   },
 ]
 
@@ -175,15 +175,13 @@ export default function Module3Page() {
                 <span className="bg-amber-500/30 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold">
                   Intermediate
                 </span>
-                <span className="text-white/50 text-xs">~4 hours</span>
-                <span className="text-white/20 text-xs">·</span>
                 <span className="text-white/50 text-xs">12 quiz questions</span>
               </div>
             </div>
           </div>
 
           <p className="relative text-white/60 text-sm leading-relaxed mt-6 max-w-2xl">
-            Understand how data moves between adjacent devices on a network — MAC addressing,
+            Understand how data moves between adjacent devices on a network  MAC addressing,
             Ethernet framing, ARP, and how switches learn to forward frames intelligently.
           </p>
         </div>
@@ -215,15 +213,15 @@ export default function Module3Page() {
               <div className="bg-gray-50 rounded-xl p-3 mt-2 space-y-1.5">
                 <div className="flex items-center gap-2">
                   <span className="w-16 text-[10px] font-bold text-violet-600">Bits 0–23</span>
-                  <span className="text-[10px] text-gray-600">OUI — identifies the manufacturer (IEEE-assigned)</span>
+                  <span className="text-[10px] text-gray-600">OUI  identifies the manufacturer (IEEE-assigned)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-16 text-[10px] font-bold text-amber-600">Bits 24–47</span>
-                  <span className="text-[10px] text-gray-600">Device-specific — assigned by the manufacturer</span>
+                  <span className="text-[10px] text-gray-600">Device-specific  assigned by the manufacturer</span>
                 </div>
               </div>
               <p className="text-xs text-gray-500 mt-2">
-                MAC addresses are <strong>local</strong> — they only matter within a single
+                MAC addresses are <strong>local</strong>  they only matter within a single
                 network segment. IP addresses are used for cross-network routing.
               </p>
             </ConceptCard>
@@ -262,7 +260,7 @@ export default function Module3Page() {
             question="Which part of a MAC address identifies the device manufacturer?"
             options={[
               "The last 24 bits (device-specific portion)",
-              "The first 24 bits — the OUI (Organisationally Unique Identifier)",
+              "The first 24 bits  the OUI (Organisationally Unique Identifier)",
               "The EtherType field",
               "The entire 48-bit address",
             ]}
@@ -299,7 +297,7 @@ export default function Module3Page() {
             </div>
             <div className="grid sm:grid-cols-2 gap-x-4 gap-y-1.5 mt-3">
               {[
-                { name: "Preamble + SFD", color: "#64748B", desc: "Clock sync — 7 bytes of alternating bits + 1 byte start delimiter." },
+                { name: "Preamble + SFD", color: "#64748B", desc: "Clock sync  7 bytes of alternating bits + 1 byte start delimiter." },
                 { name: "Dest MAC",       color: "#F59E0B", desc: "Who should receive this frame. FF:FF:FF:FF:FF:FF = broadcast." },
                 { name: "Src MAC",        color: "#7C3AED", desc: "Which NIC sent the frame. Switch uses this for source learning." },
                 { name: "EtherType",      color: "#8B5CF6", desc: "0x0800 = IPv4, 0x86DD = IPv6, 0x0806 = ARP." },
@@ -319,8 +317,8 @@ export default function Module3Page() {
 
           <AnimFrame
             id="anim-3c"
-            title="Anim 3-C — Ethernet Frame Dissector"
-            description="Send a frame then click Dissect — inspect each field, corrupt the FCS, and check the result"
+            title="Anim 3-C  Ethernet Frame Dissector"
+            description="Send a frame then click Dissect  inspect each field, corrupt the FCS, and check the result"
             totalSteps={1}
           >
             <Anim3C />
@@ -331,17 +329,17 @@ export default function Module3Page() {
             options={[
               "The receiver sends a NACK and requests retransmission",
               "The frame is passed up with an error flag set",
-              "The frame is silently dropped — Layer 2 does not retransmit",
+              "The frame is silently dropped  Layer 2 does not retransmit",
               "The switch floods the frame to all ports",
             ]}
             correct={2}
-            explanation="Ethernet's FCS detects errors but does not correct them — the frame is simply dropped. Error recovery (retransmission) is handled by higher layers, specifically TCP at Layer 4. This keeps Layer 2 fast and simple."
+            explanation="Ethernet's FCS detects errors but does not correct them  the frame is simply dropped. Error recovery (retransmission) is handled by higher layers, specifically TCP at Layer 4. This keeps Layer 2 fast and simple."
           />
         </section>
 
         {/* ──────────────────────────────── Section 03 */}
         <section className="space-y-6">
-          <SectionHeading n="03" title="ARP — Address Resolution Protocol" />
+          <SectionHeading n="03" title="ARP  Address Resolution Protocol" />
 
           <ConceptCard number="3.3" title="The ARP Problem" tag="Key Concept">
             <p>
@@ -350,7 +348,7 @@ export default function Module3Page() {
             </p>
             <ol className="space-y-1.5 mt-2 list-none">
               {[
-                { n: 1, color: "#F59E0B", text: 'Host A broadcasts: "Who has 192.168.1.5? Tell 192.168.1.1." — every device on the LAN receives it.' },
+                { n: 1, color: "#F59E0B", text: 'Host A broadcasts: "Who has 192.168.1.5? Tell 192.168.1.1."  every device on the LAN receives it.' },
                 { n: 2, color: "#7C3AED", text: 'Host B (192.168.1.5) replies unicast: "I\'m at AA:BB:CC:DD:EE:FF."' },
                 { n: 3, color: "#10B981", text: "Host A stores the mapping in its ARP cache. Future frames skip the broadcast." },
               ].map(({ n, color, text }) => (
@@ -372,7 +370,7 @@ export default function Module3Page() {
 
           <AnimFrame
             id="anim-3a"
-            title="Anim 3-A — ARP Request &amp; Response"
+            title="Anim 3-A  ARP Request &amp; Response"
             description="Click 'Send ARP Request', then replay to see how ARP caching eliminates the broadcast"
             totalSteps={1}
           >
@@ -388,7 +386,7 @@ export default function Module3Page() {
               "To update all devices' ARP caches simultaneously",
             ]}
             correct={1}
-            explanation="The whole point of ARP is to discover an unknown MAC address. Since the sender doesn't know the MAC, it can't send a unicast (which requires the MAC). A broadcast (FF:FF:FF:FF:FF:FF) reaches every device on the segment — the correct one will reply."
+            explanation="The whole point of ARP is to discover an unknown MAC address. Since the sender doesn't know the MAC, it can't send a unicast (which requires the MAC). A broadcast (FF:FF:FF:FF:FF:FF) reaches every device on the segment  the correct one will reply."
           />
         </section>
 
@@ -409,7 +407,7 @@ export default function Module3Page() {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {[
-                      { d: "Hub",    l: "L1", i: "None — floods all ports",           c: "One shared domain", color: "#EF4444" },
+                      { d: "Hub",    l: "L1", i: "None  floods all ports",           c: "One shared domain", color: "#EF4444" },
                       { d: "Bridge", l: "L2", i: "Learns MACs, 2 segments",           c: "Per segment",       color: "#F59E0B" },
                       { d: "Switch", l: "L2", i: "Full MAC table, per-port forward",  c: "Per port",          color: "#10B981" },
                     ].map(({ d, l, i, c, color }) => (
@@ -454,8 +452,8 @@ export default function Module3Page() {
 
           <AnimFrame
             id="anim-3b"
-            title="Anim 3-B — Switch MAC Table Builder"
-            description="Step through frames — watch flooding become unicast as the switch learns"
+            title="Anim 3-B  Switch MAC Table Builder"
+            description="Step through frames  watch flooding become unicast as the switch learns"
             totalSteps={1}
           >
             <Anim3B />
@@ -470,7 +468,7 @@ export default function Module3Page() {
               "Drops the frame and waits for a re-send",
             ]}
             correct={1}
-            explanation="Since the switch already knows D is on Port 4 (source learning), it forwards the frame only to Port 4. This is the key advantage of a switch over a hub — no unnecessary flooding when the destination is known."
+            explanation="Since the switch already knows D is on Port 4 (source learning), it forwards the frame only to Port 4. This is the key advantage of a switch over a hub  no unnecessary flooding when the destination is known."
           />
         </section>
 
@@ -491,7 +489,7 @@ export default function Module3Page() {
           </p>
 
           <ExitQuiz
-            moduleName="Module 3 — Data Link Layer"
+            moduleName="Module 3  Data Link Layer"
             questions={QUIZ}
             passThreshold={9}
           />

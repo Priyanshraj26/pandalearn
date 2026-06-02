@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -17,9 +17,9 @@ const STEPS: {
   { dir:"right", label:"TCP SYN",            layer:"L4 Transport",  color:"#F59E0B", info:"Client initiates connection: seq=1000, flags=SYN" },
   { dir:"left",  label:"TCP SYN-ACK",        layer:"L4 Transport",  color:"#F59E0B", info:"Server responds: seq=5000, ack=1001, flags=SYN-ACK" },
   { dir:"right", label:"TCP ACK",            layer:"L4 Transport",  color:"#F59E0B", info:"Client confirms: ack=5001. 3-way handshake complete ✓" },
-  { dir:"right", label:"TLS ClientHello",    layer:"L6 Presentation",color:"#8B5CF6", info:"TLS 1.3 handshake begins — cipher suites & key share offered" },
+  { dir:"right", label:"TLS ClientHello",    layer:"L6 Presentation",color:"#8B5CF6", info:"TLS 1.3 handshake begins  cipher suites & key share offered" },
   { dir:"left",  label:"TLS ServerHello",    layer:"L6 Presentation",color:"#8B5CF6", info:"Server selects cipher, sends certificate. 1-RTT handshake." },
-  { dir:"right", label:"GET /api/modules",   layer:"L7 HTTP",       color:"#7C3AED", info:"HTTP/1.1 GET — headers: Host, Accept, Authorization: Bearer …" },
+  { dir:"right", label:"GET /api/modules",   layer:"L7 HTTP",       color:"#7C3AED", info:"HTTP/1.1 GET  headers: Host, Accept, Authorization: Bearer …" },
   { dir:"left",  label:"HTTP 200 OK",        layer:"L7 HTTP",       color:"#10B981", info:"Response: Content-Type: application/json, 348 bytes, keep-alive" },
 ]
 
@@ -169,7 +169,7 @@ export default function Anim2C() {
             >
               <span className="text-emerald-400 text-xs">✓</span>
               <span className="text-xs text-emerald-300 font-semibold">
-                Request complete — {STEPS.length} steps, ~120 ms total
+                Request complete  {STEPS.length} steps, ~120 ms total
               </span>
             </motion.div>
           )}

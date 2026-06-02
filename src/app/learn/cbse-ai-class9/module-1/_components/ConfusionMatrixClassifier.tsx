@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -71,7 +71,7 @@ const CARDS: Card[] = [
     prediction: "POSITIVE (Fraudulent)",
     actual: "NEGATIVE (Legitimate purchase)",
     correct: "FP",
-    explanation: "False Positive: your purchase was real, but the AI blocked it. You're stuck abroad with a frozen card. Annoying — but recoverable.",
+    explanation: "False Positive: your purchase was real, but the AI blocked it. You're stuck abroad with a frozen card. Annoying  but recoverable.",
   },
   {
     id: "tn1",
@@ -85,7 +85,7 @@ const CARDS: Card[] = [
   {
     id: "tn2",
     context: "Email Spam Filter",
-    scenario: "Your school newsletter arrives with exam timetables. Filter says: SAFE — delivered to inbox.",
+    scenario: "Your school newsletter arrives with exam timetables. Filter says: SAFE  delivered to inbox.",
     prediction: "NEGATIVE (Not spam)",
     actual: "NEGATIVE (Not spam)",
     correct: "TN",
@@ -107,12 +107,12 @@ const CARDS: Card[] = [
     prediction: "NEGATIVE (No cancer)",
     actual: "POSITIVE (Cancer is present)",
     correct: "FN",
-    explanation: "False Negative (Type II Error — MOST DANGEROUS): cancer IS there, but the AI missed it. The patient goes untreated until it is too late. In medicine, this is the worst kind of error.",
+    explanation: "False Negative (Type II Error  MOST DANGEROUS): cancer IS there, but the AI missed it. The patient goes untreated until it is too late. In medicine, this is the worst kind of error.",
   },
   {
     id: "fn2",
     context: "Email Spam Filter",
-    scenario: "A phishing email pretending to be your bank asks for your password. Filter says: SAFE — delivered to inbox.",
+    scenario: "A phishing email pretending to be your bank asks for your password. Filter says: SAFE  delivered to inbox.",
     prediction: "NEGATIVE (Not spam)",
     actual: "POSITIVE (It is spam/phishing)",
     correct: "FN",
@@ -130,10 +130,10 @@ const CARDS: Card[] = [
 ]
 
 const CLASS_META: Record<Class, { label: string; color: string; bg: string; border: string; short: string }> = {
-  TP: { label: "True Positive",  color: "#059669", bg: "#ECFDF5", border: "#6EE7B7", short: "TP — Correct alarm"    },
-  FP: { label: "False Positive", color: "#DC2626", bg: "#FEF2F2", border: "#FCA5A5", short: "FP — False alarm"     },
-  TN: { label: "True Negative",  color: "#0284C7", bg: "#F0F9FF", border: "#7DD3FC", short: "TN — Correctly quiet" },
-  FN: { label: "False Negative", color: "#D97706", bg: "#FFFBEB", border: "#FCD34D", short: "FN — Missed it!"      },
+  TP: { label: "True Positive",  color: "#059669", bg: "#ECFDF5", border: "#6EE7B7", short: "TP  Correct alarm"    },
+  FP: { label: "False Positive", color: "#DC2626", bg: "#FEF2F2", border: "#FCA5A5", short: "FP  False alarm"     },
+  TN: { label: "True Negative",  color: "#0284C7", bg: "#F0F9FF", border: "#7DD3FC", short: "TN  Correctly quiet" },
+  FN: { label: "False Negative", color: "#D97706", bg: "#FFFBEB", border: "#FCD34D", short: "FN  Missed it!"      },
 }
 
 const BUTTONS: Class[] = ["TP", "FP", "TN", "FN"]
@@ -215,7 +215,7 @@ export default function ConfusionMatrixClassifier() {
             </p>
             <p className="text-sm text-gray-500 mt-1">{pctScore}% accuracy</p>
             <p className="text-xs text-gray-400 mt-1">
-              {pctScore >= 80 ? "Excellent! You understand evaluation metrics well." : pctScore >= 60 ? "Good effort — review the FN cases again." : "Keep practising — focus on when the AI 'misses' something."}
+              {pctScore >= 80 ? "Excellent! You understand evaluation metrics well." : pctScore >= 60 ? "Good effort  review the FN cases again." : "Keep practising  focus on when the AI 'misses' something."}
             </p>
           </div>
 
@@ -252,8 +252,8 @@ export default function ConfusionMatrixClassifier() {
           <div className="rounded-2xl bg-gray-50 border border-gray-200 p-4">
             <p className="text-xs font-bold text-gray-700 mb-1">Key insight for this activity:</p>
             <p className="text-xs text-gray-600 leading-relaxed">
-              In <strong>cancer screening</strong>, False Negatives are the most dangerous — the disease is missed and goes untreated.
-              In <strong>spam filters</strong>, False Positives are more annoying — genuine emails are blocked.
+              In <strong>cancer screening</strong>, False Negatives are the most dangerous  the disease is missed and goes untreated.
+              In <strong>spam filters</strong>, False Positives are more annoying  genuine emails are blocked.
               The right balance depends entirely on <em>what mistake is more costly</em> in your context.
             </p>
           </div>
@@ -380,7 +380,7 @@ export default function ConfusionMatrixClassifier() {
                     : <XCircle      size={14} className="text-rose-500    shrink-0" />
                   }
                   <p className="text-xs font-bold" style={{ color: isRight ? "#059669" : "#DC2626" }}>
-                    {isRight ? `Correct! This is ${CLASS_META[card.correct].label}.` : `Not quite — this is ${CLASS_META[card.correct].label}.`}
+                    {isRight ? `Correct! This is ${CLASS_META[card.correct].label}.` : `Not quite  this is ${CLASS_META[card.correct].label}.`}
                   </p>
                 </div>
                 <p className="text-xs text-gray-700 leading-relaxed">{card.explanation}</p>

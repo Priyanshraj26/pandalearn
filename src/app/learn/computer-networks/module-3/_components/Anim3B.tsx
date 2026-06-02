@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -21,7 +21,7 @@ interface Scenario {
 const SCENARIOS: Scenario[] = [
   { from: 1, to: 4, label: "A → D (first time)", desc: "MAC table is empty. Switch floods all ports. Learns A is on Port 1." },
   { from: 4, to: 1, label: "D → A (reply)",      desc: "D replies. Switch learns D is on Port 4. Knows A on Port 1, so unicasts." },
-  { from: 1, to: 4, label: "A → D (again)",       desc: "Now switch knows both MACs — forwards only to Port 4. Ports 2 & 3 silent." },
+  { from: 1, to: 4, label: "A → D (again)",       desc: "Now switch knows both MACs  forwards only to Port 4. Ports 2 & 3 silent." },
 ]
 
 export default function Anim3B() {
@@ -244,7 +244,7 @@ export default function Anim3B() {
           {step >= 0 && (
             <div className="bg-[#1E293B] rounded-xl p-3 border border-[#334155]">
               <p className="text-[9px] font-bold text-violet-400 uppercase tracking-wider mb-1">
-                Step {step + 1} — {SCENARIOS[step].label}
+                Step {step + 1}  {SCENARIOS[step].label}
               </p>
               <p className="text-[9px] text-gray-400 leading-relaxed">{SCENARIOS[step].desc}</p>
             </div>
@@ -277,7 +277,7 @@ export default function Anim3B() {
               </div>
             )}
             {ttlVal === 0 && ttlDemo && (
-              <p className="text-[9px] text-red-400 mt-2">All entries expired — next frame will flood again</p>
+              <p className="text-[9px] text-red-400 mt-2">All entries expired  next frame will flood again</p>
             )}
           </div>
         </div>

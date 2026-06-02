@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -151,7 +151,7 @@ export default function Anim5B() {
               transition={{ duration: 0.7, repeat: Infinity }}
             />
             <span className="text-[10px] text-amber-300">
-              Receiver buffer full — window = 0. Sender paused.
+              Receiver buffer full  window = 0. Sender paused.
             </span>
           </motion.div>
         )}
@@ -167,7 +167,7 @@ export default function Anim5B() {
               transition={{ duration: 0.5, repeat: Infinity }}
             />
             <span className="text-[10px] text-violet-300">
-              Zero Window Probe sent — keeping connection alive until receiver signals window open.
+              Zero Window Probe sent  keeping connection alive until receiver signals window open.
             </span>
           </motion.div>
         )}

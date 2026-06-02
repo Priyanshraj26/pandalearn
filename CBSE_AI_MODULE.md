@@ -189,7 +189,23 @@ page.tsx (server component)
 | `module-2/_components/AnimChartSelector.tsx` | 5 scenarios × 5 chart types: pick right chart, see animated live SVG (bar, line, pie, scatter, histogram) |
 | `module-2/_components/AnimDataPrivacy.tsx` | 3-phase privacy simulator: toggle app permissions → breach scenario → protection strategies + PDPB rights |
 
-### Units 3–5 — NOT YET BUILT
+### Unit 3 — Math for AI: Statistics & Probability ✅ COMPLETE
+| File | Purpose |
+|---|---|
+| `src/app/learn/cbse-ai-class9/module-3/page.tsx` | Server component. 3 lessons + CBSE accordion + 5 MicroChecks + ExitQuiz (10 questions, threshold 7) |
+| `module-3/_components/AnimMathPatterns.tsx` | **Dual-tab** — Number Patterns (5 sequences: arithmetic, geometric, Fibonacci, square, alternating) + Picture Analogy (3 visual rules: size, count, colour). Each shows AI connection. |
+| `module-3/_components/AnimStatsCasino.tsx` | Statistics Lab: 4 switchable datasets (Car Spotting CBSE activity, Exam Scores, Temperature, Heart Rate). Live animated bar chart with mean/median markers. Click stat cards to expand formula + meaning. Add/remove values live. |
+| `module-3/_components/AnimProbability.tsx` | **WOW FEATURE** — Probability Simulator: coin, dice, spinner. Roll 1/10/100. Theoretical vs empirical bars converge (Law of Large Numbers). Types of events (certain, impossible, equally likely, complementary). AI confidence score connection. |
+
+### Unit 4 — Introduction to Generative AI ✅ COMPLETE
+| File | Purpose |
+|---|---|
+| `src/app/learn/cbse-ai-class9/module-4/page.tsx` | Server component. 3 lessons + CBSE accordion + 6 MicroChecks + ExitQuiz (10 questions, threshold 7) + LessonProgressStrip |
+| `module-4/_components/AnimGenAITypes.tsx` | 5-node radial explorer (Text/Image/Audio/Video/Code). Bezier particle flows, auto-cycle, "What is it?" + "How it works" tabs. Generative vs Conventional AI comparison table. |
+| `module-4/_components/AnimHallucinationGame.tsx` | **WOW** — Dual-tab: (1) Spot the Hallucination: 8 claims (real/hallucinated), click to reveal with explanation + why AI got it wrong. (2) Real vs AI-Generated: 4 content items (news, quotes, Wikipedia), identify human vs AI. |
+| `module-4/_components/AnimPromptLab.tsx` | Dual-tab: (1) Prompt Engineering: 4 domains (essay/summarise/explain/creative), bad vs good prompt side-by-side with animated output, improvement analysis. (2) GenAI Ethics: 4 real-world scenarios (academic honesty, deepfakes, research, citation). |
+
+### Unit 5 — NOT YET BUILT
 
 ---
 
@@ -471,3 +487,4 @@ Every component must pass this checklist before being considered done:
 | Session 1 | Syllabus analysis, all Unit 1 files (first pass) — AISidebar, layout, overview page, module-1 page with 3 lessons, 4 animation components, 7 MicroChecks, 10-question ExitQuiz |
 | Session 2 | Quality uplift — rewrote AnimAIDomains with bezier particles + hex nodes + glow filters; improved AnimProjectCycle with polygon arrowheads + hover/tap; created AnimModelLearning (neural network viz); improved AnimProjectSandbox training animation + validation hints; fixed all Tailwind canonical warnings |
 | Session 3 | Unit 2: Data Literacy — full build: AnimDataTypes (taxonomy explorer), AnimDataCleaning (WOW: 15-row dirty dataset cleaner), AnimChartSelector (5 charts × 5 scenarios with live SVGs), AnimDataPrivacy (permissions → breach → protection + PDPB), module-2/page.tsx (3 lessons, 5 MicroChecks, 10-question ExitQuiz); unlocked Unit 2 in AISidebar + overview page |
+| Session 4 | PDF audit (Unit 1 & 2 gap analysis); Unit 3: Math for AI — AnimMathPatterns (5 number patterns + 3 picture analogies, dual-tab), AnimStatsCasino (4 contexts inc. CBSE Car Spotting, live chart + stat cards), AnimProbability (WOW: coin/dice/spinner, theoretical vs empirical convergence, Law of Large Numbers, event types), module-3/page.tsx (3 lessons, 5 MicroChecks, 10-question ExitQuiz); unlocked Unit 3 |

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -30,12 +30,12 @@ const INITIAL_ROWS: DataRow[] = [
   { id: 5,  name: "Dev",      age: "13",  studyHours: 4,   score: null,city: "Pune",      issueType: "missing",   issueDesc: "Score is missing. Rows with missing target values must be handled." },
   { id: 6,  name: "Kavya",    age: "15",  studyHours: 6,   score: 94,  city: "Hyderabad", issueType: "clean",     issueDesc: "" },
   { id: 7,  name: "Arjun",    age: "14",  studyHours: 3,   score: 78,  city: "Delhi",     issueType: "duplicate", issueDesc: "Exact duplicate of row 1 (Aarav). Duplicates skew training data.", dupOf: 1 },
-  { id: 8,  name: "Meera",    age: "16",  studyHours: null,score: 83,  city: "Jaipur",    issueType: "missing",   issueDesc: "Study hours is missing. A key feature — must be imputed or removed." },
+  { id: 8,  name: "Meera",    age: "16",  studyHours: null,score: 83,  city: "Jaipur",    issueType: "missing",   issueDesc: "Study hours is missing. A key feature  must be imputed or removed." },
   { id: 9,  name: "Raj",      age: "14",  studyHours: -5,  score: 70,  city: "Kolkata",   issueType: "outlier",   issueDesc: "-5 study hours is impossible. Negative values here are data entry errors (outlier)." },
   { id: 10, name: "Ananya",   age: "15",  studyHours: 4,   score: 85,  city: "Surat",     issueType: "clean",     issueDesc: "" },
   { id: 11, name: "Kabir",    age: "15",  studyHours: 3,   score: 72,  city: "Lucknow",   issueType: "clean",     issueDesc: "" },
-  { id: 12, name: "Ira",      age: "999", studyHours: 4,   score: 80,  city: "Bhopal",    issueType: "outlier",   issueDesc: "Age 999 is impossible. This is an outlier — a data entry mistake." },
-  { id: 13, name: "Rahul",    age: "14",  studyHours: 5,   score: 88,  city: "Mumbai",    issueType: "duplicate", issueDesc: "Near-duplicate of row 2 (Priya) — same city, score, hours. Likely entered twice.", dupOf: 2 },
+  { id: 12, name: "Ira",      age: "999", studyHours: 4,   score: 80,  city: "Bhopal",    issueType: "outlier",   issueDesc: "Age 999 is impossible. This is an outlier  a data entry mistake." },
+  { id: 13, name: "Rahul",    age: "14",  studyHours: 5,   score: 88,  city: "Mumbai",    issueType: "duplicate", issueDesc: "Near-duplicate of row 2 (Priya)  same city, score, hours. Likely entered twice.", dupOf: 2 },
   { id: 14, name: "Tara",     age: "14",  studyHours: 2,   score: null,city: null,        issueType: "missing",   issueDesc: "Score AND city are missing. Multiple missing values in one row." },
   { id: 15, name: "Vikram",   age: "15",  studyHours: 3,   score: 75,  city: "Nagpur",    issueType: "clean",     issueDesc: "" },
 ]
@@ -285,7 +285,7 @@ export default function AnimDataCleaning() {
                 {selectedRow.issueType === "missing" && (
                   <>
                     <p>Option 1: <span className="font-semibold text-amber-600">Remove the row</span> if too many values are missing.</p>
-                    <p>Option 2: <span className="font-semibold text-blue-600">Impute</span> — fill in with mean/median/mode.</p>
+                    <p>Option 2: <span className="font-semibold text-blue-600">Impute</span>  fill in with mean/median/mode.</p>
                   </>
                 )}
                 {selectedRow.issueType === "outlier" && (
@@ -296,7 +296,7 @@ export default function AnimDataCleaning() {
                 )}
                 {selectedRow.issueType === "duplicate" && (
                   <>
-                    <p>Action: <span className="font-semibold text-violet-600">Drop the duplicate</span> — keep only the original row.</p>
+                    <p>Action: <span className="font-semibold text-violet-600">Drop the duplicate</span>  keep only the original row.</p>
                     <p>Duplicates inflate training data and bias the model.</p>
                   </>
                 )}
@@ -331,7 +331,7 @@ export default function AnimDataCleaning() {
               <div className="w-full rounded-xl bg-emerald-50 border border-emerald-100 p-3">
                 <p className="text-[11px] font-bold text-emerald-700 mb-1">Why this matters</p>
                 <p className="text-[11px] text-emerald-700 leading-relaxed">
-                  "Garbage in, garbage out" — an AI trained on dirty data learns wrong patterns.
+                  "Garbage in, garbage out"  an AI trained on dirty data learns wrong patterns.
                   Data cleaning is the most time-consuming step in any real AI project (~80% of effort!).
                 </p>
               </div>
@@ -364,7 +364,7 @@ export default function AnimDataCleaning() {
                       <div>
                         <p className="text-[10px] font-bold" style={{ color: m.color }}>{m.label}</p>
                         <p className="text-[10px] text-gray-500 leading-snug">
-                          {t === "missing"   && "Null or empty cells — a feature value was not recorded."}
+                          {t === "missing"   && "Null or empty cells  a feature value was not recorded."}
                           {t === "outlier"   && "Values impossibly large, small, or negative."}
                           {t === "duplicate" && "Identical or near-identical rows entered more than once."}
                         </p>
@@ -374,7 +374,7 @@ export default function AnimDataCleaning() {
                 })}
               </div>
               <p className="text-[10px] text-gray-300 italic text-center">
-                {remaining} issue{remaining !== 1 ? "s" : ""} remaining — click a coloured row to start
+                {remaining} issue{remaining !== 1 ? "s" : ""} remaining  click a coloured row to start
               </p>
             </motion.div>
           )}
@@ -388,7 +388,7 @@ export default function AnimDataCleaning() {
 
 function CellValue({ val, issue, isFixed }: { val: string | null; issue: boolean; isFixed: boolean }) {
   if (val === null) {
-    return <span className="text-amber-400 font-bold text-[10px]">— null —</span>
+    return <span className="text-amber-400 font-bold text-[10px]"> null </span>
   }
   if (issue && !isFixed) {
     return (

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef, useId } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -220,7 +220,7 @@ export default function Anim1C() {
           ? "Click the packet to inspect its headers"
           : phase === "at-router"
           ? "Router decrements TTL and forwards to destination"
-          : "Type a message and press Enter — watch it hop through the router"
+          : "Type a message and press Enter  watch it hop through the router"
         }
       </p>
     </div>

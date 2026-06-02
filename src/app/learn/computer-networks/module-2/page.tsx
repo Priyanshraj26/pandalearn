@@ -1,4 +1,4 @@
-import { Layers, Network, Shield, Server, Globe, Cpu } from "lucide-react"
+﻿import { Layers, Network, Shield, Server, Globe, Cpu } from "lucide-react"
 import AnimFrame from "@/components/learn/AnimFrame"
 import ConceptCard from "@/components/learn/ConceptCard"
 import MicroCheck from "@/components/learn/MicroCheck"
@@ -27,7 +27,7 @@ const QUIZ: QuizQuestion[] = [
     question: "Which OSI layer converts data into bits for physical transmission?",
     options: ["Data Link", "Session", "Presentation", "Physical"],
     correct: 3,
-    explanation: "The Physical layer (L1) converts frames into electrical, optical, or radio signals — the actual bits on the wire. Data Link creates the frame, but Physical transmits it.",
+    explanation: "The Physical layer (L1) converts frames into electrical, optical, or radio signals  the actual bits on the wire. Data Link creates the frame, but Physical transmits it.",
   },
   {
     question: "Which OSI layer handles encryption, decryption, and data format conversion?",
@@ -44,13 +44,13 @@ const QUIZ: QuizQuestion[] = [
       "Splitting data into equal-sized packets",
     ],
     correct: 2,
-    explanation: "Encapsulation means each layer wraps the data with its own header (and sometimes trailer) as it travels down the sender's stack. The reverse — stripping headers going up — is called decapsulation.",
+    explanation: "Encapsulation means each layer wraps the data with its own header (and sometimes trailer) as it travels down the sender's stack. The reverse  stripping headers going up  is called decapsulation.",
   },
   {
     question: "The 'Internet' layer in the TCP/IP model is equivalent to which OSI layer?",
     options: ["Transport (L4)", "Data Link (L2)", "Network (L3)", "Physical (L1)"],
     correct: 2,
-    explanation: "TCP/IP's Internet layer handles IP addressing and routing — exactly what OSI's Network layer (L3) does. The TCP/IP model was designed around real protocols, so it maps directly to L3.",
+    explanation: "TCP/IP's Internet layer handles IP addressing and routing  exactly what OSI's Network layer (L3) does. The TCP/IP model was designed around real protocols, so it maps directly to L3.",
   },
   {
     question: "Which device operates at OSI Layer 3 and makes forwarding decisions based on IP addresses?",
@@ -85,7 +85,7 @@ const QUIZ: QuizQuestion[] = [
     question: "A switch makes forwarding decisions based on:",
     options: ["IP addresses (L3)", "Port numbers (L4)", "MAC addresses (L2)", "Domain names (L7)"],
     correct: 2,
-    explanation: "A switch is a Layer 2 device. It learns which MAC address is reachable via which port (MAC address table) and forwards frames only to the correct port — avoiding the flooding a hub would do.",
+    explanation: "A switch is a Layer 2 device. It learns which MAC address is reachable via which port (MAC address table) and forwards frames only to the correct port  avoiding the flooding a hub would do.",
   },
   {
     question: "When data travels up the receiver's OSI stack, each layer removes its header. This process is called:",
@@ -103,7 +103,7 @@ const QUIZ: QuizQuestion[] = [
     question: "Which PDU is produced at the Data Link layer?",
     options: ["Segment", "Bit", "Packet", "Frame"],
     correct: 3,
-    explanation: "The Data Link layer (L2) produces Frames — the PDU that includes MAC addresses and an FCS checksum for error detection. Packets are Network (L3) PDUs, Segments are Transport (L4), and Bits are Physical (L1).",
+    explanation: "The Data Link layer (L2) produces Frames  the PDU that includes MAC addresses and an FCS checksum for error detection. Packets are Network (L3) PDUs, Segments are Transport (L4), and Bits are Physical (L1).",
   },
   {
     question: "After a Network layer router processes a TCP segment and adds an IP header, the resulting PDU is called a:",
@@ -158,8 +158,6 @@ export default function Module2Page() {
                 <span className="bg-blue-500/30 text-blue-300 border border-blue-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold">
                   Beginner → Intermediate
                 </span>
-                <span className="text-white/50 text-xs">~5 hours</span>
-                <span className="text-white/20 text-xs">·</span>
                 <span className="text-white/50 text-xs">15 quiz questions</span>
               </div>
             </div>
@@ -167,7 +165,7 @@ export default function Module2Page() {
 
           <p className="relative text-white/60 text-sm leading-relaxed mt-6 max-w-2xl">
             Understand how the OSI and TCP/IP models structure network communication.
-            Trace a real HTTP request through every layer — from browser to server and back.
+            Trace a real HTTP request through every layer  from browser to server and back.
           </p>
         </div>
       </div>
@@ -237,8 +235,8 @@ export default function Module2Page() {
 
           <AnimFrame
             id="anim-2a"
-            title="Anim 2-A — OSI Encapsulation Visualizer"
-            description="Watch data travel down the sender stack and up the receiver stack — click any layer to jump"
+            title="Anim 2-A  OSI Encapsulation Visualizer"
+            description="Watch data travel down the sender stack and up the receiver stack  click any layer to jump"
             totalSteps={15}
             showSpeed
           >
@@ -247,7 +245,7 @@ export default function Module2Page() {
 
           <MicroCheck
             question="At which OSI layer does an IP address operate?"
-            options={["Layer 2 — Data Link", "Layer 3 — Network", "Layer 4 — Transport", "Layer 7 — Application"]}
+            options={["Layer 2  Data Link", "Layer 3  Network", "Layer 4  Transport", "Layer 7  Application"]}
             correct={1}
             explanation="IP addresses are a Layer 3 (Network) concept. They provide logical addressing to route packets across multiple networks. MAC addresses are Layer 2 and only work within a single local network segment."
           />
@@ -262,7 +260,7 @@ export default function Module2Page() {
               <p>
                 As data travels <strong>down</strong> the sender's stack, each layer wraps it
                 with its own <strong>header</strong> (and sometimes a trailer). This is
-                encapsulation — the data grows with every layer.
+                encapsulation  the data grows with every layer.
               </p>
               <p>
                 On the <strong>receiver</strong>, each layer strips its own header as data
@@ -303,8 +301,8 @@ export default function Module2Page() {
 
           <AnimFrame
             id="anim-2b"
-            title="Anim 2-B — Layer Classification Game"
-            description="Select an item, then click the correct OSI layer — test your knowledge"
+            title="Anim 2-B  Layer Classification Game"
+            description="Select an item, then click the correct OSI layer  test your knowledge"
             totalSteps={1}
           >
             <Anim2B />
@@ -314,7 +312,7 @@ export default function Module2Page() {
             question="What is the PDU name at the Data Link layer (Layer 2)?"
             options={["Packet", "Segment", "Frame", "Bits"]}
             correct={2}
-            explanation="The Data Link layer produces Frames — they contain the source and destination MAC addresses, the payload, and an FCS (Frame Check Sequence) for error detection. Packets are Network layer PDUs, Segments are Transport, and Bits are Physical."
+            explanation="The Data Link layer produces Frames  they contain the source and destination MAC addresses, the payload, and an FCS (Frame Check Sequence) for error detection. Packets are Network layer PDUs, Segments are Transport, and Bits are Physical."
           />
         </section>
 
@@ -322,7 +320,7 @@ export default function Module2Page() {
         <section className="space-y-6">
           <SectionHeading n="03" title="The TCP/IP Model" />
 
-          <ConceptCard number="2.3" title="OSI vs TCP/IP — The Practical Model" tag="Key Concept">
+          <ConceptCard number="2.3" title="OSI vs TCP/IP  The Practical Model" tag="Key Concept">
             <p>
               The <strong>TCP/IP model</strong> is the model actually used on the internet.
               It consolidates OSI's 7 layers into <strong>4 layers</strong>.
@@ -362,8 +360,8 @@ export default function Module2Page() {
 
           <AnimFrame
             id="anim-2c"
-            title="Anim 2-C — HTTP Request Trace"
-            description="Click 'Trace Request' — watch a full HTTP/TLS request step by step with layer labels"
+            title="Anim 2-C  HTTP Request Trace"
+            description="Click 'Trace Request'  watch a full HTTP/TLS request step by step with layer labels"
             totalSteps={1}
           >
             <Anim2C />
@@ -394,7 +392,7 @@ export default function Module2Page() {
           </p>
 
           <ExitQuiz
-            moduleName="Module 2 — OSI &amp; TCP/IP Models"
+            moduleName="Module 2  OSI &amp; TCP/IP Models"
             questions={QUIZ}
             passThreshold={11}
           />

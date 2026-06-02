@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -141,7 +141,7 @@ export default function Anim5D() {
           <RotateCcw size={10} /> Reset
         </button>
         <span className="text-[10px] text-gray-500 ml-2">
-          Sending {TOTAL} packets — {LOSS_AT.length} are dropped
+          Sending {TOTAL} packets  {LOSS_AT.length} are dropped
         </span>
       </div>
 
@@ -176,7 +176,7 @@ export default function Anim5D() {
               animate={{ opacity: 1 }}
               className="px-2 py-1 bg-violet-900/30 border border-violet-700/40 rounded-lg text-[9px] text-violet-300"
             >
-              ✓ 100% delivery — retransmits cause {((tcpMs - udpMs) / tcpMs * 100).toFixed(0)}% latency overhead
+              ✓ 100% delivery  retransmits cause {((tcpMs - udpMs) / tcpMs * 100).toFixed(0)}% latency overhead
             </motion.div>
           )}
         </div>
@@ -210,7 +210,7 @@ export default function Anim5D() {
               animate={{ opacity: 1 }}
               className="px-2 py-1 bg-blue-900/30 border border-blue-700/40 rounded-lg text-[9px] text-blue-300"
             >
-              ✗ {LOSS_AT.length} packets lost silently — no retransmit, no error
+              ✗ {LOSS_AT.length} packets lost silently  no retransmit, no error
             </motion.div>
           )}
         </div>

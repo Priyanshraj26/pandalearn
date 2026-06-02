@@ -26,7 +26,7 @@ const ENGINEERING: Subject[] = [
   {
     id: "networks", key: "Computer Networks",
     label: "Computer Networks",
-    description: "OSI model, TCP/IP, IP addressing, routing, DNS, HTTP/S — every layer animated.",
+    description: "OSI model, TCP/IP, IP addressing, routing, DNS, HTTP/S  every layer animated.",
     Icon: Network, iconBg: "bg-violet-100", iconText: "text-violet-600",
     total: 6, href: "/learn/computer-networks",
     modules: [
@@ -39,8 +39,8 @@ const ENGINEERING: Subject[] = [
 const SCHOOL: Subject[] = [
   {
     id: "ai", key: "What is AI",
-    label: "CBSE AI — Class IX",
-    description: "CBSE Subject 417 — AI project cycle, ethics, data literacy, gen AI, and Python.",
+    label: "CBSE AI  Class IX",
+    description: "CBSE Subject 417  AI project cycle, ethics, data literacy, gen AI, and Python.",
     Icon: Brain, iconBg: "bg-orange-100", iconText: "text-orange-600",
     total: 5, href: "/learn/cbse-ai-class9",
     modules: [

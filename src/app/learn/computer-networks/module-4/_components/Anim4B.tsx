@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -155,7 +155,7 @@ export default function Anim4B() {
               />
               <span className="font-sora font-bold text-sm text-white">
                 Subnet {selected + 1}
-                {useCase ? ` — ${USE_CASES[selected % USE_CASES.length]}` : ""}
+                {useCase ? `  ${USE_CASES[selected % USE_CASES.length]}` : ""}
               </span>
               <span className="ml-auto text-[10px] font-mono text-gray-400">/{newPrefix}</span>
             </div>

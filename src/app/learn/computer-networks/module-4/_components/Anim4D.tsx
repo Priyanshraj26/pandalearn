@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -203,7 +203,7 @@ export default function Anim4D() {
           <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">NAT Translation Table</p>
         </div>
         {natTable.length === 0 ? (
-          <p className="text-[9px] text-gray-600 italic px-3 py-2">empty — send a request to populate</p>
+          <p className="text-[9px] text-gray-600 italic px-3 py-2">empty  send a request to populate</p>
         ) : (
           <div className="overflow-auto">
             <div className="grid grid-cols-4 text-[7px] text-gray-500 font-bold px-3 py-1.5 border-b border-[#0F172A]">

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -8,10 +8,10 @@ type Phase = "idle" | "discover" | "offer" | "request" | "ack" | "done"
 
 const PHASE_LABELS: Record<Phase, string> = {
   idle:     "Idle",
-  discover: "D — Discover",
-  offer:    "O — Offer",
-  request:  "R — Request",
-  ack:      "A — Acknowledge",
+  discover: "D  Discover",
+  offer:    "O  Offer",
+  request:  "R  Request",
+  ack:      "A  Acknowledge",
   done:     "Assigned!",
 }
 
@@ -25,7 +25,7 @@ const PHASE_COLORS: Record<Phase, string> = {
 }
 
 const PHASE_DESC: Record<Phase, string> = {
-  idle:     "New device joins the network. It has no IP address yet — shown as dashed.",
+  idle:     "New device joins the network. It has no IP address yet  shown as dashed.",
   discover: "Client broadcasts: 'Is there a DHCP server?' (src: 0.0.0.0, dst: 255.255.255.255). All devices hear it.",
   offer:    "DHCP server responds: 'I offer you 192.168.1.50 for 24 hours.' Unicast to client MAC.",
   request:  "Client broadcasts: 'I would like 192.168.1.50 please.' Broadcast lets other DHCP servers know too.",

@@ -1,4 +1,4 @@
-import { Globe, Network, Server, Shield, Layers, Cpu } from "lucide-react"
+﻿import { Globe, Network, Server, Shield, Layers, Cpu } from "lucide-react"
 import AnimFrame from "@/components/learn/AnimFrame"
 import ConceptCard from "@/components/learn/ConceptCard"
 import MicroCheck from "@/components/learn/MicroCheck"
@@ -33,8 +33,8 @@ const QUIZ: QuizQuestion[] = [
   {
     question: "A packet arrives at a router destined for 10.10.5.100. The routing table has routes for 10.10.0.0/16 and 10.10.5.0/24. Which route wins?",
     options: [
-      "10.10.0.0/16 — it's the shorter prefix",
-      "10.10.5.0/24 — longest prefix match always wins",
+      "10.10.0.0/16  it's the shorter prefix",
+      "10.10.5.0/24  longest prefix match always wins",
       "Both are used equally (load-balanced)",
       "The router drops the packet due to ambiguity",
     ],
@@ -50,14 +50,14 @@ const QUIZ: QuizQuestion[] = [
       "It blocks all traffic from reaching the router",
     ],
     correct: 1,
-    explanation: "The default route (0.0.0.0/0) matches any destination address. It has the shortest possible prefix (/0), so it only wins when no more specific route matches. It is the 'gateway of last resort' — typically pointing to the internet upstream.",
+    explanation: "The default route (0.0.0.0/0) matches any destination address. It has the shortest possible prefix (/0), so it only wins when no more specific route matches. It is the 'gateway of last resort'  typically pointing to the internet upstream.",
   },
   {
     question: "What is 127.0.0.1 used for?",
     options: [
       "The default gateway address",
       "The network broadcast address",
-      "The loopback address — traffic stays within the same host",
+      "The loopback address  traffic stays within the same host",
       "An APIPA address assigned when DHCP fails",
     ],
     correct: 2,
@@ -78,7 +78,7 @@ const QUIZ: QuizQuestion[] = [
     question: "Which routing protocol uses the Dijkstra shortest-path algorithm and is classified as link-state?",
     options: ["RIP", "BGP", "OSPF", "EIGRP"],
     correct: 2,
-    explanation: "OSPF (Open Shortest Path First) is a link-state protocol — every router floods its links across the domain and each router independently runs Dijkstra to build a complete topology map. RIP is distance-vector (Bellman-Ford); BGP is path-vector used between autonomous systems.",
+    explanation: "OSPF (Open Shortest Path First) is a link-state protocol  every router floods its links across the domain and each router independently runs Dijkstra to build a complete topology map. RIP is distance-vector (Bellman-Ford); BGP is path-vector used between autonomous systems.",
   },
   {
     question: "How many bits are in an IPv6 address?",
@@ -118,31 +118,31 @@ const QUIZ: QuizQuestion[] = [
   {
     question: "What is the APIPA address range and when is it assigned?",
     options: [
-      "10.0.0.0/8 — when DHCP lease expires",
-      "169.254.0.0/16 — when a host cannot reach a DHCP server",
-      "192.168.0.0/16 — when static IP is not configured",
-      "127.0.0.0/8 — when no network interface is present",
+      "10.0.0.0/8  when DHCP lease expires",
+      "169.254.0.0/16  when a host cannot reach a DHCP server",
+      "192.168.0.0/16  when static IP is not configured",
+      "127.0.0.0/8  when no network interface is present",
     ],
     correct: 1,
-    explanation: "APIPA (Automatic Private IP Addressing) assigns a 169.254.x.x address when a host fails to reach a DHCP server. The address is link-local — usable only within the local segment. It allows local communication but not internet access.",
+    explanation: "APIPA (Automatic Private IP Addressing) assigns a 169.254.x.x address when a host fails to reach a DHCP server. The address is link-local  usable only within the local segment. It allows local communication but not internet access.",
   },
   {
     question: "Static NAT maps one private IP to exactly one public IP. Which NAT type is most common on home routers?",
     options: [
-      "Static NAT — one private to one public",
-      "Dynamic NAT — pool of public IPs",
-      "PAT (NAT Overload) — many privates to one public using port numbers",
-      "Twice NAT — source and destination both translated",
+      "Static NAT  one private to one public",
+      "Dynamic NAT  pool of public IPs",
+      "PAT (NAT Overload)  many privates to one public using port numbers",
+      "Twice NAT  source and destination both translated",
     ],
     correct: 2,
-    explanation: "Home routers use PAT (Port Address Translation / NAT Overload) — every device on your LAN shares a single public IP. The router maps each connection to a unique source port, so it can route return packets back to the correct private device.",
+    explanation: "Home routers use PAT (Port Address Translation / NAT Overload)  every device on your LAN shares a single public IP. The router maps each connection to a unique source port, so it can route return packets back to the correct private device.",
   },
   {
     question: "In IPv6, what replaces the ARP broadcast used in IPv4?",
     options: [
       "DNS-based address resolution",
       "Neighbor Discovery Protocol (NDP) using ICMPv6 multicast",
-      "DHCPv6 — it assigns MACs as well as IPs",
+      "DHCPv6  it assigns MACs as well as IPs",
       "RARP (Reverse ARP)",
     ],
     correct: 1,
@@ -169,10 +169,10 @@ const QUIZ: QuizQuestion[] = [
   {
     question: "What does SLAAC stand for, and which protocol uses it?",
     options: [
-      "Stateless Link Auto Address Configuration — used by DHCPv6",
-      "Stateless Address Autoconfiguration — used by IPv6 to self-assign addresses without DHCP",
-      "Static Link Address Allocation — used by IPv4 for manual configuration",
-      "Subnet Layer Aggregation and Compression — used in BGP route summarization",
+      "Stateless Link Auto Address Configuration  used by DHCPv6",
+      "Stateless Address Autoconfiguration  used by IPv6 to self-assign addresses without DHCP",
+      "Static Link Address Allocation  used by IPv4 for manual configuration",
+      "Subnet Layer Aggregation and Compression  used in BGP route summarization",
     ],
     correct: 1,
     explanation: "SLAAC (Stateless Address Autoconfiguration) lets IPv6 hosts generate their own addresses using the network prefix advertised by the router (via ICMPv6 Router Advertisement) combined with their interface identifier (often derived from the MAC). No DHCP server required.",
@@ -224,8 +224,6 @@ export default function Module4Page() {
                 <span className="bg-blue-500/30 text-blue-300 border border-blue-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold">
                   Intermediate
                 </span>
-                <span className="text-white/50 text-xs">~6 hours</span>
-                <span className="text-white/20 text-xs">·</span>
                 <span className="text-white/50 text-xs">20 quiz questions</span>
               </div>
             </div>
@@ -275,7 +273,7 @@ export default function Module4Page() {
                       ["A", "0–127",   "/8",  "Large orgs"],
                       ["B", "128–191", "/16", "Medium orgs"],
                       ["C", "192–223", "/24", "Small networks"],
-                      ["D", "224–239", "—",   "Multicast"],
+                      ["D", "224–239", "",   "Multicast"],
                     ].map(([cls, range, mask, use]) => (
                       <tr key={cls} className="hover:bg-gray-50">
                         <td className="p-2 font-bold text-violet-600">{cls}</td>
@@ -292,13 +290,13 @@ export default function Module4Page() {
             <ConceptCard number="4.1–4.3" title="Special &amp; Private Addresses" tag="Remember">
               <div className="space-y-1.5">
                 {[
-                  { addr: "10.0.0.0/8",        desc: "Private (RFC 1918) — large orgs",         color: "#7C3AED" },
-                  { addr: "172.16.0.0/12",      desc: "Private (RFC 1918) — medium orgs",        color: "#7C3AED" },
-                  { addr: "192.168.0.0/16",     desc: "Private (RFC 1918) — homes/small offices",color: "#7C3AED" },
-                  { addr: "127.0.0.1",          desc: "Loopback — stays on same host",           color: "#2563EB" },
+                  { addr: "10.0.0.0/8",        desc: "Private (RFC 1918)  large orgs",         color: "#7C3AED" },
+                  { addr: "172.16.0.0/12",      desc: "Private (RFC 1918)  medium orgs",        color: "#7C3AED" },
+                  { addr: "192.168.0.0/16",     desc: "Private (RFC 1918)  homes/small offices",color: "#7C3AED" },
+                  { addr: "127.0.0.1",          desc: "Loopback  stays on same host",           color: "#2563EB" },
                   { addr: "0.0.0.0",            desc: "\"This host\" / default route",           color: "#64748B" },
-                  { addr: "255.255.255.255",    desc: "Limited broadcast — all hosts on segment",color: "#EF4444" },
-                  { addr: "169.254.0.0/16",     desc: "APIPA — assigned when DHCP fails",        color: "#F59E0B" },
+                  { addr: "255.255.255.255",    desc: "Limited broadcast  all hosts on segment",color: "#EF4444" },
+                  { addr: "169.254.0.0/16",     desc: "APIPA  assigned when DHCP fails",        color: "#F59E0B" },
                 ].map(({ addr, desc, color }) => (
                   <div key={addr} className="flex items-start gap-1.5">
                     <span className="w-2 h-2 rounded-full shrink-0 mt-0.5" style={{ backgroundColor: color }} />
@@ -371,8 +369,8 @@ export default function Module4Page() {
 
           <AnimFrame
             id="anim-4a"
-            title="Anim 4-A — Binary ↔ Decimal IP Converter"
-            description="Toggle individual bits — watch the decimal and subnet calculations update in real time"
+            title="Anim 4-A  Binary ↔ Decimal IP Converter"
+            description="Toggle individual bits  watch the decimal and subnet calculations update in real time"
             totalSteps={1}
           >
             <Anim4A />
@@ -380,7 +378,7 @@ export default function Module4Page() {
 
           <AnimFrame
             id="anim-4b"
-            title="Anim 4-B — Subnetting Visualizer"
+            title="Anim 4-B  Subnetting Visualizer"
             description="Enter a network block and drag the bit-borrow slider to subdivide it"
             totalSteps={1}
           >
@@ -413,7 +411,7 @@ export default function Module4Page() {
               </div>
               <p className="text-xs text-gray-500 mt-2">
                 <strong>Longest prefix match:</strong> the most specific route that matches
-                the destination wins. 192.168.1.50 matches both /24 and /8 — /24 wins.
+                the destination wins. 192.168.1.50 matches both /24 and /8  /24 wins.
               </p>
             </ConceptCard>
 
@@ -448,8 +446,8 @@ export default function Module4Page() {
 
           <AnimFrame
             id="anim-4c"
-            title="Anim 4-C — Routing Table Simulator"
-            description="Select a destination and click Trace Route — watch each router highlight its matching row"
+            title="Anim 4-C  Routing Table Simulator"
+            description="Select a destination and click Trace Route  watch each router highlight its matching row"
             totalSteps={1}
           >
             <Anim4C />
@@ -458,9 +456,9 @@ export default function Module4Page() {
           <MicroCheck
             question="A router has routes for 10.0.0.0/8, 10.10.0.0/16, and 0.0.0.0/0. A packet arrives for 10.10.5.99. Which route is used?"
             options={[
-              "0.0.0.0/0 — default route always wins",
-              "10.0.0.0/8 — it's the first match",
-              "10.10.0.0/16 — longest prefix match",
+              "0.0.0.0/0  default route always wins",
+              "10.0.0.0/8  it's the first match",
+              "10.10.0.0/16  longest prefix match",
               "All three are used simultaneously",
             ]}
             correct={2}
@@ -470,11 +468,11 @@ export default function Module4Page() {
 
         {/* ────────────── Section 04: NAT */}
         <section className="space-y-6">
-          <SectionHeading n="04" title="NAT — Network Address Translation" />
+          <SectionHeading n="04" title="NAT  Network Address Translation" />
 
           <ConceptCard number="4.6" title="How NAT Extends IPv4" tag="Key Concept">
             <p>
-              IPv4 provides ~4.3 billion addresses — far fewer than the devices on earth.
+              IPv4 provides ~4.3 billion addresses  far fewer than the devices on earth.
               NAT lets an entire private network share a <strong>single public IP</strong>.
             </p>
             <div className="overflow-x-auto mt-2">
@@ -505,8 +503,8 @@ export default function Module4Page() {
 
           <AnimFrame
             id="anim-4d"
-            title="Anim 4-D — NAT in Action"
-            description="Send HTTP requests from private hosts — watch the NAT table build and see header rewrites"
+            title="Anim 4-D  NAT in Action"
+            description="Send HTTP requests from private hosts  watch the NAT table build and see header rewrites"
             totalSteps={1}
           >
             <Anim4D />
@@ -532,7 +530,7 @@ export default function Module4Page() {
           <div className="grid sm:grid-cols-2 gap-4">
             <ConceptCard number="4.7" title="IPv6 Addressing" tag="Key Concept">
               <p>
-                IPv6 is <strong>128 bits</strong> — 8 groups of 4 hex digits separated by colons.
+                IPv6 is <strong>128 bits</strong>  8 groups of 4 hex digits separated by colons.
                 This provides ~340 undecillion addresses.
               </p>
               <div className="bg-gray-900 rounded-xl p-3 font-mono text-[10px] text-gray-300 mt-2 space-y-1">
@@ -551,7 +549,7 @@ export default function Module4Page() {
               <div className="space-y-1.5 text-xs text-gray-600">
                 {[
                   { label: "Address size",  v4: "32 bits (~4.3B)",    v6: "128 bits (~340 undecillion)" },
-                  { label: "Broadcast",     v4: "Yes",                v6: "No — multicast + anycast" },
+                  { label: "Broadcast",     v4: "Yes",                v6: "No  multicast + anycast" },
                   { label: "NAT",           v4: "Essential",          v6: "Not needed (huge space)" },
                   { label: "Config",        v4: "Manual or DHCP",     v6: "SLAAC (stateless autoconfigure)" },
                   { label: "IPSec",         v4: "Optional",           v6: "Built-in support" },
@@ -597,7 +595,7 @@ export default function Module4Page() {
           </p>
 
           <ExitQuiz
-            moduleName="Module 4 — Network Layer &amp; IP Addressing"
+            moduleName="Module 4  Network Layer &amp; IP Addressing"
             questions={QUIZ}
             passThreshold={14}
           />

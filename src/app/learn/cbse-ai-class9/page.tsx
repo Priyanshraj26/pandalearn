@@ -1,4 +1,4 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import {
   Brain, FlaskConical, BarChart3, Code2, Lightbulb,
   ArrowRight, Clock, Lock, BookOpen, Zap, Award, Target,
@@ -33,7 +33,7 @@ const UNITS = [
     marks:    7,
     desc:     "Discover how statistics and probability power every AI prediction.",
     topics:   ["Statistics in Real Life", "Number Patterns", "Probability & Events", "Data Analysis"],
-    unlocked: false,
+    unlocked: true,
     Icon:     FlaskConical,
   },
   {
@@ -41,9 +41,9 @@ const UNITS = [
     title:    "Introduction to Generative AI",
     theory:   8, practical: 12,
     marks:    5,
-    desc:     "Understand how AI creates text, images, and more — and the ethics around it.",
+    desc:     "Understand how AI creates text, images, and more  and the ethics around it.",
     topics:   ["Gen AI vs Conventional AI", "Types of Gen AI", "Benefits & Limits", "Ethical Use"],
-    unlocked: false,
+    unlocked: true,
     Icon:     Lightbulb,
   },
   {
@@ -51,16 +51,15 @@ const UNITS = [
     title:    "Introduction to Python",
     theory:   1, practical: 9,
     marks:    8,
-    desc:     "Write your first Python programs — variables, loops, lists and more.",
+    desc:     "Write your first Python programs  variables, loops, lists and more.",
     topics:   ["Python Basics", "Flow of Control", "Lists", "Input / Output"],
-    unlocked: false,
+    unlocked: true,
     Icon:     Code2,
   },
 ]
 
 const HIGHLIGHTS = [
   { Icon: BookOpen, label: "5 Units",        sub: "Complete CBSE 417 syllabus"    },
-  { Icon: Clock,    label: "~160 Hours",      sub: "Theory + Practical combined"   },
   { Icon: Zap,      label: "AI-Native Tools", sub: "Sandbox, animations, quizzes"  },
   { Icon: Award,    label: "40 Theory Marks", sub: "CBSE board exam aligned"       },
 ]
@@ -104,7 +103,7 @@ export default function AIOverviewPage() {
 
           <p className="text-white/60 text-sm lg:text-base leading-relaxed mb-8 max-w-xl">
             The complete CBSE AI syllabus brought to life with interactive animations,
-            a hands-on AI Project Sandbox, and concept-level quizzes — so you
+            a hands-on AI Project Sandbox, and concept-level quizzes  so you
             understand the <em className="text-orange-300 not-italic">why</em>, not just the <em className="text-orange-300 not-italic">what</em>.
           </p>
 
@@ -137,9 +136,9 @@ export default function AIOverviewPage() {
       {/* ── Curriculum ───────────────────────────────────────────────────────── */}
       <div className="px-6 lg:px-10 py-10">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-sora font-bold text-gray-900 text-lg">Part B — Subject Specific Skills</h2>
+          <h2 className="font-sora font-bold text-gray-900 text-lg">Part B  Subject Specific Skills</h2>
           <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2.5 py-1 rounded-full">
-            5 units · 160 hours
+            5 units
           </span>
         </div>
 
@@ -215,7 +214,7 @@ export default function AIOverviewPage() {
         <div className="border border-gray-200 rounded-2xl overflow-hidden">
           <div className="px-5 py-4 bg-gray-50 border-b border-gray-200 flex items-center gap-2">
             <FileText size={15} className="text-gray-500" />
-            <h2 className="font-sora font-bold text-gray-900 text-sm">Exam Pattern — Total 100 Marks</h2>
+            <h2 className="font-sora font-bold text-gray-900 text-sm">Exam Pattern  Total 100 Marks</h2>
           </div>
           <div className="divide-y divide-gray-100">
             {EXAM_PARTS.map(({ part, name, marks, color }) => (
@@ -235,10 +234,10 @@ export default function AIOverviewPage() {
           <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-3">Why PandaLearn for CBSE AI?</p>
           <div className="grid sm:grid-cols-2 gap-3">
             {[
-              ["AI Project Cycle Sandbox", "Build a real AI project step-by-step inside the lesson — scope, data, train, evaluate, deploy."],
+              ["AI Project Cycle Sandbox", "Build a real AI project step-by-step inside the lesson  scope, data, train, evaluate, deploy."],
               ["CBSE Syllabus Mapped", "Every section is tagged to official learning outcomes from the CBSE 417 curriculum."],
-              ["Interactive Ethics Roleplay", "Take on a stakeholder role and argue ethical positions — just like the CBSE Balloon Debate activity."],
-              ["Confusion Matrix Builder", "Understand TP/FP/TN/FN by experimenting with a live scenario — not just reading definitions."],
+              ["Interactive Ethics Roleplay", "Take on a stakeholder role and argue ethical positions  just like the CBSE Balloon Debate activity."],
+              ["Confusion Matrix Builder", "Understand TP/FP/TN/FN by experimenting with a live scenario  not just reading definitions."],
             ].map(([title, desc]) => (
               <div key={title} className="flex items-start gap-2.5">
                 <CheckCircle size={14} className="text-orange-500 shrink-0 mt-0.5" />

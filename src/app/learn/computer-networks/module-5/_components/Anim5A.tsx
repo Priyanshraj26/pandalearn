@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -24,18 +24,18 @@ interface Step {
 
 const STEPS_NORMAL: Step[] = [
   { clientState: "CLOSED",       serverState: "LISTEN",       arrow: null, note: "Server is waiting for connections. Client is idle." },
-  { clientState: "SYN_SENT",     serverState: "LISTEN",       arrow: { id:"s1", dir:"right", label:"SYN", sublabel:"seq=1000, flags=SYN", color:"#7C3AED" }, note: "Client sends SYN — initiates a connection request with an initial sequence number." },
-  { clientState: "SYN_SENT",     serverState: "SYN_RECEIVED", arrow: { id:"s2", dir:"left",  label:"SYN-ACK", sublabel:"seq=5000, ack=1001, flags=SYN+ACK", color:"#F59E0B" }, note: "Server replies with SYN-ACK — acknowledges the client's SYN and sends its own sequence number." },
-  { clientState: "ESTABLISHED",  serverState: "ESTABLISHED",  arrow: { id:"s3", dir:"right", label:"ACK", sublabel:"ack=5001, flags=ACK", color:"#10B981" }, note: "Client ACKs the server's SYN. Both sides are now ESTABLISHED — data transfer can begin." },
+  { clientState: "SYN_SENT",     serverState: "LISTEN",       arrow: { id:"s1", dir:"right", label:"SYN", sublabel:"seq=1000, flags=SYN", color:"#7C3AED" }, note: "Client sends SYN  initiates a connection request with an initial sequence number." },
+  { clientState: "SYN_SENT",     serverState: "SYN_RECEIVED", arrow: { id:"s2", dir:"left",  label:"SYN-ACK", sublabel:"seq=5000, ack=1001, flags=SYN+ACK", color:"#F59E0B" }, note: "Server replies with SYN-ACK  acknowledges the client's SYN and sends its own sequence number." },
+  { clientState: "ESTABLISHED",  serverState: "ESTABLISHED",  arrow: { id:"s3", dir:"right", label:"ACK", sublabel:"ack=5001, flags=ACK", color:"#10B981" }, note: "Client ACKs the server's SYN. Both sides are now ESTABLISHED  data transfer can begin." },
   { clientState: "ESTABLISHED",  serverState: "ESTABLISHED",  arrow: { id:"s4", dir:"right", label:"DATA", sublabel:"seq=1001, 500 bytes", color:"#2563EB" }, note: "Data flows. Segments are numbered by byte position so the receiver can reorder and detect gaps." },
-  { clientState: "ESTABLISHED",  serverState: "ESTABLISHED",  arrow: { id:"s5", dir:"left",  label:"ACK", sublabel:"ack=1501", color:"#10B981" }, note: "Receiver ACKs the data — 'I got everything up to byte 1500, send 1501 next.'" },
+  { clientState: "ESTABLISHED",  serverState: "ESTABLISHED",  arrow: { id:"s5", dir:"left",  label:"ACK", sublabel:"ack=1501", color:"#10B981" }, note: "Receiver ACKs the data  'I got everything up to byte 1500, send 1501 next.'" },
 ]
 
 const STEPS_DROPPED: Step[] = [
   { clientState: "CLOSED",      serverState: "LISTEN",   arrow: null, note: "Simulating a dropped SYN scenario." },
-  { clientState: "SYN_SENT",    serverState: "LISTEN",   arrow: { id:"d1", dir:"right", label:"SYN", sublabel:"seq=1000, flags=SYN", color:"#7C3AED", dropped:true }, note: "Client sends SYN — but it is dropped mid-transit." },
+  { clientState: "SYN_SENT",    serverState: "LISTEN",   arrow: { id:"d1", dir:"right", label:"SYN", sublabel:"seq=1000, flags=SYN", color:"#7C3AED", dropped:true }, note: "Client sends SYN  but it is dropped mid-transit." },
   { clientState: "SYN_SENT",    serverState: "LISTEN",   arrow: null, note: "Retransmission timer running… server never received the SYN." },
-  { clientState: "SYN_SENT",    serverState: "LISTEN",   arrow: { id:"d2", dir:"right", label:"SYN (retransmit)", sublabel:"seq=1000, flags=SYN", color:"#7C3AED" }, note: "RTO expires — client retransmits the SYN automatically. TCP doubles the timeout (exponential backoff)." },
+  { clientState: "SYN_SENT",    serverState: "LISTEN",   arrow: { id:"d2", dir:"right", label:"SYN (retransmit)", sublabel:"seq=1000, flags=SYN", color:"#7C3AED" }, note: "RTO expires  client retransmits the SYN automatically. TCP doubles the timeout (exponential backoff)." },
   { clientState: "SYN_SENT",    serverState: "SYN_RECEIVED", arrow: { id:"d3", dir:"left", label:"SYN-ACK", sublabel:"seq=5000, ack=1001", color:"#F59E0B" }, note: "Server receives the retransmitted SYN and replies. Handshake continues normally." },
   { clientState: "ESTABLISHED", serverState: "ESTABLISHED", arrow: { id:"d4", dir:"right", label:"ACK", sublabel:"ack=5001", color:"#10B981" }, note: "Connection established after the retransmit. Total added latency: one RTO (typically 200 ms–1 s)." },
 ]

@@ -1,4 +1,4 @@
-import { Layers, Network, Shield, Server, Globe, Cpu } from "lucide-react"
+﻿import { Layers, Network, Shield, Server, Globe, Cpu } from "lucide-react"
 import AnimFrame from "@/components/learn/AnimFrame"
 import ConceptCard from "@/components/learn/ConceptCard"
 import MicroCheck from "@/components/learn/MicroCheck"
@@ -28,7 +28,7 @@ const QUIZ: QuizQuestion[] = [
     options: [
       "1501 packets have been received",
       "Send segment number 1501 next",
-      "I have received all bytes up to 1500 — send byte 1501 next",
+      "I have received all bytes up to 1500  send byte 1501 next",
       "The window size is 1501 bytes",
     ],
     correct: 2,
@@ -43,7 +43,7 @@ const QUIZ: QuizQuestion[] = [
       "An ICMP Destination Unreachable message",
     ],
     correct: 1,
-    explanation: "When the sender receives 3 duplicate ACKs (all acknowledging the same byte), it infers a segment was lost and immediately retransmits — no need to wait for the RTO timer. This is TCP Fast Retransmit, and it significantly reduces recovery time.",
+    explanation: "When the sender receives 3 duplicate ACKs (all acknowledging the same byte), it infers a segment was lost and immediately retransmits  no need to wait for the RTO timer. This is TCP Fast Retransmit, and it significantly reduces recovery time.",
   },
   {
     question: "Which phase of TCP congestion control grows the window exponentially?",
@@ -54,7 +54,7 @@ const QUIZ: QuizQuestion[] = [
       "Fast Retransmit",
     ],
     correct: 2,
-    explanation: "Slow Start doubles cwnd each RTT (exponential growth) until it reaches ssthresh. Despite its name, Slow Start is only 'slow' compared to an unbounded burst — it begins at cwnd=1 MSS. Congestion Avoidance grows linearly (+1 MSS per RTT).",
+    explanation: "Slow Start doubles cwnd each RTT (exponential growth) until it reaches ssthresh. Despite its name, Slow Start is only 'slow' compared to an unbounded burst  it begins at cwnd=1 MSS. Congestion Avoidance grows linearly (+1 MSS per RTT).",
   },
   {
     question: "What happens to TCP's congestion window (cwnd) when a timeout occurs?",
@@ -65,7 +65,7 @@ const QUIZ: QuizQuestion[] = [
       "cwnd doubles to compensate for the lost segment",
     ],
     correct: 1,
-    explanation: "On timeout (the most severe congestion signal), TCP sets cwnd=1 and ssthresh=cwnd/2, then re-enters Slow Start. This is more aggressive than the 3-dup-ACK response because a timeout suggests serious congestion — the network needs to drain.",
+    explanation: "On timeout (the most severe congestion signal), TCP sets cwnd=1 and ssthresh=cwnd/2, then re-enters Slow Start. This is more aggressive than the 3-dup-ACK response because a timeout suggests serious congestion  the network needs to drain.",
   },
   {
     question: "TCP flow control uses a receiver-advertised window. What happens when that window reaches zero?",
@@ -81,19 +81,19 @@ const QUIZ: QuizQuestion[] = [
   {
     question: "Which transport-layer protocol is best for a live video streaming application that prioritises low latency?",
     options: [
-      "TCP — because it guarantees delivery",
-      "UDP — because lost frames are acceptable and retransmits would add unacceptable latency",
+      "TCP  because it guarantees delivery",
+      "UDP  because lost frames are acceptable and retransmits would add unacceptable latency",
       "TCP with a very large window size",
-      "ICMP — it has no connection overhead",
+      "ICMP  it has no connection overhead",
     ],
     correct: 1,
-    explanation: "Live video can tolerate occasional dropped frames far better than delayed ones. UDP fires packets immediately with no handshake, retransmit, or ordering overhead. TCP's reliability mechanisms would introduce jitter and stalls on loss events — unacceptable for real-time media.",
+    explanation: "Live video can tolerate occasional dropped frames far better than delayed ones. UDP fires packets immediately with no handshake, retransmit, or ordering overhead. TCP's reliability mechanisms would introduce jitter and stalls on loss events  unacceptable for real-time media.",
   },
   {
     question: "What is the range of well-known (reserved) port numbers?",
     options: ["0–1023", "1024–49151", "49152–65535", "0–65535"],
     correct: 0,
-    explanation: "Ports 0–1023 are IANA-assigned well-known ports: HTTP=80, HTTPS=443, SSH=22, DNS=53, SMTP=25. Ports 1024–49151 are registered (e.g. MySQL=3306). Ports 49152–65535 are dynamic/ephemeral — assigned by the OS for outgoing client connections.",
+    explanation: "Ports 0–1023 are IANA-assigned well-known ports: HTTP=80, HTTPS=443, SSH=22, DNS=53, SMTP=25. Ports 1024–49151 are registered (e.g. MySQL=3306). Ports 49152–65535 are dynamic/ephemeral  assigned by the OS for outgoing client connections.",
   },
   {
     question: "A TCP socket is uniquely identified by a 4-tuple. Which 4-tuple is correct?",
@@ -115,7 +115,7 @@ const QUIZ: QuizQuestion[] = [
       "The client can still receive retransmitted data segments",
     ],
     correct: 1,
-    explanation: "TIME_WAIT lasts 2×MSL (Maximum Segment Lifetime, typically 2 minutes). It ensures the final ACK the client sent actually reaches the server. If it was lost, the server would retransmit its FIN and the client — still in TIME_WAIT — can re-send the ACK instead of sending a confusing RST.",
+    explanation: "TIME_WAIT lasts 2×MSL (Maximum Segment Lifetime, typically 2 minutes). It ensures the final ACK the client sent actually reaches the server. If it was lost, the server would retransmit its FIN and the client  still in TIME_WAIT  can re-send the ACK instead of sending a confusing RST.",
   },
   {
     question: "QUIC (used by HTTP/3) is built on top of UDP. Why use UDP instead of TCP?",
@@ -134,10 +134,10 @@ const QUIZ: QuizQuestion[] = [
       "Tahoe also enters Fast Recovery, but from a higher starting cwnd",
       "Tahoe resets cwnd to 1 and re-enters Slow Start, which is more aggressive",
       "Reno resets to 1; Tahoe keeps cwnd at ssthresh",
-      "There is no difference — both use the same algorithm",
+      "There is no difference  both use the same algorithm",
     ],
     correct: 1,
-    explanation: "TCP Tahoe treats 3-dup-ACKs the same as a timeout: cwnd=1, re-enter Slow Start. TCP Reno distinguishes them — 3-dup-ACKs are a 'mild' signal so it halves cwnd to ssthresh and enters Fast Recovery (staying in CA phase). Reno recovers faster because it doesn't drop back to 1.",
+    explanation: "TCP Tahoe treats 3-dup-ACKs the same as a timeout: cwnd=1, re-enter Slow Start. TCP Reno distinguishes them  3-dup-ACKs are a 'mild' signal so it halves cwnd to ssthresh and enters Fast Recovery (staying in CA phase). Reno recovers faster because it doesn't drop back to 1.",
   },
   {
     question: "What is the purpose of TCP sequence numbers?",
@@ -148,7 +148,7 @@ const QUIZ: QuizQuestion[] = [
       "To map port numbers to socket descriptors in the OS",
     ],
     correct: 1,
-    explanation: "Sequence numbers let TCP track exactly which bytes have been received. If segment 1001–2000 arrives before 501–1000, the receiver can reorder them. If a gap exists (501–1000 missing), the receiver keeps ACKing 500 — triggering fast retransmit for the lost segment.",
+    explanation: "Sequence numbers let TCP track exactly which bytes have been received. If segment 1001–2000 arrives before 501–1000, the receiver can reorder them. If a gap exists (501–1000 missing), the receiver keeps ACKing 500  triggering fast retransmit for the lost segment.",
   },
   {
     question: "UDP header size is _____ bytes. TCP header (minimum) is _____ bytes.",
@@ -165,7 +165,7 @@ const QUIZ: QuizQuestion[] = [
       "UDP is required by the IANA standard for all lookup protocols",
     ],
     correct: 1,
-    explanation: "DNS queries are tiny request-response pairs that fit in a single UDP datagram. If no reply arrives, the client simply retries. There's no need for TCP's connection setup and retransmission machinery for such short exchanges — it would add needless latency.",
+    explanation: "DNS queries are tiny request-response pairs that fit in a single UDP datagram. If no reply arrives, the client simply retries. There's no need for TCP's connection setup and retransmission machinery for such short exchanges  it would add needless latency.",
   },
   {
     question: "What does 'additive increase, multiplicative decrease' (AIMD) describe in TCP?",
@@ -187,7 +187,7 @@ const QUIZ: QuizQuestion[] = [
   {
     question: "In TCP congestion control, what is ssthresh and how is it used?",
     options: [
-      "Slow-start threshold — cwnd below it grows exponentially; above it grows linearly",
+      "Slow-start threshold  cwnd below it grows exponentially; above it grows linearly",
       "The maximum advertised receiver window",
       "The retransmission timeout value in milliseconds",
       "The number of duplicate ACKs before fast retransmit fires",
@@ -242,8 +242,6 @@ export default function Module5Page() {
                 <span className="bg-blue-500/30 text-blue-300 border border-blue-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold">
                   Intermediate
                 </span>
-                <span className="text-white/50 text-xs">~6 hours</span>
-                <span className="text-white/20 text-xs">·</span>
                 <span className="text-white/50 text-xs">18 quiz questions</span>
               </div>
             </div>
@@ -251,7 +249,7 @@ export default function Module5Page() {
 
           <p className="relative text-white/60 text-sm leading-relaxed mt-6 max-w-2xl">
             Understand how TCP delivers data reliably with handshakes, sequence numbers, flow
-            control, and congestion control — and when UDP's speed makes it the right choice.
+            control, and congestion control  and when UDP's speed makes it the right choice.
           </p>
         </div>
       </div>
@@ -273,7 +271,7 @@ export default function Module5Page() {
           <SectionHeading n="01" title="Port Numbers &amp; Sockets" />
 
           <div className="grid sm:grid-cols-2 gap-4">
-            <ConceptCard number="5.1" title="Ports — Service Multiplexing" tag="Key Concept">
+            <ConceptCard number="5.1" title="Ports  Service Multiplexing" tag="Key Concept">
               <p>
                 A single IP can run many services simultaneously using
                 <strong> port numbers</strong>. The OS routes incoming segments to the
@@ -329,8 +327,8 @@ export default function Module5Page() {
           <MicroCheck
             question="A web server listens on port 443. Client A uses ephemeral port 54321 and Client B uses 54322. Can the server handle both at once?"
             options={[
-              "No — two clients cannot use the same destination port",
-              "Yes — each connection is a different 4-tuple (different source ports), so they are distinct",
+              "No  two clients cannot use the same destination port",
+              "Yes  each connection is a different 4-tuple (different source ports), so they are distinct",
               "Only if the server opens a new port for each client",
               "Only if the clients have different IP addresses",
             ]}
@@ -386,7 +384,7 @@ export default function Module5Page() {
                 ))}
               </div>
               <p className="text-[10px] text-gray-500 mt-2 border-t border-gray-100 pt-2">
-                <strong>Why 4 steps?</strong> FIN only closes one direction — each side must
+                <strong>Why 4 steps?</strong> FIN only closes one direction  each side must
                 independently signal it is done sending.
               </p>
             </ConceptCard>
@@ -394,8 +392,8 @@ export default function Module5Page() {
 
           <AnimFrame
             id="anim-5a"
-            title="Anim 5-A — TCP 3-Way Handshake"
-            description="Step through normal and dropped-SYN scenarios — watch state machine transitions"
+            title="Anim 5-A  TCP 3-Way Handshake"
+            description="Step through normal and dropped-SYN scenarios  watch state machine transitions"
             totalSteps={1}
           >
             <Anim5A />
@@ -405,7 +403,7 @@ export default function Module5Page() {
             question="Why does TCP use 3 steps to establish a connection instead of just 2?"
             options={[
               "2-way handshake is not defined by the TCP standard",
-              "Both sides must confirm they can both send AND receive — a 2-way handshake only confirms one direction",
+              "Both sides must confirm they can both send AND receive  a 2-way handshake only confirms one direction",
               "3 steps are required to exchange encryption keys",
               "The third step carries the initial data payload",
             ]}
@@ -440,23 +438,23 @@ export default function Module5Page() {
           <MicroCheck
             question="TCP receives a segment with bytes 1–500 and then bytes 1001–1500. Bytes 501–1000 are missing. What ACK does it send?"
             options={[
-              "ACK=1001 — it acknowledges everything it has",
-              "ACK=501 — it only acknowledges up to the first gap",
-              "ACK=1501 — it acknowledges all received segments regardless of order",
-              "No ACK — TCP waits until the gap is filled",
+              "ACK=1001  it acknowledges everything it has",
+              "ACK=501  it only acknowledges up to the first gap",
+              "ACK=1501  it acknowledges all received segments regardless of order",
+              "No ACK  TCP waits until the gap is filled",
             ]}
             correct={1}
-            explanation="TCP uses cumulative ACKs — it can only acknowledge a contiguous byte stream. After receiving 1–500, it sends ACK=501. When 1001–1500 arrives out of order, it still sends ACK=501 (a duplicate ACK) because bytes 501–1000 are still missing. Three of these duplicates trigger fast retransmit."
+            explanation="TCP uses cumulative ACKs  it can only acknowledge a contiguous byte stream. After receiving 1–500, it sends ACK=501. When 1001–1500 arrives out of order, it still sends ACK=501 (a duplicate ACK) because bytes 501–1000 are still missing. Three of these duplicates trigger fast retransmit."
           />
         </section>
 
         {/* ── Section 04: Flow Control */}
         <section className="space-y-6">
-          <SectionHeading n="04" title="Flow Control — Sliding Window" />
+          <SectionHeading n="04" title="Flow Control  Sliding Window" />
 
           <ConceptCard number="5.6" title="The Sliding Window" tag="Key Concept">
             <p>
-              The receiver advertises a <strong>window size</strong> — how many unacknowledged
+              The receiver advertises a <strong>window size</strong>  how many unacknowledged
               bytes it can buffer. The sender must not exceed this limit.
             </p>
             <div className="bg-gray-900 rounded-xl p-3 font-mono text-[10px] text-gray-300 mt-2 space-y-0.5">
@@ -471,8 +469,8 @@ export default function Module5Page() {
 
           <AnimFrame
             id="anim-5b"
-            title="Anim 5-B — Sliding Window Visualizer"
-            description="Send segments, receive ACKs, fill the buffer — observe the window slide and zero-window probe"
+            title="Anim 5-B  Sliding Window Visualizer"
+            description="Send segments, receive ACKs, fill the buffer  observe the window slide and zero-window probe"
             totalSteps={1}
           >
             <Anim5B />
@@ -537,17 +535,17 @@ export default function Module5Page() {
                 </table>
               </div>
               <p className="text-xs text-gray-500 mt-2">
-                A timeout means the network is severely congested — TCP backs all the way off to
+                A timeout means the network is severely congested  TCP backs all the way off to
                 1 MSS. Three dup-ACKs suggest a single lost segment while the path is still
-                usable — a less drastic response.
+                usable  a less drastic response.
               </p>
             </ConceptCard>
           </div>
 
           <AnimFrame
             id="anim-5c"
-            title="Anim 5-C — Congestion Control Graph"
-            description="Click Simulate — watch cwnd grow, react to loss events, and compare Tahoe vs Reno vs CUBIC"
+            title="Anim 5-C  Congestion Control Graph"
+            description="Click Simulate  watch cwnd grow, react to loss events, and compare Tahoe vs Reno vs CUBIC"
             totalSteps={1}
           >
             <Anim5C />
@@ -556,10 +554,10 @@ export default function Module5Page() {
           <MicroCheck
             question="After a timeout event, TCP Reno sets cwnd=1 and ssthresh=cwnd/2, then enters Slow Start. True or false?"
             options={[
-              "True — timeout is handled identically by all TCP variants",
-              "False — Reno sets cwnd=ssthresh on timeout and stays in Congestion Avoidance",
-              "True — on timeout all TCP variants reset cwnd to 1 and halve ssthresh",
-              "False — only TCP Tahoe resets cwnd to 1; Reno keeps cwnd at ssthresh",
+              "True  timeout is handled identically by all TCP variants",
+              "False  Reno sets cwnd=ssthresh on timeout and stays in Congestion Avoidance",
+              "True  on timeout all TCP variants reset cwnd to 1 and halve ssthresh",
+              "False  only TCP Tahoe resets cwnd to 1; Reno keeps cwnd at ssthresh",
             ]}
             correct={2}
             explanation="All major TCP variants (Tahoe, Reno, CUBIC) treat a timeout identically: cwnd=1, ssthresh=cwnd/2, re-enter Slow Start. The variants differ only in their response to 3-dup-ACKs (a milder signal). Reno's Fast Recovery is only triggered by 3-dup-ACKs, not timeouts."
@@ -571,10 +569,10 @@ export default function Module5Page() {
           <SectionHeading n="06" title="UDP &amp; TCP vs UDP" />
 
           <div className="grid sm:grid-cols-2 gap-4">
-            <ConceptCard number="5.8" title="UDP — User Datagram Protocol" tag="Key Concept">
+            <ConceptCard number="5.8" title="UDP  User Datagram Protocol" tag="Key Concept">
               <p>
                 UDP is <strong>connectionless</strong>, <strong>unreliable</strong>, and
-                <strong> unordered</strong> — but extremely <strong>fast</strong>.
+                <strong> unordered</strong>  but extremely <strong>fast</strong>.
                 Its header is only <strong>8 bytes</strong>.
               </p>
               <div className="bg-gray-900 rounded-xl p-2.5 font-mono text-[9px] text-gray-300 mt-2">
@@ -620,8 +618,8 @@ export default function Module5Page() {
 
           <AnimFrame
             id="anim-5d"
-            title="Anim 5-D — TCP vs UDP Race"
-            description="Click Race! — watch both protocols send 20 packets with 3 intentional drops"
+            title="Anim 5-D  TCP vs UDP Race"
+            description="Click Race!  watch both protocols send 20 packets with 3 intentional drops"
             totalSteps={1}
           >
             <Anim5D />
@@ -630,13 +628,13 @@ export default function Module5Page() {
           <MicroCheck
             question="A gaming application sends position updates 60 times per second. Should it use TCP or UDP?"
             options={[
-              "TCP — players must receive every update in order",
-              "UDP — old position updates are worthless once stale; retransmits would cause lag",
+              "TCP  players must receive every update in order",
+              "UDP  old position updates are worthless once stale; retransmits would cause lag",
               "TCP with a very small window size to limit retransmits",
-              "Either — they perform identically for small, frequent messages",
+              "Either  they perform identically for small, frequent messages",
             ]}
             correct={1}
-            explanation="In real-time games, a position update from 100 ms ago is useless — the player has already moved. A TCP retransmit would delay all subsequent updates (head-of-line blocking), causing visible lag. UDP sends each update immediately and the game simply uses the most recent received state."
+            explanation="In real-time games, a position update from 100 ms ago is useless  the player has already moved. A TCP retransmit would delay all subsequent updates (head-of-line blocking), causing visible lag. UDP sends each update immediately and the game simply uses the most recent received state."
           />
         </section>
 
@@ -657,7 +655,7 @@ export default function Module5Page() {
           </p>
 
           <ExitQuiz
-            moduleName="Module 5 — Transport Layer: TCP &amp; UDP"
+            moduleName="Module 5  Transport Layer: TCP &amp; UDP"
             questions={QUIZ}
             passThreshold={13}
           />

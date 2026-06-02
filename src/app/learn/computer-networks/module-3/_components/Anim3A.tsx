@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -88,10 +88,10 @@ export default function Anim3A() {
 
         <span className="ml-auto text-[10px] text-gray-500">
           {phase === "request" && "Broadcasting ARP request…"}
-          {phase === "notme"   && "Hosts B, C, D receive — only B has that IP"}
+          {phase === "notme"   && "Hosts B, C, D receive  only B has that IP"}
           {phase === "reply"   && "Host B replies unicast to Host A"}
           {phase === "cache"   && "Host A caches the MAC address"}
-          {phase === "cachehit"&& "Cache hit — no broadcast needed!"}
+          {phase === "cachehit"&& "Cache hit  no broadcast needed!"}
           {phase === "done"    && "ARP complete"}
         </span>
       </div>
@@ -232,7 +232,7 @@ export default function Anim3A() {
         {/* info / arp cache panel */}
         <div className="w-48 shrink-0 flex flex-col gap-3">
           <div className="bg-[#1E293B] rounded-xl p-3 border border-[#334155]">
-            <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-2">ARP Cache — Host A</p>
+            <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-2">ARP Cache  Host A</p>
             <AnimatePresence>
               {arpCache ? (
                 <motion.div
@@ -282,7 +282,7 @@ export default function Anim3A() {
                 animate={{ opacity: 1 }}
                 className="text-[9px] text-emerald-400 mt-3 leading-relaxed"
               >
-                Second lookup skips the broadcast — the MAC is already cached.
+                Second lookup skips the broadcast  the MAC is already cached.
               </motion.p>
             )}
           </div>

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -28,7 +28,7 @@ const DATA_CATEGORIES: DataCategory[] = [
     color:   "#3B82F6",
     examples: ["GPS coordinates every 5 minutes", "Home & work addresses", "Shops you visit", "Daily commute routes"],
     riskLevel: "high",
-    riskDesc: "Reveals your home, workplace, daily schedule — a stalker or thief could use this to track you.",
+    riskDesc: "Reveals your home, workplace, daily schedule  a stalker or thief could use this to track you.",
     whenShared: "Maps, food delivery, cab apps, weather apps",
   },
   {
@@ -191,7 +191,7 @@ export default function AnimDataPrivacy() {
                     <div className="w-2 h-2 rounded-full bg-amber-500/60" />
                     <div className="w-2 h-2 rounded-full bg-emerald-500/60" />
                   </div>
-                  <p className="text-[10px] text-slate-400 font-medium ml-1">EduLearn App — Permissions</p>
+                  <p className="text-[10px] text-slate-400 font-medium ml-1">EduLearn App  Permissions</p>
                 </div>
                 <div className="p-3 space-y-2">
                   {DATA_CATEGORIES.map(d => {
@@ -410,7 +410,7 @@ export default function AnimDataPrivacy() {
                 <p className="font-bold text-red-700 mb-1">Data breaches are not rare</p>
                 <p className="text-red-600 leading-relaxed">
                   India's CERT-In reported 13.9 lakh cybersecurity incidents in 2022 alone.
-                  Data you shared years ago can be leaked anytime — minimising what you share is your best protection.
+                  Data you shared years ago can be leaked anytime  minimising what you share is your best protection.
                 </p>
               </div>
               <button onClick={() => setPhase("protect")}

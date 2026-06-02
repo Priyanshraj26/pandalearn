@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { signIn } from "next-auth/react"
@@ -237,7 +237,7 @@ export default function SignupPage() {
               </div>
             </div>
 
-            {/* Board selector — only for School track */}
+            {/* Board selector  only for School track */}
             <AnimatePresence>
               {form.track === "school" && (
                 <motion.div

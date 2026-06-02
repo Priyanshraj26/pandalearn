@@ -1,4 +1,4 @@
-import Link from "next/link"
+﻿import Link from "next/link"
 import { ArrowRight, BookOpen } from "lucide-react"
 
 interface CourseProgress {
@@ -15,7 +15,7 @@ interface Props {
 
 const TRACK_SUBJECTS: Record<string, { key: string; label: string; total: number; color: string; href: string }[]> = {
   school: [
-    { key: "What is AI", label: "CBSE AI — Class IX", total: 5, color: "bg-orange-500", href: "/learn/cbse-ai-class9" },
+    { key: "What is AI", label: "CBSE AI  Class IX", total: 5, color: "bg-orange-500", href: "/learn/cbse-ai-class9" },
   ],
   engineering: [
     { key: "Computer Networks", label: "Computer Networks", total: 6, color: "bg-violet-500", href: "/learn/computer-networks" },

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -66,7 +66,7 @@ const DEPLOY_OPTIONS = [
   { id: "app",   Icon: Smartphone, label: "Mobile App",      note: "Accessible anywhere, but needs smartphone." },
   { id: "web",   Icon: Monitor,    label: "Web Dashboard",   note: "Great for experts, needs internet access."  },
   { id: "kiosk", Icon: Tablet,     label: "Public Kiosk",    note: "Works offline, limited to fixed locations." },
-  { id: "api",   Icon: Settings,   label: "API Integration", note: "Powers other apps — invisible but powerful."},
+  { id: "api",   Icon: Settings,   label: "API Integration", note: "Powers other apps  invisible but powerful."},
 ]
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -169,7 +169,7 @@ export default function AnimProjectSandbox() {
       <div className="flex items-center justify-between gap-4 px-5 py-3.5 bg-orange-50 border-b border-orange-100">
         <div>
           <p className="font-sora font-bold text-gray-900 text-sm">AI Project Cycle Sandbox</p>
-          <p className="text-xs text-gray-500 mt-0.5">Build your own AI project — step by step</p>
+          <p className="text-xs text-gray-500 mt-0.5">Build your own AI project  step by step</p>
         </div>
         {step > 0 && (
           <button onClick={reset} className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-orange-500 transition-colors">
@@ -190,7 +190,7 @@ export default function AnimProjectSandbox() {
                 <div className="flex justify-center mb-3"><Bot size={40} className="text-orange-500" /></div>
                 <h3 className="font-sora font-bold text-gray-900 text-lg mb-2">Build Your First AI Project!</h3>
                 <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-                  You&apos;ll follow the real <strong>CBSE AI Project Cycle</strong> — scoping a problem, collecting data,
+                  You&apos;ll follow the real <strong>CBSE AI Project Cycle</strong>  scoping a problem, collecting data,
                   building a model, evaluating it, and deploying it. This is exactly what AI engineers do.
                 </p>
               </div>
@@ -277,7 +277,7 @@ export default function AnimProjectSandbox() {
                 >
                   <p className="text-[10px] font-bold text-violet-500 uppercase tracking-wider mb-1">Generated Problem Statement</p>
                   <p className="text-xs text-violet-900 leading-relaxed">
-                    <strong>{who}</strong> {what} — especially {where}, {when}.
+                    <strong>{who}</strong> {what}  especially {where}, {when}.
                     An AI system can help by analysing patterns and providing timely predictions.
                   </p>
                 </motion.div>
@@ -366,7 +366,7 @@ export default function AnimProjectSandbox() {
                   initial={{ scale: 1.2, color: "#F97316" }} animate={{ scale: 1, color: "#111827" }}
                   className="text-sm font-bold"
                 >
-                  {features.length === 0 ? "—" : `${Math.round(accuracy * 100)}%`}
+                  {features.length === 0 ? "" : `${Math.round(accuracy * 100)}%`}
                 </motion.span>
               </div>
             </motion.div>
@@ -379,7 +379,7 @@ export default function AnimProjectSandbox() {
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Step 04 · Modeling</p>
                 <h3 className="font-sora font-bold text-gray-900">Train your model</h3>
                 <p className="text-xs text-gray-500 mt-1">
-                  You chose {features.length} data features. This is a <strong>learning-based model</strong> — it learns patterns
+                  You chose {features.length} data features. This is a <strong>learning-based model</strong>  it learns patterns
                   from historical examples, not hand-written rules.
                 </p>
               </div>
@@ -411,9 +411,9 @@ export default function AnimProjectSandbox() {
                     {[
                       { t: 5,  text: `Loading ${features.length * 1200 + 800} training samples…`   },
                       { t: 22, text: "Normalising feature vectors…"                                  },
-                      { t: 40, text: "Forward pass — epoch 1/5 · loss: 0.834"                        },
-                      { t: 58, text: "Backpropagation — loss: 0.834 → 0.521"                         },
-                      { t: 74, text: "Gradient descent — epoch 4/5 · loss: 0.312"                    },
+                      { t: 40, text: "Forward pass  epoch 1/5 · loss: 0.834"                        },
+                      { t: 58, text: "Backpropagation  loss: 0.834 → 0.521"                         },
+                      { t: 74, text: "Gradient descent  epoch 4/5 · loss: 0.312"                    },
                       { t: 90, text: "Validating on hold-out test set…"                              },
                     ].map(({ t, text }) => trainPct > t && (
                       <motion.p
@@ -474,7 +474,7 @@ export default function AnimProjectSandbox() {
                 const cells = [
                   { label: "True Positive",  val: tp, accent: "#7C3AED", desc: "Correctly predicted POSITIVE"         },
                   { label: "False Positive", val: fp, accent: "#6B7280", desc: "Incorrectly predicted POSITIVE"       },
-                  { label: "False Negative", val: fn, accent: "#6B7280", desc: "Missed real POSITIVE — most dangerous!"},
+                  { label: "False Negative", val: fn, accent: "#6B7280", desc: "Missed real POSITIVE  most dangerous!"},
                   { label: "True Negative",  val: tn, accent: "#7C3AED", desc: "Correctly predicted NEGATIVE"         },
                 ]
                 return (
@@ -539,12 +539,12 @@ export default function AnimProjectSandbox() {
               </div>
               <div className="bg-orange-50 border border-orange-100 rounded-2xl p-4 space-y-2.5">
                 {[
-                  { label: "Theme",       val: themeData.title + " — " + themeData.problem },
+                  { label: "Theme",       val: themeData.title + "  " + themeData.problem },
                   { label: "4Ws",         val: `${who} | ${what} | ${where} | ${when}` },
                   { label: "Stakeholders",val: stakeholders.map(id => STAKEHOLDERS.find(s => s.id === id)?.name).filter(Boolean).join(", ") },
                   { label: "Features",    val: `${features.length} data features selected` },
                   { label: "Model",       val: `Learning-based · ${Math.round(accuracy * 100)}% accuracy` },
-                  { label: "Deployment",  val: DEPLOY_OPTIONS.find(d => d.id === deployment)?.label ?? "—" },
+                  { label: "Deployment",  val: DEPLOY_OPTIONS.find(d => d.id === deployment)?.label ?? "" },
                 ].map(({ label, val }) => (
                   <div key={label} className="flex gap-3">
                     <span className="text-[10px] font-bold text-orange-600 uppercase tracking-wide w-24 shrink-0 pt-0.5">{label}</span>
@@ -555,7 +555,7 @@ export default function AnimProjectSandbox() {
               <div className="flex items-center gap-2 bg-violet-50 border border-violet-100 rounded-xl px-4 py-3">
                 <Sparkles size={14} className="text-violet-500 shrink-0" />
                 <p className="text-xs text-violet-700">
-                  This is exactly how real AI engineers work — iterating from problem to deployment.
+                  This is exactly how real AI engineers work  iterating from problem to deployment.
                   The <strong>CBSE AI curriculum</strong> teaches this cycle so you&apos;re ready for real projects.
                 </p>
               </div>

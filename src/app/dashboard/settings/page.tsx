@@ -1,4 +1,4 @@
-import { auth } from "@/auth"
+﻿import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
 import SettingsForm from "@/components/dashboard/SettingsForm"
@@ -21,7 +21,7 @@ export default async function SettingsPage() {
       select: { name: true, email: true, track: true, board: true, password: true },
     })
   } catch {
-    // DB not yet provisioned — fall back to session
+    // DB not yet provisioned  fall back to session
   }
 
   const profile = {

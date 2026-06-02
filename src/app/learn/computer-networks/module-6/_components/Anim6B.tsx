@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -204,8 +204,8 @@ export default function Anim6B() {
           >
             <span className="text-[10px] text-emerald-300 flex items-center gap-1">
               {mode === "first"
-                ? `✓ Resolved in ${STEPS_FIRST.length} hops — ~50–200 ms uncached. Cached for ${ttl}s.`
-                : <><Zap size={10} />Cache hit! Resolved in 2 hops — &lt;5 ms. TTL remaining: {ttl}s.</>}
+                ? `✓ Resolved in ${STEPS_FIRST.length} hops  ~50–200 ms uncached. Cached for ${ttl}s.`
+                : <><Zap size={10} />Cache hit! Resolved in 2 hops  &lt;5 ms. TTL remaining: {ttl}s.</>}
             </span>
           </motion.div>
         )}

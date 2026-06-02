@@ -10,7 +10,7 @@ import AchievementsGrid from "@/components/dashboard/AchievementsGrid"
 
 const TRACK_CTA: Record<string, { label: string; sub: string; href: string; Icon: React.ElementType; color: string }> = {
   school: {
-    label: "CBSE AI — Class IX",
+    label: "CBSE AI  Class IX",
     sub: "Unit 1: AI Reflection, Project Cycle & Ethics",
     href: "/learn/cbse-ai-class9/module-1",
     Icon: Brain,

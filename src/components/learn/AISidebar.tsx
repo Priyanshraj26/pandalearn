@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import Link from "next/link"
@@ -8,9 +8,9 @@ import { Lock, ChevronLeft, ChevronRight, Award } from "lucide-react"
 const UNITS = [
   { num: 1, title: "AI Reflection, Project Cycle & Ethics", dur: "~55h", marks: "10M", unlocked: true  },
   { num: 2, title: "Data Literacy",                          dur: "~50h", marks: "10M", unlocked: true  },
-  { num: 3, title: "Math for AI: Statistics & Probability",  dur: "~25h", marks: "7M",  unlocked: false },
-  { num: 4, title: "Introduction to Generative AI",          dur: "~20h", marks: "5M",  unlocked: false },
-  { num: 5, title: "Introduction to Python",                 dur: "~10h", marks: "8M",  unlocked: false },
+  { num: 3, title: "Math for AI: Statistics & Probability",  dur: "~25h", marks: "7M",  unlocked: true  },
+  { num: 4, title: "Introduction to Generative AI",          dur: "~20h", marks: "5M",  unlocked: true  },
+  { num: 5, title: "Introduction to Python",                 dur: "~10h", marks: "8M",  unlocked: true  },
 ]
 
 export default function AISidebar() {
@@ -26,7 +26,7 @@ export default function AISidebar() {
         transition: "width 0.25s ease",
       }}
     >
-      {/* CBSE badge + progress — visible only when open */}
+      {/* CBSE badge + progress  visible only when open */}
       <div
         className="border-b border-gray-100 overflow-hidden"
         style={{ height: open ? "auto" : 0, opacity: open ? 1 : 0, transition: "opacity 0.2s ease" }}

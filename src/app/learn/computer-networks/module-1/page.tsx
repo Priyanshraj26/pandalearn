@@ -140,8 +140,6 @@ export default function Module1Page() {
                 <span className="bg-violet-500/30 text-violet-300 border border-violet-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold">
                   Beginner
                 </span>
-                <span className="text-white/50 text-xs">~3 hours</span>
-                <span className="text-white/20 text-xs">·</span>
                 <span className="text-white/50 text-xs">10 quiz questions</span>
               </div>
             </div>
@@ -199,8 +197,8 @@ export default function Module1Page() {
 
           <AnimFrame
             id="anim-1a"
-            title="Anim 1-A — Network Types"
-            description="Auto-playing — click any ring or button to jump to that network type"
+            title="Anim 1-A  Network Types"
+            description="Auto-playing  click any ring or button to jump to that network type"
             totalSteps={4}
             showSpeed
           >
@@ -286,7 +284,7 @@ export default function Module1Page() {
 
           <AnimFrame
             id="anim-1b"
-            title="Anim 1-B — Topology Builder"
+            title="Anim 1-B  Topology Builder"
             description="Pick a topology, click nodes to inspect them, or break one to see fault impact"
             totalSteps={1}
           >
@@ -330,8 +328,8 @@ export default function Module1Page() {
 
           <AnimFrame
             id="anim-1d"
-            title="Anim 1-D — Communication Models"
-            description="Toggle between Client-Server and P2P — watch the data flow live"
+            title="Anim 1-D  Communication Models"
+            description="Toggle between Client-Server and P2P  watch the data flow live"
             totalSteps={1}
           >
             <Anim1D />
@@ -368,8 +366,8 @@ export default function Module1Page() {
 
           <AnimFrame
             id="anim-1c"
-            title="Anim 1-C — First Packet Journey"
-            description="Type a message — watch it hop through a router and arrive at its destination"
+            title="Anim 1-C  First Packet Journey"
+            description="Type a message  watch it hop through a router and arrive at its destination"
             totalSteps={1}
           >
             <Anim1C />

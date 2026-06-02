@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -37,13 +37,13 @@ const STEPS: {
   { side:"S", layer:7, pdu:"Message",  hdrs:["data"],                    title:"Application Layer (Sender)",  desc:"Browser creates the HTTP request: GET /api/modules HTTP/1.1 Host: pandalearn.in" },
   { side:"S", layer:6, pdu:"Data",     hdrs:["data"],                    title:"Presentation Layer (Sender)", desc:"TLS encrypts the payload. Text encoding (UTF-8) and compression applied." },
   { side:"S", layer:5, pdu:"Data",     hdrs:["data"],                    title:"Session Layer (Sender)",      desc:"A session is established and tracked. Session IDs allow resuming connections." },
-  { side:"S", layer:4, pdu:"Segment",  hdrs:["tcp","data"],              title:"Transport Layer (Sender)",    desc:"TCP prepends its header — source port 50234, destination port 443, sequence number, window size." },
+  { side:"S", layer:4, pdu:"Segment",  hdrs:["tcp","data"],              title:"Transport Layer (Sender)",    desc:"TCP prepends its header  source port 50234, destination port 443, sequence number, window size." },
   { side:"S", layer:3, pdu:"Packet",   hdrs:["ip","tcp","data"],         title:"Network Layer (Sender)",      desc:"IP prepends source address 192.168.1.10 and destination 203.0.113.42." },
   { side:"S", layer:2, pdu:"Frame",    hdrs:["eth","ip","tcp","data"],   title:"Data Link Layer (Sender)",    desc:"Ethernet wraps the packet with source & destination MAC addresses. FCS checksum appended." },
   { side:"S", layer:1, pdu:"Bits",     hdrs:["eth","ip","tcp","data"],   title:"Physical Layer (Sender)",     desc:"The complete frame is converted to electrical/optical signals and placed on the medium." },
   { side:"T", layer:0, pdu:"Bits",     hdrs:["eth","ip","tcp","data"],   title:"In Transit",                  desc:"Bits travel as electrical, optical, or radio signals across the physical medium to the destination." },
   { side:"R", layer:1, pdu:"Bits",     hdrs:["eth","ip","tcp","data"],   title:"Physical Layer (Receiver)",   desc:"Electrical signals received and converted back into bits. Clock synchronisation applied." },
-  { side:"R", layer:2, pdu:"Frame",    hdrs:["ip","tcp","data"],         title:"Data Link Layer (Receiver)",  desc:"Ethernet header removed. FCS checksum verified — frame intact. Passed to Layer 3." },
+  { side:"R", layer:2, pdu:"Frame",    hdrs:["ip","tcp","data"],         title:"Data Link Layer (Receiver)",  desc:"Ethernet header removed. FCS checksum verified  frame intact. Passed to Layer 3." },
   { side:"R", layer:3, pdu:"Packet",   hdrs:["tcp","data"],              title:"Network Layer (Receiver)",    desc:"IP header removed. Destination address confirmed as this host. Routing complete." },
   { side:"R", layer:4, pdu:"Segment",  hdrs:["data"],                   title:"Transport Layer (Receiver)",  desc:"TCP header removed. Segments reordered by sequence number. ACK sent back to sender." },
   { side:"R", layer:5, pdu:"Data",     hdrs:["data"],                   title:"Session Layer (Receiver)",    desc:"Session record updated. Idle timeout reset." },

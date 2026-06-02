@@ -78,11 +78,6 @@ const HIGHLIGHTS = [
     sub: "From first packet to global internet",
   },
   {
-    Icon: Clock,
-    label: "~40 Hours",
-    sub: "Self-paced, no deadlines",
-  },
-  {
     Icon: Zap,
     label: "Interactive Animations",
     sub: "Every concept visualised",
@@ -167,7 +162,7 @@ export default function CNOverviewPage() {
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-sora font-bold text-gray-900 text-lg">Course Curriculum</h2>
           <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2.5 py-1 rounded-full">
-            8 modules · ~40 hours
+            8 modules
           </span>
         </div>
 

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -19,8 +19,8 @@ const TYPES = {
     glow:  "#0891B2",
     dark:  "#0A2636",
     Icon:  Table2,
-    desc:  "Data organised into fixed rows and columns with a defined schema — like a spreadsheet or database table. Machines can directly read and process it.",
-    fact:  "20% of all data is structured — but it powers most traditional business analytics.",
+    desc:  "Data organised into fixed rows and columns with a defined schema  like a spreadsheet or database table. Machines can directly read and process it.",
+    fact:  "20% of all data is structured  but it powers most traditional business analytics.",
     examples: [
       { label: "Student marks in a spreadsheet",   cat: "Education" },
       { label: "Hospital patient records (CSV)",   cat: "Healthcare" },
@@ -30,12 +30,12 @@ const TYPES = {
     sources: {
       primary: {
         color: "#34D399",
-        desc: "You collect it directly — surveys, forms, sensors.",
+        desc: "You collect it directly  surveys, forms, sensors.",
         examples: ["Filling a Google Form", "Weighing scale reading", "Attendance register"],
       },
       secondary: {
         color: "#60A5FA",
-        desc: "Someone else collected it — government, NGOs, research bodies.",
+        desc: "Someone else collected it  government, NGOs, research bodies.",
         examples: ["NITI Aayog open data", "Census of India", "WHO health statistics"],
       },
     },
@@ -48,7 +48,7 @@ const TYPES = {
     dark:  "#2D1200",
     Icon:  ImageIcon,
     desc:  "Data with no predefined format or schema. Humans understand it intuitively, but machines need special AI techniques (NLP, Computer Vision) to make sense of it.",
-    fact:  "80% of all data in the world is unstructured — images, audio, video, text posts.",
+    fact:  "80% of all data in the world is unstructured  images, audio, video, text posts.",
     examples: [
       { label: "Photos from a hospital X-ray scan", cat: "Healthcare" },
       { label: "Voice recordings of lectures",      cat: "Education" },
@@ -58,7 +58,7 @@ const TYPES = {
     sources: {
       primary: {
         color: "#34D399",
-        desc: "You create it directly — photos, voice recordings, handwritten notes.",
+        desc: "You create it directly  photos, voice recordings, handwritten notes.",
         examples: ["Selfie you click", "Voice note you record", "Essay you write"],
       },
       secondary: {
@@ -70,7 +70,7 @@ const TYPES = {
   },
 }
 
-// SVG geometry — two hexagonal node clusters
+// SVG geometry  two hexagonal node clusters
 const CX = 200
 const NODE_GEO = {
   hub:         { cx: 200, cy: 170, r: 32 },

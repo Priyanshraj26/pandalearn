@@ -1,11 +1,11 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Eye, MessageSquare, BarChart3, RotateCcw, ChevronRight, Sparkles, Pencil } from "lucide-react"
 
 // ─────────────────────────────────────────────────────────────────────────────
-// QUICK DRAW — Computer Vision game
+// QUICK DRAW  Computer Vision game
 // ─────────────────────────────────────────────────────────────────────────────
 
 const DRAW_PROMPTS: { prompt: string; emoji: string; results: [string, number][] }[] = [
@@ -199,9 +199,9 @@ function QuickDrawGame() {
               <div className="space-y-2">
                 {["???", "???", "???", "???", "???"].map((_, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <span className="text-xs text-gray-200 w-16 shrink-0">———</span>
+                    <span className="text-xs text-gray-200 w-16 shrink-0"></span>
                     <div className="flex-1 h-4 bg-gray-100 rounded-full" />
-                    <span className="text-xs text-gray-200 w-8 text-right">—%</span>
+                    <span className="text-xs text-gray-200 w-8 text-right">%</span>
                   </div>
                 ))}
               </div>
@@ -273,7 +273,7 @@ function QuickDrawGame() {
 
       <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
         <p className="text-xs text-blue-700 leading-relaxed">
-          <strong>How CV really works:</strong> The AI analyses thousands of pixel patterns — edges, curves, corners, shapes — and compares them against patterns it learned from millions of labelled drawings. Each confidence score is a probability from the final layer of a neural network.
+          <strong>How CV really works:</strong> The AI analyses thousands of pixel patterns  edges, curves, corners, shapes  and compares them against patterns it learned from millions of labelled drawings. Each confidence score is a probability from the final layer of a neural network.
         </p>
       </div>
     </div>
@@ -281,7 +281,7 @@ function QuickDrawGame() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SENTENCE COMPLETION — NLP game
+// SENTENCE COMPLETION  NLP game
 // ─────────────────────────────────────────────────────────────────────────────
 
 const NLP_ROUNDS: { sentence: string; blank: string; options: string[]; correct: number; reason: string }[] = [
@@ -318,7 +318,7 @@ const NLP_ROUNDS: { sentence: string; blank: string; options: string[]; correct:
     blank: "___",
     options: ["rainbow", "sandwich", "keyboard", "hammer"],
     correct: 0,
-    reason: "'Rain stopped' + 'sky' is a classic context for 'rainbow' in training data. This is called semantic co-occurrence — words that tend to appear together in similar situations.",
+    reason: "'Rain stopped' + 'sky' is a classic context for 'rainbow' in training data. This is called semantic co-occurrence  words that tend to appear together in similar situations.",
   },
 ]
 
@@ -423,7 +423,7 @@ function SentenceGame() {
 
       <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
         <p className="text-xs text-blue-700 leading-relaxed">
-          <strong>How NLP really works:</strong> The model was trained on billions of sentences. It learns that certain words appear near each other constantly — this is called "contextual co-occurrence". ChatGPT and Google Translate use the same core idea, just at a much larger scale.
+          <strong>How NLP really works:</strong> The model was trained on billions of sentences. It learns that certain words appear near each other constantly  this is called "contextual co-occurrence". ChatGPT and Google Translate use the same core idea, just at a much larger scale.
         </p>
       </div>
     </div>
@@ -431,7 +431,7 @@ function SentenceGame() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PATTERN DETECTIVE — Data Statistics game
+// PATTERN DETECTIVE  Data Statistics game
 // ─────────────────────────────────────────────────────────────────────────────
 
 const PATTERNS: {
@@ -573,7 +573,7 @@ function PatternGame() {
             >
               <p className="text-xs font-bold text-orange-700 mb-1">
                 Pattern: <span className="text-orange-600">{p.type}</span>
-                {chosen === p.correct ? " — You spotted it!" : ` — Answer: ${p.correct}`}
+                {chosen === p.correct ? "  You spotted it!" : `  Answer: ${p.correct}`}
               </p>
               <p className="text-xs text-orange-800 leading-relaxed">{p.explain}</p>
             </motion.div>
@@ -594,7 +594,7 @@ function PatternGame() {
 
       <div className="bg-orange-50 border border-orange-100 rounded-xl p-3">
         <p className="text-xs text-orange-700 leading-relaxed">
-          <strong>How Data AI really works:</strong> AI models test dozens of mathematical formulae against the data — arithmetic, geometric, logarithmic, polynomial — and select whichever fits with the highest statistical confidence. Netflix and Spotify do the same with your taste patterns.
+          <strong>How Data AI really works:</strong> AI models test dozens of mathematical formulae against the data  arithmetic, geometric, logarithmic, polynomial  and select whichever fits with the highest statistical confidence. Netflix and Spotify do the same with your taste patterns.
         </p>
       </div>
     </div>

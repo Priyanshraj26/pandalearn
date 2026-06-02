@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -19,7 +19,7 @@ const FRAME_FIELDS = [
     bytes: "1B",
     hex: "AB",
     color: "#64748B",
-    desc: "Start Frame Delimiter — the byte 10101011 signals the end of the preamble and the start of the actual frame.",
+    desc: "Start Frame Delimiter  the byte 10101011 signals the end of the preamble and the start of the actual frame.",
   },
   {
     key: "dst",
@@ -27,7 +27,7 @@ const FRAME_FIELDS = [
     bytes: "6B",
     hex: "FF:FF:FF:FF:FF:FF",
     color: "#F59E0B",
-    desc: "Destination MAC address. FF:FF:FF:FF:FF:FF is the broadcast address — every device on the LAN receives this frame.",
+    desc: "Destination MAC address. FF:FF:FF:FF:FF:FF is the broadcast address  every device on the LAN receives this frame.",
   },
   {
     key: "src",
@@ -35,7 +35,7 @@ const FRAME_FIELDS = [
     bytes: "6B",
     hex: "AA:BB:CC:11:22:33",
     color: "#7C3AED",
-    desc: "Source MAC address — the hardware address of the NIC that sent this frame. Burned in by the manufacturer (first 24 bits = OUI).",
+    desc: "Source MAC address  the hardware address of the NIC that sent this frame. Burned in by the manufacturer (first 24 bits = OUI).",
   },
   {
     key: "ethertype",
@@ -51,7 +51,7 @@ const FRAME_FIELDS = [
     bytes: "46–1500B",
     hex: "45 00 00 3C 1A 2B … (IP packet)",
     color: "#2563EB",
-    desc: "The encapsulated data — usually an IP packet. Minimum 46 bytes (padded if shorter). Maximum 1500 bytes = MTU.",
+    desc: "The encapsulated data  usually an IP packet. Minimum 46 bytes (padded if shorter). Maximum 1500 bytes = MTU.",
   },
   {
     key: "fcs",
@@ -59,7 +59,7 @@ const FRAME_FIELDS = [
     bytes: "4B",
     hex: "A3 4F 2E 91",
     color: "#10B981",
-    desc: "Frame Check Sequence — a 32-bit CRC checksum computed over the frame. Receiver recomputes and compares; mismatch = frame dropped.",
+    desc: "Frame Check Sequence  a 32-bit CRC checksum computed over the frame. Receiver recomputes and compares; mismatch = frame dropped.",
   },
 ]
 
@@ -287,8 +287,8 @@ export default function Anim3C() {
                   </p>
                   <p className="text-[9px] text-gray-400 text-center leading-relaxed">
                     {fcsState === "ok"
-                      ? "CRC matches — frame delivered to Layer 3"
-                      : "CRC mismatch — frame silently dropped. No retransmit at Layer 2."}
+                      ? "CRC matches  frame delivered to Layer 3"
+                      : "CRC mismatch  frame silently dropped. No retransmit at Layer 2."}
                   </p>
                 </motion.div>
               )}

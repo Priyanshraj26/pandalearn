@@ -71,7 +71,7 @@ export default function About() {
                   From a visualizer to a full platform
                 </h2>
                 <p className="text-gray-500 text-base leading-relaxed mb-4">
-                  The team behind PandaLearn has been building interactive CS visualizations since 2023 under Vizuara. We watched thousands of students go from confused to confident the moment they could interact with an algorithm instead of just reading about it.
+                  The team behind PandaLearn has been building interactive CS visualizations since 2023 . We watched thousands of students go from confused to confident the moment they could interact with an algorithm instead of just reading about it.
                 </p>
                 <p className="text-gray-500 text-base leading-relaxed">
                   PandaLearn is the platform that wraps those visualizations with structure: tracks scoped to your level, an AI tutor that knows exactly where you are, and gamification that makes consistency feel natural.

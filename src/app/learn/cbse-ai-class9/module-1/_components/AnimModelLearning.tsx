@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -36,7 +36,7 @@ const PHASE_INFO: {
     layerIdx:  0,
     title:     "Input Layer",
     sublabel:  "3 nodes · raw numbers",
-    desc:      "Raw numerical features enter the network. Each node holds one measurement. The model doesn't understand words — only numbers.",
+    desc:      "Raw numerical features enter the network. Each node holds one measurement. The model doesn't understand words  only numbers.",
     highlight: "3 input features",
   },
   {
@@ -57,7 +57,7 @@ const PHASE_INFO: {
     layerIdx:  3,
     title:     "Output Layer",
     sublabel:  "2 neurons · final prediction",
-    desc:      "Two neurons output probabilities that must sum to 100%. The neuron with the highest score wins — that is the model's prediction.",
+    desc:      "Two neurons output probabilities that must sum to 100%. The neuron with the highest score wins  that is the model's prediction.",
     highlight: "2 neurons → final prediction",
   },
 ]

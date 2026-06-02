@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -27,7 +27,7 @@ const SUBNETS = [
 // routing table per router  {dest, mask, nextHop, iface, metric}
 const ROUTING_TABLES: Record<string, { dest: string; mask: string; nextHop: string; iface: string }[]> = {
   R1: [
-    { dest: "10.0.0.0/24", mask: "/24", nextHop: "—", iface: "eth0 (direct)" },
+    { dest: "10.0.0.0/24", mask: "/24", nextHop: "", iface: "eth0 (direct)" },
     { dest: "10.0.1.0/24", mask: "/24", nextHop: "R2", iface: "eth1" },
     { dest: "10.0.2.0/24", mask: "/24", nextHop: "R3", iface: "eth2" },
     { dest: "10.0.3.0/24", mask: "/24", nextHop: "R2", iface: "eth1" },
@@ -36,21 +36,21 @@ const ROUTING_TABLES: Record<string, { dest: string; mask: string; nextHop: stri
   ],
   R2: [
     { dest: "10.0.0.0/24", mask: "/24", nextHop: "R1", iface: "eth0" },
-    { dest: "10.0.1.0/24", mask: "/24", nextHop: "—",  iface: "eth1 (direct)" },
+    { dest: "10.0.1.0/24", mask: "/24", nextHop: "",  iface: "eth1 (direct)" },
     { dest: "10.0.2.0/24", mask: "/24", nextHop: "R3", iface: "eth2" },
     { dest: "10.0.3.0/24", mask: "/24", nextHop: "R4", iface: "eth3" },
     { dest: "10.0.4.0/24", mask: "/24", nextHop: "R4", iface: "eth3" },
   ],
   R3: [
     { dest: "10.0.0.0/24", mask: "/24", nextHop: "R1", iface: "eth0" },
-    { dest: "10.0.2.0/24", mask: "/24", nextHop: "—",  iface: "eth1 (direct)" },
+    { dest: "10.0.2.0/24", mask: "/24", nextHop: "",  iface: "eth1 (direct)" },
     { dest: "10.0.1.0/24", mask: "/24", nextHop: "R2", iface: "eth2" },
     { dest: "10.0.3.0/24", mask: "/24", nextHop: "R4", iface: "eth3" },
     { dest: "10.0.4.0/24", mask: "/24", nextHop: "R4", iface: "eth3" },
   ],
   R4: [
-    { dest: "10.0.3.0/24", mask: "/24", nextHop: "—",  iface: "eth0 (direct)" },
-    { dest: "10.0.4.0/24", mask: "/24", nextHop: "—",  iface: "eth1 (direct)" },
+    { dest: "10.0.3.0/24", mask: "/24", nextHop: "",  iface: "eth0 (direct)" },
+    { dest: "10.0.4.0/24", mask: "/24", nextHop: "",  iface: "eth1 (direct)" },
     { dest: "10.0.0.0/24", mask: "/24", nextHop: "R2", iface: "eth2" },
     { dest: "10.0.1.0/24", mask: "/24", nextHop: "R2", iface: "eth2" },
     { dest: "10.0.2.0/24", mask: "/24", nextHop: "R3", iface: "eth3" },
