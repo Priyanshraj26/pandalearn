@@ -2,6 +2,7 @@ import { defineConfig } from "@prisma/config"
 import { config } from "dotenv"
 
 config({ path: ".env.local" })
+config({ path: ".env" })  // fallback — DATABASE_URL may live here
 
 // Isolate PandaLearn in its own PostgreSQL schema so it never touches
 // other projects sharing the same Neon database.
