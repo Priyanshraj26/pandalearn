@@ -8,10 +8,10 @@ import { Lock, ChevronLeft, ChevronRight, Award } from "lucide-react"
 const UNITS = [
   { num: 1, title: "AI Project Cycle & Ethical Frameworks",    dur: "~40h", marks: "8M",  unlocked: true  },
   { num: 2, title: "Advanced Concepts of Modeling in AI",      dur: "~53h", marks: "10M", unlocked: true  },
-  { num: 3, title: "Evaluating Models",                        dur: "~35h", marks: "8M",  unlocked: false },
-  { num: 4, title: "No-Code AI for Statistical Data",          dur: "~25h", marks: "6M",  unlocked: false },
-  { num: 5, title: "Computer Vision",                          dur: "~50h", marks: "10M", unlocked: false },
-  { num: 6, title: "Natural Language Processing",              dur: "~42h", marks: "8M",  unlocked: false },
+  { num: 3, title: "Evaluating Models",                        dur: "~35h", marks: "8M",  unlocked: true  },
+  { num: 4, title: "No-Code AI for Statistical Data",          dur: "~25h", marks: "6M",  unlocked: true  },
+  { num: 5, title: "Computer Vision",                          dur: "~50h", marks: "10M", unlocked: true  },
+  { num: 6, title: "Natural Language Processing",              dur: "~42h", marks: "8M",  unlocked: true  },
 ]
 
 export default function AI10Sidebar() {

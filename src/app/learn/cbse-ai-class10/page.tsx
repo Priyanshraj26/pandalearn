@@ -33,7 +33,7 @@ const UNITS = [
     marks:    8,
     desc:     "Learn train-test split, confusion matrix, precision, recall, F1 score, and ethical evaluation.",
     topics:   ["Train-Test Split", "Confusion Matrix", "Precision & Recall", "F1 Score"],
-    unlocked: false,
+    unlocked: true,
     Icon:     BarChart3,
   },
   {
@@ -43,7 +43,7 @@ const UNITS = [
     marks:    6,
     desc:     "Discover no-code AI tools and walk through a statistical data project with Orange Data Mining.",
     topics:   ["No-Code vs Low-Code", "Orange Data Mining", "Palmer Penguins", "AI Project Cycle"],
-    unlocked: false,
+    unlocked: true,
     Icon:     Wrench,
   },
   {
@@ -53,7 +53,7 @@ const UNITS = [
     marks:    10,
     desc:     "Understand how computers see — pixels, convolution, CNNs, and build models with no-code tools.",
     topics:   ["Pixels & RGB", "CV Applications", "Convolution & CNN", "Teachable Machine"],
-    unlocked: false,
+    unlocked: true,
     Icon:     Eye,
   },
   {
@@ -63,7 +63,7 @@ const UNITS = [
     marks:    8,
     desc:     "Learn how AI understands human language — NLP stages, chatbots, TF-IDF, and sentiment analysis.",
     topics:   ["NLP Stages", "Text Processing", "TF-IDF", "Sentiment Analysis"],
-    unlocked: false,
+    unlocked: true,
     Icon:     MessageSquare,
   },
 ]
